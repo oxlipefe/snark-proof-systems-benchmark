@@ -1,0 +1,24 @@
+task=T1-d macs=37748736 relus=0 IMUL=37748736 AND=37699584 ZERO=4718592 BMUL=0 private_values=118505472 inout=49152 max_abs_acc=664120 build=126.862s
+Error: setting up the prover for T1-d
+
+Caused by:
+    0: constraint system error: the Private segment declares 118505472 values, over the maximum of 67108864
+    1: the Private segment declares 118505472 values, over the maximum of 67108864
+      151.37 real        71.58 user        55.82 sys
+         21596798976  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+            23003206  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   5  voluntary context switches
+              288035  involuntary context switches
+       1188996934644  instructions retired
+        397177310600  cycles elapsed
+         52025236048  peak memory footprint

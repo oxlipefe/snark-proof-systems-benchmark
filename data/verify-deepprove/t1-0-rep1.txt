@@ -1,0 +1,20 @@
+[2m2026-08-24T01:32:47.825815Z[0m [32m INFO[0m [1mdp_cli_verify[0m: [2mdeep_prove_cli[0m[2m:[0m [2mdeep-prove/src/bin/cli/main.rs[0m[2m:[0m[2m209[0m[2m:[0m verifying ONNX proof (postcard) [2m[1mproof_path[0m: /repo/data/negative-deepprove/t1-0/honestnTqgI3XTKK.postcard[0m
+[2m2026-08-24T01:32:47.834640Z[0m [32m INFO[0m [1mdp_cli_verify[0m: [2mdeep_prove_cli[0m[2m:[0m [2mdeep-prove/src/bin/cli/main.rs[0m[2m:[0m[2m240[0m[2m:[0m Proof verified successfully [2m[1mproof_path[0m: /repo/data/negative-deepprove/t1-0/honestnTqgI3XTKK.postcard[0m
+        0.02 real         0.01 user         0.02 sys
+            12828672  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1041  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                3446  involuntary context switches
+           224837763  instructions retired
+           141362435  cycles elapsed
+             4260248  peak memory footprint

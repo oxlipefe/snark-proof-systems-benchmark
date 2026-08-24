@@ -1,0 +1,15 @@
+[package]
+name = "ceno-bench-tasks"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# rand 0.10 and `StdRng::seed_from_u64` are pinned to match the generator that produced
+# binius64's instances (scripts/binius64/harness/src/e006/). Same crate,
+# same seeding, same draw order => the same witness values, not merely the same shapes.
+# Nothing else in this crate may change without invalidating that claim.
+[dependencies]
+rand = "0.10"
+
+[profile.release]
+opt-level = 3

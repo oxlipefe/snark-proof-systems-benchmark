@@ -1,0 +1,23 @@
+Error: initializing model
+
+Caused by:
+    0: parsing model
+    1: Onnx parsing: Failed to parse node: MatMul_0: Node { id: 2, name: "MatMul_0", inputs: [0/0>, 1/0>], op: EinSum mk,kn->mn (F32), outputs: [4,768,F32 ] }: when parsing onnx model: Incompatible shapes found for Gemm node: input shape is [3072], weight shape is [768×768]
+        0.01 real         0.01 user         0.00 sys
+            31948800  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                2401  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  61  involuntary context switches
+           153532032  instructions retired
+            51412442  cycles elapsed
+            18514376  peak memory footprint

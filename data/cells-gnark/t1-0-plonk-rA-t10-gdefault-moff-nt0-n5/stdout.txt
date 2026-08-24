@@ -1,0 +1,9 @@
+META label=t1-0 backend=plonk regime=A gadget=hintedsign macs=65536 macs_emitted=65536 constraints=526592 internal_vars=460543 secret=65792 public=256 coefficients=512 instructions=592388 relus=0 max_abs_intermediate=265403 static_worst_case=4194304 relu_bits=- domain_cardinality=1048576 domain_source=plonk_bn254.VerifyingKey.Size gomaxprocs=10 gogc=default gomemlimit=off gomemlimit_bytes=9223372036854775807 nb_tasks=0 reps=5 warmup=1 curve=BN254 statistical_zk=false clock=go_time.Since_monotonic go=go1.26.4 compile_ms=244.793
+SETUP ms=2105.556 pk_bytes=67143352 vk_bytes=34384 srs_ms=16060.216 srs=test/unsafekzg_TEST_PURPOSES_ONLY
+WARMUP i=0 prove_ms=9210.699 verify_ms=1.651 proof_bytes=584 proof_bytes_raw=904 verify_ok=true
+REP i=1 prove_ms=9086.964 verify_ms=1.886 proof_bytes=584 proof_bytes_raw=904 verify_ok=true
+REP i=2 prove_ms=8836.669 verify_ms=1.732 proof_bytes=584 proof_bytes_raw=904 verify_ok=true
+REP i=3 prove_ms=9016.392 verify_ms=1.658 proof_bytes=584 proof_bytes_raw=904 verify_ok=true
+REP i=4 prove_ms=9104.699 verify_ms=2.225 proof_bytes=584 proof_bytes_raw=904 verify_ok=true
+REP i=5 prove_ms=8910.630 verify_ms=1.700 proof_bytes=584 proof_bytes_raw=904 verify_ok=true
+DONE proof_bytes=584

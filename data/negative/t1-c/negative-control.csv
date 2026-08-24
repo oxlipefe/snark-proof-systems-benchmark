@@ -1,0 +1,4 @@
+task,log_inv_rate,mode,index,outcome,passed,detail
+T1-c,1,private_word/middle,15034368,VERIFY_REJECTED,true,"private[15034368] 0x0000000000000054 -> 0x0000000000000055 (low bit flipped)"
+T1-c,1,inout_word/first,0,VERIFY_REJECTED,true,"inout[0] 0x0000000000020bd0 -> 0x0000000000020bd1 (low bit flipped)"
+T1-c,1,proof_byte/middle,295600,VERIFY_REJECTED,true,"proof byte 295600 of 591200 XOR 0x01"

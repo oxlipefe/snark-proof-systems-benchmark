@@ -1,0 +1,2 @@
+compile         3.349 s   constraints=1774726
+  [mem after compile] HeapAlloc=  0.76 GB  Sys=  0.97 GB  TotalAlloc=  8.33 GB

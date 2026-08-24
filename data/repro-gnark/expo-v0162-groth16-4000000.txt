@@ -1,0 +1,5 @@
+META circuit=expo backend=groth16 curve=bn254 gnark=v0.16.2 size=4000000 constraints=4000001 compile_ms=1609.001 reps=2
+SETUP ms=197038.757
+REP i=0 prove_ms=12954.136 verify_ms=0.982 verify_ok=true
+REP i=1 prove_ms=14312.379 verify_ms=1.014 verify_ok=true
+DONE constraints=4000001 prove_ms_median=14312.379 throughput_constraints_per_s=279478

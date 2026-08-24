@@ -1,0 +1,316 @@
+size,log_inv_rate,rep,span,bucket,subbucket,self_nanos,hits
+2048,1,0,"Build fracadd circuits",d,d_prodcheck,9657583,1
+2048,1,0,"Fold index columns by rho",a,a_sumcheck_fold,3577583,1
+2048,1,0,"Prepare witness",d,d_witness_prep,106875,1
+2048,1,0,"Batched selector + C-root sumcheck",a,a_sumcheck_driver,65461,1
+2048,1,0,"Reed-Solomon encode",d,d_ntt_encode,6021459,2
+2048,1,0,"Regather per-limb evals",d,d_evals,6062334,1
+2048,1,0,"Variable-base product check",d,d_prodcheck,149367,1
+2048,1,0,"IntMul phase2 (Frobenius twist)",d,d_intmul_phase2,64833,1
+2048,1,0,"Commit pushforwards",d,d_phase_glue,2084,1
+2048,1,0,"prove_phase_2",d,d_phase_glue,969001,1
+2048,1,0,"Compute batched witness",d,d_basefold_glue,827500,1
+2048,1,0,"prover_phase_1",d,d_phase_glue,15375,1
+2048,1,0,"Compute ring-switching equality indicator",d,d_ring_switch,1245708,2
+2048,1,0,"MLE-check remaining rounds",a,a_sumcheck_driver,9541,1
+2048,1,0,"fold_codeword",d,d_fri_codeword_fold,172000,2
+2048,1,0,"build_g",d,d_shift_multilinear_build,11198125,2
+2048,1,0,"fri::FRIQueryProver::prove_queries",d,d_pcs_query_open,290041,1
+2048,1,0,"Expand tensor queries",d,d_tensor_expand,480042,1
+2048,1,0,"run_sumcheck",a,a_sumcheck_driver,2119252,2
+2048,1,0,"e001_sumcheck_execute",a,a_sumcheck_round_poly,145762209,473
+2048,1,0,"Fold univariate round",a,a_sumcheck_fold,939583,1
+2048,1,0,"shift_operator_table",d,d_shift_multilinear_build,46501,2
+2048,1,0,"e001_sumcheck_fold",a,a_sumcheck_fold,20732027,473
+2048,1,0,"[phase] BitAnd check",d,d_phase_glue,10043,1
+2048,1,0,"Build logup* witnesses",d,d_witness_prep,8578375,1
+2048,1,0,"Build power tables",d,d_witness_prep,745500,1
+2048,1,0,"Expand evaluation suffix query",d,d_tensor_expand,5833,2
+2048,1,0,"[phase] IntMul check",d,d_phase_glue,740583,1
+2048,1,0,"build_monster_segments",d,d_shift_multilinear_build,8251083,1
+2048,1,0,"Gather lookup index columns",d,d_column_assembly,342209,1
+2048,1,0,"Compute variable-base prodcheck layers",d,d_prodcheck,65348750,1
+2048,1,0,"Merkle Tree",b1,b1_merkle_commit_glue,3916,3
+2048,1,0,"logup* pushforward reduction",a,a_sumcheck_driver,98628,1
+2048,1,0,"logup* reduction",d,d_phase_glue,12334,1
+2048,1,0,"Reduce linear relations to committed openings",d,d_basefold_glue,13129,1
+2048,1,0,"hash_leaves",b1,b1_merkle_leaf_hash,6521583,5
+2048,1,0,"fri::FRIFolder::finalize",d,d_fri_finalize,125,1
+2048,1,0,"Compute base layer partial evals",d,d_prodcheck,6205917,1
+2048,1,0,"Final batched sumcheck",a,a_sumcheck_driver,20666,1
+2048,1,0,"Assemble columns",d,d_column_assembly,5528792,2
+2048,1,0,"Compute univariate round message",a,a_univariate_round,2828333,1
+2048,1,0,"Basefold MLE-check ZK (batched)",a,a_sumcheck_driver,711083,1
+2048,1,0,"FRI Round Fold",d,d_fri_codeword_fold,1042,2
+2048,1,0,"Build embedding table",d,d_column_assembly,370875,1
+2048,1,0,"FRI Initial Fold",d,d_fri_codeword_fold,765125,1
+2048,1,0,"e001_merkle_inner_nodes",b1,b1_merkle_inner_nodes,1576584,5
+2048,1,0,"Build IntMul witness",d,d_witness_prep,35833,1
+2048,1,0,"Open pushforward relations",d,d_phase_glue,120416,1
+2048,1,0,"FRI Fold",d,d_fri_codeword_fold,15417,2
+2048,1,0,"Compute ring-switching partial evaluations",d,d_ring_switch,1960042,2
+2048,1,0,"Compute output bit evals",d,d_evals,3298458,1
+2048,1,0,"Compute univariate LDE table",a,a_univariate_round,66875,1
+2048,1,0,"Commit witness",d,d_commit_glue,1667,1
+2048,1,0,"[phase] Shift Reduction",d,d_phase_glue,25000,1
+2048,1,0,"Merkle commit",b1,b1_merkle_commit_glue,10292,2
+2048,1,0,"Evaluate exponent root",d,d_evals,143750,1
+2048,1,0,"logup* (committed)",d,d_phase_glue,17625,1
+2048,1,0,"Combined GKR",a,a_sumcheck_driver,392675,1
+2048,1,0,"Prove",d,d_prove_root,247958,1
+2048,1,0,"Compute fixed-base prodcheck layers",d,d_prodcheck,11502042,1
+2048,1,0,"Batched constant-base prodcheck",d,d_prodcheck,8720291,1
+2048,1,0,"[phase] PCS Opening",d,d_phase_glue,6376,1
+2048,1,0,"Reed–Solomon Encode",d,d_ntt_encode,4416,2
+2048,1,1,"Compute output bit evals",d,d_evals,3356917,1
+2048,1,1,"Assemble columns",d,d_column_assembly,5634042,2
+2048,1,1,"Open pushforward relations",d,d_phase_glue,120834,1
+2048,1,1,"e001_merkle_inner_nodes",b1,b1_merkle_inner_nodes,1835790,5
+2048,1,1,"IntMul phase2 (Frobenius twist)",d,d_intmul_phase2,82833,1
+2048,1,1,"Compute ring-switching partial evaluations",d,d_ring_switch,1954875,2
+2048,1,1,"Combined GKR",a,a_sumcheck_driver,286741,1
+2048,1,1,"fold_codeword",d,d_fri_codeword_fold,162042,2
+2048,1,1,"run_sumcheck",a,a_sumcheck_driver,2103083,2
+2048,1,1,"Compute fixed-base prodcheck layers",d,d_prodcheck,11243792,1
+2048,1,1,"Final batched sumcheck",a,a_sumcheck_driver,13376,1
+2048,1,1,"Reed-Solomon encode",d,d_ntt_encode,6015291,2
+2048,1,1,"Prove",d,d_prove_root,249916,1
+2048,1,1,"Commit witness",d,d_commit_glue,1916,1
+2048,1,1,"Compute ring-switching equality indicator",d,d_ring_switch,1282041,2
+2048,1,1,"Regather per-limb evals",d,d_evals,5756709,1
+2048,1,1,"Compute base layer partial evals",d,d_prodcheck,6355708,1
+2048,1,1,"Merkle commit",b1,b1_merkle_commit_glue,29543,2
+2048,1,1,"Compute univariate LDE table",a,a_univariate_round,61875,1
+2048,1,1,"[phase] BitAnd check",d,d_phase_glue,5668,1
+2048,1,1,"Batched selector + C-root sumcheck",a,a_sumcheck_driver,68957,1
+2048,1,1,"[phase] IntMul check",d,d_phase_glue,669998,1
+2048,1,1,"prover_phase_1",d,d_phase_glue,4418,1
+2048,1,1,"MLE-check remaining rounds",a,a_sumcheck_driver,9584,1
+2048,1,1,"Merkle Tree",b1,b1_merkle_commit_glue,2752,3
+2048,1,1,"Compute variable-base prodcheck layers",d,d_prodcheck,63752833,1
+2048,1,1,"Gather lookup index columns",d,d_column_assembly,341959,1
+2048,1,1,"Variable-base product check",d,d_prodcheck,239467,1
+2048,1,1,"hash_leaves",b1,b1_merkle_leaf_hash,6310624,5
+2048,1,1,"Build power tables",d,d_witness_prep,691208,1
+2048,1,1,"Fold index columns by rho",a,a_sumcheck_fold,3532458,1
+2048,1,1,"Fold univariate round",a,a_sumcheck_fold,913916,1
+2048,1,1,"[phase] Shift Reduction",d,d_phase_glue,22917,1
+2048,1,1,"Compute batched witness",d,d_basefold_glue,824000,1
+2048,1,1,"Build logup* witnesses",d,d_witness_prep,7999792,1
+2048,1,1,"fri::FRIFolder::finalize",d,d_fri_finalize,166,1
+2048,1,1,"Commit pushforwards",d,d_phase_glue,1667,1
+2048,1,1,"Batched constant-base prodcheck",d,d_prodcheck,8324583,1
+2048,1,1,"logup* (committed)",d,d_phase_glue,11458,1
+2048,1,1,"Basefold MLE-check ZK (batched)",a,a_sumcheck_driver,565042,1
+2048,1,1,"Compute univariate round message",a,a_univariate_round,2795416,1
+2048,1,1,"e001_sumcheck_execute",a,a_sumcheck_round_poly,145498630,473
+2048,1,1,"build_monster_segments",d,d_shift_multilinear_build,8059166,1
+2048,1,1,"shift_operator_table",d,d_shift_multilinear_build,46708,2
+2048,1,1,"logup* pushforward reduction",a,a_sumcheck_driver,72214,1
+2048,1,1,"Expand tensor queries",d,d_tensor_expand,468083,1
+2048,1,1,"Reed–Solomon Encode",d,d_ntt_encode,4417,2
+2048,1,1,"Prepare witness",d,d_witness_prep,111417,1
+2048,1,1,"build_g",d,d_shift_multilinear_build,10882416,2
+2048,1,1,"prove_phase_2",d,d_phase_glue,936376,1
+2048,1,1,"FRI Fold",d,d_fri_codeword_fold,9292,2
+2048,1,1,"Expand evaluation suffix query",d,d_tensor_expand,5750,2
+2048,1,1,"logup* reduction",d,d_phase_glue,12207,1
+2048,1,1,"FRI Round Fold",d,d_fri_codeword_fold,916,2
+2048,1,1,"Evaluate exponent root",d,d_evals,152000,1
+2048,1,1,"Build embedding table",d,d_column_assembly,339792,1
+2048,1,1,"Build fracadd circuits",d,d_prodcheck,7219500,1
+2048,1,1,"Build IntMul witness",d,d_witness_prep,6667,1
+2048,1,1,"fri::FRIQueryProver::prove_queries",d,d_pcs_query_open,127500,1
+2048,1,1,"e001_sumcheck_fold",a,a_sumcheck_fold,18569866,473
+2048,1,1,"Reduce linear relations to committed openings",d,d_basefold_glue,14834,1
+2048,1,1,"FRI Initial Fold",d,d_fri_codeword_fold,664417,1
+2048,1,1,"[phase] PCS Opening",d,d_phase_glue,6000,1
+2048,1,2,"Build fracadd circuits",d,d_prodcheck,6902917,1
+2048,1,2,"Compute output bit evals",d,d_evals,3319958,1
+2048,1,2,"Compute ring-switching equality indicator",d,d_ring_switch,1260374,2
+2048,1,2,"[phase] PCS Opening",d,d_phase_glue,5458,1
+2048,1,2,"Build power tables",d,d_witness_prep,699292,1
+2048,1,2,"Merkle Tree",b1,b1_merkle_commit_glue,2542,3
+2048,1,2,"Gather lookup index columns",d,d_column_assembly,347917,1
+2048,1,2,"Build embedding table",d,d_column_assembly,340959,1
+2048,1,2,"Batched selector + C-root sumcheck",a,a_sumcheck_driver,34498,1
+2048,1,2,"Merkle commit",b1,b1_merkle_commit_glue,4584,2
+2048,1,2,"shift_operator_table",d,d_shift_multilinear_build,44499,2
+2048,1,2,"Reduce linear relations to committed openings",d,d_basefold_glue,12289,1
+2048,1,2,"hash_leaves",b1,b1_merkle_leaf_hash,5915625,5
+2048,1,2,"logup* reduction",d,d_phase_glue,8707,1
+2048,1,2,"Compute variable-base prodcheck layers",d,d_prodcheck,59416000,1
+2048,1,2,"IntMul phase2 (Frobenius twist)",d,d_intmul_phase2,56542,1
+2048,1,2,"Build logup* witnesses",d,d_witness_prep,7824167,1
+2048,1,2,"Expand tensor queries",d,d_tensor_expand,470125,1
+2048,1,2,"Open pushforward relations",d,d_phase_glue,120417,1
+2048,1,2,"FRI Initial Fold",d,d_fri_codeword_fold,663583,1
+2048,1,2,"Regather per-limb evals",d,d_evals,5863666,1
+2048,1,2,"Expand evaluation suffix query",d,d_tensor_expand,5709,2
+2048,1,2,"Commit pushforwards",d,d_phase_glue,1666,1
+2048,1,2,"Reed–Solomon Encode",d,d_ntt_encode,3750,2
+2048,1,2,"build_monster_segments",d,d_shift_multilinear_build,8080625,1
+2048,1,2,"fri::FRIQueryProver::prove_queries",d,d_pcs_query_open,128000,1
+2048,1,2,"fold_codeword",d,d_fri_codeword_fold,162375,2
+2048,1,2,"Compute univariate LDE table",a,a_univariate_round,80458,1
+2048,1,2,"e001_sumcheck_execute",a,a_sumcheck_round_poly,135956914,473
+2048,1,2,"[phase] Shift Reduction",d,d_phase_glue,23043,1
+2048,1,2,"Compute batched witness",d,d_basefold_glue,795542,1
+2048,1,2,"Batched constant-base prodcheck",d,d_prodcheck,7786042,1
+2048,1,2,"build_g",d,d_shift_multilinear_build,10927624,2
+2048,1,2,"Compute ring-switching partial evaluations",d,d_ring_switch,1946917,2
+2048,1,2,"run_sumcheck",a,a_sumcheck_driver,2107877,2
+2048,1,2,"Prove",d,d_prove_root,274211,1
+2048,1,2,"[phase] IntMul check",d,d_phase_glue,708415,1
+2048,1,2,"Compute base layer partial evals",d,d_prodcheck,5798167,1
+2048,1,2,"Basefold MLE-check ZK (batched)",a,a_sumcheck_driver,555792,1
+2048,1,2,"Prepare witness",d,d_witness_prep,105917,1
+2048,1,2,"MLE-check remaining rounds",a,a_sumcheck_driver,8708,1
+2048,1,2,"e001_sumcheck_fold",a,a_sumcheck_fold,16511585,473
+2048,1,2,"[phase] BitAnd check",d,d_phase_glue,5417,1
+2048,1,2,"FRI Fold",d,d_fri_codeword_fold,3375,2
+2048,1,2,"Final batched sumcheck",a,a_sumcheck_driver,13837,1
+2048,1,2,"Reed-Solomon encode",d,d_ntt_encode,5930542,2
+2048,1,2,"Compute univariate round message",a,a_univariate_round,2776500,1
+2048,1,2,"prover_phase_1",d,d_phase_glue,4042,1
+2048,1,2,"Assemble columns",d,d_column_assembly,5630417,2
+2048,1,2,"Evaluate exponent root",d,d_evals,147333,1
+2048,1,2,"prove_phase_2",d,d_phase_glue,939000,1
+2048,1,2,"Variable-base product check",d,d_prodcheck,88162,1
+2048,1,2,"Fold univariate round",a,a_sumcheck_fold,909500,1
+2048,1,2,"logup* pushforward reduction",a,a_sumcheck_driver,70377,1
+2048,1,2,"logup* (committed)",d,d_phase_glue,5292,1
+2048,1,2,"Build IntMul witness",d,d_witness_prep,4416,1
+2048,1,2,"fri::FRIFolder::finalize",d,d_fri_finalize,125,1
+2048,1,2,"e001_merkle_inner_nodes",b1,b1_merkle_inner_nodes,1588501,5
+2048,1,2,"FRI Round Fold",d,d_fri_codeword_fold,957,2
+2048,1,2,"Combined GKR",a,a_sumcheck_driver,269210,1
+2048,1,2,"Commit witness",d,d_commit_glue,1500,1
+2048,1,2,"Compute fixed-base prodcheck layers",d,d_prodcheck,10350042,1
+2048,1,2,"Fold index columns by rho",a,a_sumcheck_fold,3123208,1
+2048,1,3,"Build power tables",d,d_witness_prep,699792,1
+2048,1,3,"build_g",d,d_shift_multilinear_build,11005584,2
+2048,1,3,"Reed-Solomon encode",d,d_ntt_encode,5962208,2
+2048,1,3,"prove_phase_2",d,d_phase_glue,950542,1
+2048,1,3,"fri::FRIQueryProver::prove_queries",d,d_pcs_query_open,124791,1
+2048,1,3,"Compute batched witness",d,d_basefold_glue,787708,1
+2048,1,3,"fold_codeword",d,d_fri_codeword_fold,173458,2
+2048,1,3,"Build embedding table",d,d_column_assembly,332833,1
+2048,1,3,"e001_sumcheck_fold",a,a_sumcheck_fold,17823043,473
+2048,1,3,"Variable-base product check",d,d_prodcheck,133926,1
+2048,1,3,"shift_operator_table",d,d_shift_multilinear_build,46583,2
+2048,1,3,"Commit pushforwards",d,d_phase_glue,1751,1
+2048,1,3,"FRI Initial Fold",d,d_fri_codeword_fold,678083,1
+2048,1,3,"Open pushforward relations",d,d_phase_glue,117834,1
+2048,1,3,"FRI Fold",d,d_fri_codeword_fold,3708,2
+2048,1,3,"[phase] PCS Opening",d,d_phase_glue,6542,1
+2048,1,3,"Fold univariate round",a,a_sumcheck_fold,917500,1
+2048,1,3,"[phase] Shift Reduction",d,d_phase_glue,23873,1
+2048,1,3,"Commit witness",d,d_commit_glue,1500,1
+2048,1,3,"Batched selector + C-root sumcheck",a,a_sumcheck_driver,72120,1
+2048,1,3,"Merkle commit",b1,b1_merkle_commit_glue,5749,2
+2048,1,3,"Combined GKR",a,a_sumcheck_driver,329158,1
+2048,1,3,"logup* pushforward reduction",a,a_sumcheck_driver,69000,1
+2048,1,3,"prover_phase_1",d,d_phase_glue,7291,1
+2048,1,3,"Prove",d,d_prove_root,268836,1
+2048,1,3,"[phase] IntMul check",d,d_phase_glue,718294,1
+2048,1,3,"Reduce linear relations to committed openings",d,d_basefold_glue,13293,1
+2048,1,3,"Expand evaluation suffix query",d,d_tensor_expand,5958,2
+2048,1,3,"Regather per-limb evals",d,d_evals,5835833,1
+2048,1,3,"Compute univariate LDE table",a,a_univariate_round,90833,1
+2048,1,3,"Batched constant-base prodcheck",d,d_prodcheck,7661082,1
+2048,1,3,"Build logup* witnesses",d,d_witness_prep,7894417,1
+2048,1,3,"Prepare witness",d,d_witness_prep,104917,1
+2048,1,3,"Compute univariate round message",a,a_univariate_round,2756125,1
+2048,1,3,"Compute ring-switching partial evaluations",d,d_ring_switch,1960166,2
+2048,1,3,"e001_merkle_inner_nodes",b1,b1_merkle_inner_nodes,1555333,5
+2048,1,3,"IntMul phase2 (Frobenius twist)",d,d_intmul_phase2,49125,1
+2048,1,3,"Final batched sumcheck",a,a_sumcheck_driver,17333,1
+2048,1,3,"MLE-check remaining rounds",a,a_sumcheck_driver,9790,1
+2048,1,3,"Compute output bit evals",d,d_evals,3249208,1
+2048,1,3,"Compute ring-switching equality indicator",d,d_ring_switch,1330708,2
+2048,1,3,"FRI Round Fold",d,d_fri_codeword_fold,918,2
+2048,1,3,"Compute base layer partial evals",d,d_prodcheck,5889875,1
+2048,1,3,"[phase] BitAnd check",d,d_phase_glue,7708,1
+2048,1,3,"build_monster_segments",d,d_shift_multilinear_build,8020208,1
+2048,1,3,"Compute fixed-base prodcheck layers",d,d_prodcheck,10306042,1
+2048,1,3,"Build IntMul witness",d,d_witness_prep,6000,1
+2048,1,3,"e001_sumcheck_execute",a,a_sumcheck_round_poly,145035876,473
+2048,1,3,"Evaluate exponent root",d,d_evals,150708,1
+2048,1,3,"Basefold MLE-check ZK (batched)",a,a_sumcheck_driver,552084,1
+2048,1,3,"Reed–Solomon Encode",d,d_ntt_encode,3750,2
+2048,1,3,"logup* reduction",d,d_phase_glue,11709,1
+2048,1,3,"Expand tensor queries",d,d_tensor_expand,461083,1
+2048,1,3,"hash_leaves",b1,b1_merkle_leaf_hash,6038168,5
+2048,1,3,"fri::FRIFolder::finalize",d,d_fri_finalize,166,1
+2048,1,3,"Assemble columns",d,d_column_assembly,5600292,2
+2048,1,3,"Merkle Tree",b1,b1_merkle_commit_glue,2417,3
+2048,1,3,"logup* (committed)",d,d_phase_glue,7623,1
+2048,1,3,"Gather lookup index columns",d,d_column_assembly,348833,1
+2048,1,3,"run_sumcheck",a,a_sumcheck_driver,2097754,2
+2048,1,3,"Build fracadd circuits",d,d_prodcheck,7220083,1
+2048,1,3,"Fold index columns by rho",a,a_sumcheck_fold,3986000,1
+2048,1,3,"Compute variable-base prodcheck layers",d,d_prodcheck,60970291,1
+2048,1,4,"Final batched sumcheck",a,a_sumcheck_driver,13289,1
+2048,1,4,"Expand tensor queries",d,d_tensor_expand,467167,1
+2048,1,4,"Compute batched witness",d,d_basefold_glue,793833,1
+2048,1,4,"prove_phase_2",d,d_phase_glue,932501,1
+2048,1,4,"Variable-base product check",d,d_prodcheck,91575,1
+2048,1,4,"Build fracadd circuits",d,d_prodcheck,6799459,1
+2048,1,4,"FRI Round Fold",d,d_fri_codeword_fold,999,2
+2048,1,4,"e001_sumcheck_fold",a,a_sumcheck_fold,16521511,473
+2048,1,4,"[phase] Shift Reduction",d,d_phase_glue,23624,1
+2048,1,4,"Build embedding table",d,d_column_assembly,334042,1
+2048,1,4,"logup* (committed)",d,d_phase_glue,5751,1
+2048,1,4,"Expand evaluation suffix query",d,d_tensor_expand,5833,2
+2048,1,4,"FRI Initial Fold",d,d_fri_codeword_fold,663458,1
+2048,1,4,"Fold index columns by rho",a,a_sumcheck_fold,3138000,1
+2048,1,4,"Compute ring-switching equality indicator",d,d_ring_switch,1259958,2
+2048,1,4,"[phase] BitAnd check",d,d_phase_glue,4917,1
+2048,1,4,"shift_operator_table",d,d_shift_multilinear_build,46541,2
+2048,1,4,"Batched constant-base prodcheck",d,d_prodcheck,7710164,1
+2048,1,4,"prover_phase_1",d,d_phase_glue,3583,1
+2048,1,4,"Commit pushforwards",d,d_phase_glue,1416,1
+2048,1,4,"MLE-check remaining rounds",a,a_sumcheck_driver,9374,1
+2048,1,4,"Compute univariate LDE table",a,a_univariate_round,65333,1
+2048,1,4,"Compute ring-switching partial evaluations",d,d_ring_switch,2012208,2
+2048,1,4,"[phase] IntMul check",d,d_phase_glue,637998,1
+2048,1,4,"FRI Fold",d,d_fri_codeword_fold,2834,2
+2048,1,4,"e001_sumcheck_execute",a,a_sumcheck_round_poly,136038759,473
+2048,1,4,"Prove",d,d_prove_root,253250,1
+2048,1,4,"fold_codeword",d,d_fri_codeword_fold,167125,2
+2048,1,4,"Assemble columns",d,d_column_assembly,5557833,2
+2048,1,4,"Build IntMul witness",d,d_witness_prep,5084,1
+2048,1,4,"logup* reduction",d,d_phase_glue,8916,1
+2048,1,4,"Commit witness",d,d_commit_glue,1959,1
+2048,1,4,"Open pushforward relations",d,d_phase_glue,117792,1
+2048,1,4,"fri::FRIQueryProver::prove_queries",d,d_pcs_query_open,118791,1
+2048,1,4,"[phase] PCS Opening",d,d_phase_glue,6667,1
+2048,1,4,"Basefold MLE-check ZK (batched)",a,a_sumcheck_driver,549544,1
+2048,1,4,"Compute variable-base prodcheck layers",d,d_prodcheck,58998583,1
+2048,1,4,"fri::FRIFolder::finalize",d,d_fri_finalize,166,1
+2048,1,4,"Reed-Solomon encode",d,d_ntt_encode,5971499,2
+2048,1,4,"Compute univariate round message",a,a_univariate_round,2726209,1
+2048,1,4,"Reduce linear relations to committed openings",d,d_basefold_glue,14375,1
+2048,1,4,"IntMul phase2 (Frobenius twist)",d,d_intmul_phase2,47584,1
+2048,1,4,"Compute base layer partial evals",d,d_prodcheck,5775583,1
+2048,1,4,"build_monster_segments",d,d_shift_multilinear_build,8050541,1
+2048,1,4,"Build logup* witnesses",d,d_witness_prep,7836041,1
+2048,1,4,"run_sumcheck",a,a_sumcheck_driver,2092421,2
+2048,1,4,"Merkle Tree",b1,b1_merkle_commit_glue,2542,3
+2048,1,4,"Fold univariate round",a,a_sumcheck_fold,893375,1
+2048,1,4,"Compute fixed-base prodcheck layers",d,d_prodcheck,10518916,1
+2048,1,4,"Gather lookup index columns",d,d_column_assembly,348250,1
+2048,1,4,"logup* pushforward reduction",a,a_sumcheck_driver,70000,1
+2048,1,4,"Compute output bit evals",d,d_evals,3239625,1
+2048,1,4,"Prepare witness",d,d_witness_prep,110333,1
+2048,1,4,"Batched selector + C-root sumcheck",a,a_sumcheck_driver,42415,1
+2048,1,4,"Combined GKR",a,a_sumcheck_driver,286036,1
+2048,1,4,"Build power tables",d,d_witness_prep,710542,1
+2048,1,4,"Regather per-limb evals",d,d_evals,5871333,1
+2048,1,4,"Evaluate exponent root",d,d_evals,149125,1
+2048,1,4,"Reed–Solomon Encode",d,d_ntt_encode,5584,2
+2048,1,4,"Merkle commit",b1,b1_merkle_commit_glue,6251,2
+2048,1,4,"build_g",d,d_shift_multilinear_build,10994042,2
+2048,1,4,"hash_leaves",b1,b1_merkle_leaf_hash,5973625,5
+2048,1,4,"e001_merkle_inner_nodes",b1,b1_merkle_inner_nodes,1576541,5

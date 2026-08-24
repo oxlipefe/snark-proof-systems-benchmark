@@ -1,0 +1,2 @@
+T1-c: honest proof verifies (591200 bytes) — the control is live
+wrote bench/data/negative/t1-c/negative-control.csv

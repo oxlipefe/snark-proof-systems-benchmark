@@ -1,0 +1,4 @@
+META label=mlp_square_4layer onnx=atlas-onnx-tracer/models/mlp_square_4layer/network.onnx padding=true scale=14 max_num_vars=8 reps=1 warmup=0
+SETUP ms=5.977
+REP i=0 prove_ms=271.842 verify_ms=23.892 proof_bytes=116784 verify_ok=true
+DONE proof_bytes=116784

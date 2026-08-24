@@ -1,0 +1,14 @@
+RANGECHECK label=rc-16 backend=groth16 regime=- status=OK n=16 constraints=67 per_value=4.1875 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-16 backend=plonk regime=- status=OK n=16 constraints=209 per_value=13.0625 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-64 backend=groth16 regime=- status=OK n=64 constraints=211 per_value=3.2969 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-64 backend=plonk regime=- status=OK n=64 constraints=689 per_value=10.7656 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-256 backend=groth16 regime=- status=OK n=256 constraints=771 per_value=3.0117 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-256 backend=plonk regime=- status=OK n=256 constraints=2305 per_value=9.0039 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-448 backend=groth16 regime=- status=OK n=448 constraints=1156 per_value=2.5804 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-448 backend=plonk regime=- status=OK n=448 constraints=3457 per_value=7.7165 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-1024 backend=groth16 regime=- status=OK n=1024 constraints=2309 per_value=2.2549 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-1024 backend=plonk regime=- status=OK n=1024 constraints=6913 per_value=6.7510 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-4096 backend=groth16 regime=- status=OK n=4096 constraints=8459 per_value=2.0652 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-4096 backend=plonk regime=- status=OK n=4096 constraints=25345 per_value=6.1877 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-65792 backend=groth16 regime=- status=OK n=65792 constraints=131972 per_value=2.0059 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-65792 backend=plonk regime=- status=OK n=65792 constraints=395521 per_value=6.0117 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table

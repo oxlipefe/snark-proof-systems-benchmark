@@ -1,0 +1,28 @@
+[2m2026-08-24T01:50:57.626181Z[0m [32m INFO[0m [2mbench[0m[2m:[0m == Reading Model ==
+[2m2026-08-24T01:50:57.628113Z[0m [32m INFO[0m [2mbench[0m[2m:[0m [+] Read input from /repo/tasks/deepprove/t1-0.io.json with 1 IO samples
+[2m2026-08-24T01:50:57.651413Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Model description:
+[2m2026-08-24T01:50:57.651435Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Input shapes: [[256]]
+[2m2026-08-24T01:50:57.651516Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Padded input shapes: [[256]]
+[2m2026-08-24T01:50:57.651534Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N1: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.651539Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N0 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N1, N1 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N2]
+[2m2026-08-24T01:50:57.651557Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Input nodes:
+[2m2026-08-24T01:50:57.651561Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N0:0
+[2m2026-08-24T01:50:57.651564Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Output nodes:
+[2m2026-08-24T01:50:57.651567Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N2:0
+[2m2026-08-24T01:50:57.651919Z[0m [32m INFO[0m [2mzkml::quantization::strategy[0m[2m:[0m Using the 1 provided representative inputs to quantize model
+[2m2026-08-24T01:50:57.680302Z[0m [32m INFO[0m [2mzkml::quantization::strategy[0m[2m:[0m Quantized model with 4 layers, output node ids: [Node(2)]
+[2m2026-08-24T01:50:57.680465Z[0m [32m INFO[0m [2mbench[0m[2m:[0m [+] Model loaded:
+[2m2026-08-24T01:50:57.680472Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Model description:
+[2m2026-08-24T01:50:57.680476Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Input shapes: [[256]]
+[2m2026-08-24T01:50:57.680652Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Padded input shapes: [[256]]
+[2m2026-08-24T01:50:57.681262Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N1: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.681272Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N0 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N1, N1 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N3]
+[2m2026-08-24T01:50:57.681293Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N3: Requant: right shift: 25, scale: 17799
+[2m2026-08-24T01:50:57.681297Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N1 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N3, N3 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N2]
+[2m2026-08-24T01:50:57.681302Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Input nodes:
+[2m2026-08-24T01:50:57.681305Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N0:0
+[2m2026-08-24T01:50:57.681308Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Output nodes:
+[2m2026-08-24T01:50:57.681312Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N2:0
+[2m2026-08-24T01:50:57.681353Z[0m [32m INFO[0m [2mbench[0m[2m:[0m == Reading model metrics: elapsed=54.780916ms peak= in_use= ==
+[2m2026-08-24T01:50:57.681372Z[0m [32m INFO[0m [2mbench[0m[2m:[0m == Accuracy ==
+[2m2026-08-24T01:50:57.681377Z[0m [32m INFO[0m [2mbench[0m[2m:[0m [+] Running model in float format

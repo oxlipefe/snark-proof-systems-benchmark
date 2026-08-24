@@ -1,0 +1,3 @@
+label=gpt2-seq64 seq=64 threads=default rc=101
+started_utc=2026-08-24T00:43:17Z loadavg_1m=7.19 swap_used_mb=10769.19
+mono_s=11.614 wall_s=11.614 slept_s=0.000 sleep_verdict=OK

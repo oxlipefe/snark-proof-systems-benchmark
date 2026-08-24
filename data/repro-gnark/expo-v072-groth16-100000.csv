@@ -1,0 +1,11 @@
+[90m12:19:02[0m [32mINF[0m compiling circuit
+[90m12:19:02[0m [32mINF[0m parsed circuit inputs [36mnbPublic=[0m1 [36mnbSecret=[0m1
+[90m12:19:02[0m [32mINF[0m building constraint system [36mnbConstraints=[0m100001
+[90m12:19:02[0m [33mDBG[0m constraint system solver done [36mbackend=[0mgroth16 [36mnbConstraints=[0m100001 [36mtook=[0m5.9965
+[90m12:19:03[0m [33mDBG[0m prover done [36mbackend=[0mgroth16 [36mcurve=[0mbn254 [36mnbConstraints=[0m100001 [36mtook=[0m635.502291
+[90m12:19:03[0m [33mDBG[0m constraint system solver done [36mbackend=[0mgroth16 [36mnbConstraints=[0m100001 [36mtook=[0m6.09375
+[90m12:19:04[0m [33mDBG[0m prover done [36mbackend=[0mgroth16 [36mcurve=[0mbn254 [36mnbConstraints=[0m100001 [36mtook=[0m535.377792
+[90m12:19:04[0m [33mDBG[0m constraint system solver done [36mbackend=[0mgroth16 [36mnbConstraints=[0m100001 [36mtook=[0m5.005583
+[90m12:19:04[0m [33mDBG[0m prover done [36mbackend=[0mgroth16 [36mcurve=[0mbn254 [36mnbConstraints=[0m100001 [36mtook=[0m578.12975
+backend,curve,algorithm,nbConstraints,nbInternal,nbSecret,nbPublic,nbCoefficients,ram(mb),time(ms),throughput(constraints/s),througputPerCore(constraints/s),nbPhysicalCores,nbThreadsPerCore,nbLogicalCores,cacheLine,l1d,l1i,l2,l3,freq,adx,cpu,amd64_adx
+groth16,bn254,prove,100001,100000,1,2,4,271,589,169626,16962,10,1,10,64,-1,-1,-1,-1,0,false,,false

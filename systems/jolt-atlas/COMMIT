@@ -1,0 +1,91 @@
+# jolt-atlas — pinned revision under measurement
+
+repository        https://github.com/ICME-Lab/jolt-atlas
+commit            434ab990353f0c57b90e89cfd00162282e2150eb
+commit_date       2026-08-21T13:40:09-05:00
+commit_subject    Update project description in Cargo.toml
+branch            main (= origin/HEAD at clone time)
+version           0.1.0 (root Cargo.toml)
+license           ICME Software License — NOT an OSI licence.  See "Licence" below.
+maturity          PROTOTYPE-RESEARCH
+                  Root Cargo.toml, `description`: "Lookup centric Jolt zkVM heavily modified
+                  by ICME Labs for zero knowledge machine learning."  No audit is claimed
+                  anywhere in the tree.
+authors           ICME Labs (Wyatt Benno, Khalil Gibran Hassam, Alberto Centelles Hidalgo,
+                  Antoine Douchet), per root Cargo.toml
+cloned_on         2026-08-23
+measured_on       2026-08-23 / 2026-08-24 (UTC)
+
+# The tree is NOT vendored into this repository, and that is a licence requirement
+
+jolt-atlas's LICENSE grants a "personal, non-exclusive, non-sublicenseable,
+non-transferable, revocable, limited license ... (i) to download, install, and internally
+use the Software solely for the purpose of testing and evaluating it".  Benchmarking it is
+squarely inside that grant.  Its §4 then forbids reproducing, distributing, publicly
+performing or publicly displaying the Software, creating derivative works of it, and
+reverse engineering it.
+
+So, exactly as with `systems/deepprove/`, **no part of jolt-atlas's source is present
+anywhere in this repository.**  The tree was cloned OUTSIDE the repository; this directory
+holds the pinned commit above, the exact commands, and **our own** measurements.
+
+## Its licence is the same instrument as DeepProve's, but it is not the same file
+
+Worth stating precisely, because "the same licence" is the sort of claim that gets repeated
+without being checked.  We diffed the two files.
+
+  same    §1 (defined terms), §2 (the grant, including the testing-and-evaluation clause
+          quoted above), §3, §4 (the restrictions), §5-§8 — word for word once the party
+          name is normalised.
+  differ  the party and the year.  jolt-atlas: "Copyright 2025 ICME."  DeepProve:
+          "Copyright 2024 Lagrange Labs, Inc."  DeepProve's file also spells the party
+          "LAGRANGE" in some of the all-caps passages where jolt-atlas spells it "ICME".
+
+So: **the same licence instrument, filled in by two different companies** — not a copy of
+one file.  The operative sections that decide what this benchmark may do are identical.
+
+## What that costs, and what it does not
+
+1. **No internal instrumentation, and no patching.**  Not one line of jolt-atlas was
+   modified.  Every figure in `RESULTS.md` is produced either by `/usr/bin/time -l` around
+   the process or by jolt-atlas's own public API called from our harness.
+2. **The harness is ours and lives outside their tree.**  `bench/scripts/jolt-atlas/harness/`
+   is a separate Cargo workspace that depends on the clone by path and calls only public
+   items.  It contains no jolt-atlas code.  This is the same arrangement `systems/binius64/`
+   used, and it is available here because jolt-atlas exposes a usable public API —
+   `Model::load`, `AtlasSharedPreprocessing::preprocess`, `ONNXProof::prove`,
+   `ONNXProof::verify`, `CanonicalSerialize` on the proof — which DeepProve's ONNX path did
+   not.
+3. **No format reverse engineering.**  The correctness control corrupts the serialized proof
+   at byte offsets and asks jolt-atlas's own verifier to judge it.  Which byte belongs to
+   which field is deliberately NOT established; §4(b) forbids it.  Offsets are reported as
+   offsets.
+4. **One asymmetry against DeepProve, declared.**  DeepProve could not be measured through a
+   library API at all, so its `prove` bracket had to include quantized inference and its
+   proof size had to include the verifier context.  jolt-atlas's brackets are tighter.
+   **That is a difference in what we could measure, not a difference in the systems**, and
+   no comparison in `RESULTS.md` is made without saying so in the same sentence.
+
+# Local modifications to the pinned tree
+
+**None.**  `git status` is clean at `434ab99`.
+
+One directory was ADDED to the clone by jolt-atlas's own script and is not a modification of
+their source: `atlas-onnx-tracer/models/gpt2/`, written by `scripts/download_gpt2.py`
+(their file, run unmodified) to materialise the GPT-2 ONNX export their README's
+"Getting Started" section instructs the user to download.  It is not committed here.
+
+A second working tree of the SAME repository exists in the scratch directory at commit
+`53b7c873a6662cdc79d9818dececf337bb27d7d0` (2026-05-06), created with `git worktree add`.
+It exists for one purpose, `REPRODUCTION.md` §3: that is the commit whose README publishes
+the benchmark figures, and reproducing a number at the commit that published it is the only
+way to tell a machine difference from a tree difference.  It is also pristine.
+
+# Toolchain, pinned by the tree itself
+
+rust-toolchain.toml   channel = "1.88", targets = ["riscv32im-unknown-none-elf"]
+resolved              rustc 1.88.0 (aarch64-apple-darwin)
+
+# Corpus revision that produced these measurements
+
+corpus commit     06e0c0bea6255317fd308b0c2259ee21be79b2ad (HEAD at campaign start)

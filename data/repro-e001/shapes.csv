@@ -1,0 +1,2 @@
+subject,size_unit,size,n_imul_constraints,n_and_constraints,imul_per_and,n_macs
+MatmulInt8,output_elements,2048,131072,129024,1.015873,131072

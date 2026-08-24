@@ -1,0 +1,36 @@
+=== machine state at Ceno campaign start ===
+2026-08-24T15:14:12Z
+--- hardware
+Apple M1 Max
+cores: 10 physical / 10 logical
+memory: 34359738368 bytes
+--- os
+ProductName:		macOS
+ProductVersion:		26.5.2
+BuildVersion:		25F84
+Darwin Lamas-MacBook-Pro.local 25.5.0 Darwin Kernel Version 25.5.0: Tue Jun  9 22:18:58 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6000 arm64
+--- uptime
+10:14  up 12 days, 22:17, 3 users, load averages: 5.13 5.75 6.46
+--- swap
+total = 12288.00M  used = 11510.12M  free = 777.88M  (encrypted)
+--- disk
+Filesystem     1G-blocks Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s3s1       926   11        49    20%  458726 516295880    0%   /
+--- load
+{ 5.13 5.75 6.46 }
+--- power
+Now drawing from 'Battery Power'
+ -InternalBattery-0 (id=23396451)	87%; discharging; 5:49 remaining present: true
+--- recent sleeps
+2026-08-23 18:48:24 -0500 Sleep               	Entering Sleep state due to 'Idle Sleep':TCPKeepAlive=active Using AC (Charge:100%) 26 secs   
+2026-08-23 18:51:50 -0500 Sleep               	Entering Sleep state due to 'Maintenance Sleep':TCPKeepAlive=active Using AC (Charge:100%) 53 secs   
+2026-08-23 18:57:59 -0500 Sleep               	Entering Sleep state due to 'Idle Sleep':TCPKeepAlive=active Using AC (Charge:100%) 608 secs  
+--- toolchain
+rustc 1.93.0-nightly (07bdbaedc 2025-11-19)
+--- ceno commit
+ac164255081d0b4dc58d3559c4c7331afd7af7e6 2026-08-14T14:35:28+08:00 feat(gpu): add bounded chip proving lanes (#1398)
+--- local mods
+ ceno_emul/Cargo.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+--- corpus commit
+06e0c0bea6255317fd308b0c2259ee21be79b2ad

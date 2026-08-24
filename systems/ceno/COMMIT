@@ -1,0 +1,112 @@
+# ceno — pinned revision under measurement
+
+repository        https://github.com/scroll-tech/ceno
+commit            ac164255081d0b4dc58d3559c4c7331afd7af7e6
+commit_date       2026-08-14T14:35:28+08:00
+commit_subject    feat(gpu): add bounded chip proving lanes (#1398)
+branch            master (this commit IS the tip of origin/master as fetched 2026-08-24)
+license           MIT OR Apache-2.0
+maturity          PROTOTYPE-RESEARCH
+                  README.md, line 5: "🚧 This project is currently under construction and
+                  not suitable for use in production. 🚧"
+cloned_on         2026-08-24
+measured_on       2026-08-24 (UTC)
+
+# The licence permits what DeepProve's and jolt-atlas's do not
+
+Ceno is dual-licensed MIT OR Apache-2.0. Every crate in the workspace carries either
+`license.workspace = true` or the same literal string; we checked all sixteen and found no
+crate-local exception:
+
+    Cargo.toml                    license = "MIT OR Apache-2.0"
+    ceno_emul, ceno_host, ceno_zkvm, ceno_serde, derive, gkr_iop,
+    guest_libs/sha2, examples-builder, ceno_cli                   license.workspace = true
+    ceno_rt, examples, ceno_cli/example, guest_libs/crypto,
+    guest_libs/keccak, ceno_recursion_v2                          license = "MIT OR Apache-2.0"
+
+So, unlike for DeepProve and jolt-atlas, we may read the source, link its crates, instrument
+it and publish the mechanism. Three things in this directory exist only because of that:
+
+1. `bench/scripts/ceno/harness/` links `ceno_emul`, `ceno_host` and `ceno_zkvm` directly, to
+   count cycles without proving and to run the correctness control.
+2. `EXPRESSION.md` §6 and `RESULTS.md` cite internal source lines and name the mechanism
+   behind a failure, rather than reporting an offset and declining to interpret it.
+3. `BUILD.md` §2 states *why* the tree does not build on this machine, not merely that it
+   does not.
+
+**This asymmetry is a licence difference, not an opacity difference.** binius64 and Ceno can
+be opened; DeepProve and jolt-atlas cannot be, by their own terms. Nothing in this repository
+should be read as DeepProve or jolt-atlas being less forthcoming — they were measured through
+their public interfaces because that is what their licences allow, and the resulting gap in
+what we can say about them is our constraint to declare, not their failing.
+
+# The tree is NOT vendored into this repository
+
+The clone lives outside this repository and is not committed here. `COMMIT` plus
+`bench/scripts/ceno/` reconstruct it from zero. The guest sources under
+`bench/tasks/ceno/guest/` are ours and are committed; `install-guests.sh` is the only thing
+that puts them into the tree under test.
+
+# Local modifications to the pinned tree, declared
+
+    ceno_emul/Cargo.toml | 2 +-
+    1 file changed, 1 insertion(+), 1 deletion(-)
+
+    -halo2curves-axiom = { version = "=0.7.2", features = ["asm"] }
+    +halo2curves-axiom = { version = "=0.7.2" }
+
+One word, and it is not a tuning choice. `halo2curves-axiom` 0.7.2's build script is:
+
+    fn main() {
+        #[cfg(feature = "asm")]
+        if std::env::consts::ARCH != "x86_64" {
+            eprintln!("Currently feature `asm` can only be enabled on x86_64 arch.");
+            std::process::exit(1);
+        }
+
+`ceno_emul` requests that feature unconditionally, and every crate in the workspace depends on
+`ceno_emul`. **So Ceno at this commit does not build at all on aarch64** — not the CLI, not
+the prover, not the tests. The feature gates x86_64 assembly for BN256 field arithmetic and
+the crate ships a portable `#[cfg(not(feature = "asm"))]` path for exactly this case, so
+dropping it selects the only implementation that can exist on this machine. It is not a
+performance regression here because there was never an assembly path to lose.
+
+Blast radius, checked rather than assumed: `halo2curves_axiom` is imported in exactly one file
+in the whole tree, `ceno_emul/src/syscalls/secp256k1.rs`, which emulates the secp256k1
+syscalls. **T1, T2 and T3 execute no elliptic-curve syscalls**, so the patched dependency is
+not reached by any measured task.
+
+The condition is present on `origin/master` as fetched on 2026-08-24 — which is this same
+commit. Right of reply applies ([`CHALLENGE.md`](../../CHALLENGE.md)); if the intended
+aarch64 configuration is something other than dropping the feature, we will re-run and publish
+both.
+
+Guest sources copied in by `bench/scripts/ceno/install-guests.sh`, listed so the tree state is
+reproducible:
+
+    examples/examples/bench_t1.rs             T1, the matmul ladder
+    examples/examples/bench_mlp.rs            T2 and T3
+    examples/examples/bench_commit_probe.rs   instrument, never proved
+
+# Toolchain, pinned by the tree itself
+
+rust-toolchain.toml   channel = "nightly-2025-11-20"
+                      targets = ["riscv32im-unknown-none-elf"]
+                      components = ["rust-src"]
+resolved              rustc 1.93.0-nightly (07bdbaedc 2025-11-19)
+
+The guest is built for the custom target `ceno_rt/riscv32im-ceno-zkvm-elf.json`, not for the
+`riscv32im-unknown-none-elf` the toolchain file names; the `examples` package's committed
+`.cargo/config.toml` selects it. Both are the tree's own configuration.
+
+# What was actually measured
+
+Host binary        target/release/e2e  (ceno_zkvm, --bin e2e)
+                   NOT `cargo ceno`, which cannot be built here — BUILD.md §2
+Field              BabyBear, degree-4 extension (BabyBearExt4) — the tree's default
+PCS                Jagged(Basefold) — the tree's default
+Security level     SecurityLevel::Conjecture100bits — the only variant the enum has
+
+# Corpus revision that produced these measurements
+
+corpus commit     06e0c0bea6255317fd308b0c2259ee21be79b2ad (HEAD at campaign start)

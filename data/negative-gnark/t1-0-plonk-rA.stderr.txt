@@ -1,0 +1,3 @@
+[neg] t1-0 plonk regime=A proof=584 bytes (raw 904) cached in /repo/data/negative-gnark/cache/t1-0-plonk-rA
+[neg] public witness: 256 elements of 32 bytes starting at offset 12
+[neg] witness_word: 8 samples (proving is not free; coverage is declared not inferred)

@@ -1,0 +1,4 @@
+META label=t1-b backend=plonk regime=A gadget=hintedsign macs=2359296 macs_emitted=2359296 constraints=8276736 internal_vars=7680767 secret=592896 public=3072 coefficients=512 instructions=8869636 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- domain_cardinality=8388608 domain_source=plonk_bn254.VerifyingKey.Size gomaxprocs=10 gogc=default gomemlimit=off gomemlimit_bytes=9223372036854775807 nb_tasks=0 reps=1 warmup=0 curve=BN254 statistical_zk=false clock=go_time.Since_monotonic go=go1.26.4 compile_ms=3957.907
+SETUP ms=16042.903 pk_bytes=536905400 vk_bytes=34384 srs_ms=121966.534 srs=test/unsafekzg_TEST_PURPOSES_ONLY
+REP i=1 prove_ms=75842.925 verify_ms=2.825 proof_bytes=584 proof_bytes_raw=904 verify_ok=true
+DONE proof_bytes=584

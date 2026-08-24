@@ -1,0 +1,29 @@
+# gnark reproduction attempt — raw summary
+# Reference: Consensys/gnark-bench `expo` circuit (X squared n times, assert == Y).
+# Published claim: ">2,000,000 constraints/s" Groth16/BN254, ~8M-constraint circuit,
+#   AWS hpc6a, November 2022, https://docs.gnark.consensys.io/overview#gnark-is-fast
+# No commit, no thread count, no command published with that figure.
+#
+# Two builds, ONE machine (Apple M1 Max, 10 cores, 32 GiB), one campaign:
+#   v0.7.2  = the gnark version gnark-bench itself pins (2022-08-27 commit 2dda93f0).
+#             gnark-crypto v0.8.0 has NO arm64 assembly (element_ops_noasm.go, tag !amd64),
+#             so this build runs pure-Go field arithmetic on this machine.
+#   v0.16.2 = the version under measurement. gnark-crypto v0.21.0 HAS arm64 assembly for
+#             BN254 fp/fr element ops, but NOT for vector ops (no vector_arm64.go).
+#
+# constraints/s = constraints / prove_ms_median. Setup excluded, never amortised.
+
+version   constraints   prove_ms_median   constraints/s   peak_footprint_B   setup_ms
+v0.7.2        100001            589.0*         169626*         282166088        n/a*
+v0.7.2       1000001           5350.0*         186893*        2427652376        n/a*
+v0.16.2       100001            420.952        237559           381338440       5323.152
+v0.16.2      1000001           3491.231        286432          2450082096      52724.826
+v0.16.2      4000001          14312.379        279478          7190763184     197038.757
+
+# * = figure as reported by gnark-bench's own CSV output, in its own accounting.
+#
+# Largest circuit reached: 4,000,001 constraints. The authors' ~8M was NOT reached.
+# Throughput is flat across 1M-4M (2.86e5 -> 2.79e5), so within the measured range the
+# gap is not a circuit-size artifact. NOTHING is extrapolated to 8M.
+#
+# Memory: ~1.80 kB of peak footprint per R1CS constraint at 4M (7190763184 / 4000001).

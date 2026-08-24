@@ -1,0 +1,10 @@
+compile         3.097 s   constraints=1774726
+  [mem after compile] HeapAlloc=  0.79 GB  Sys=  1.12 GB  TotalAlloc=  8.30 GB
+setup         140.767 s
+  [mem after setup ] HeapAlloc=  1.48 GB  Sys=  3.32 GB  TotalAlloc= 11.57 GB
+max |intermediate| = 115169
+prove           6.028 s
+  [mem after prove ] HeapAlloc=  2.23 GB  Sys=  3.32 GB  TotalAlloc= 13.73 GB
+proof bytes       196  (WriteTo)
+proof bytes       388  (WriteRawTo, uncompressed)
+verify          0.003 s   ACCEPTED

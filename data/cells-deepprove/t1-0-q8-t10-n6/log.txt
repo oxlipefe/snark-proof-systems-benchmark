@@ -1,0 +1,22 @@
+Error: writing proofs to file
+
+Caused by:
+    key must be a string
+        3.56 real        19.29 user         1.41 sys
+           225722368  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               18240  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               85136  involuntary context switches
+        195890459546  instructions retired
+         60318975430  cycles elapsed
+           207258464  peak memory footprint

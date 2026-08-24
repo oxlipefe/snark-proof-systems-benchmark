@@ -1,0 +1,100 @@
+# DeepProve — pinned revision under measurement
+
+repository        https://github.com/Lagrange-Labs/deep-prove
+commit            9d1a53e2ef49ffa2c902b8689cd3c58057a4e662
+commit_date       2026-05-26T10:36:48+02:00
+commit_subject    feat: implifying licensing just put Lagrange (#354)
+version           2.0.1 (VERSION file, workspace Cargo.toml)
+branch            master (= origin/HEAD at clone time)
+license           Lagrange License — NOT an OSI licence.  See "Licence" below.
+maturity          PROTOTYPE-RESEARCH
+                  zkml/README.md, line 3: "This codebase is not audited and not
+                  production ready and is provided as is."
+cloned_on         2026-08-23
+measured_on       2026-08-23 / 2026-08-24 (UTC)
+
+# The tree is NOT vendored into this repository, and that is a licence requirement
+
+DeepProve's LICENSE grants a "personal, non-exclusive, non-sublicenseable,
+non-transferable, revocable, limited license ... (i) to download, install, and internally
+use the Software solely for the purpose of testing and evaluating it". Benchmarking it is
+squarely inside that grant. Its §4 then forbids reproducing, distributing, publicly
+performing or publicly displaying the Software, creating derivative works of it, and
+reverse engineering it.
+
+So, unlike `systems/binius64/`, **no part of DeepProve's source is present anywhere in this
+repository.** The tree was cloned OUTSIDE the repository and this directory holds only the
+pinned commit above, the exact commands, and **our own** measurements. The scripts under
+`bench/scripts/deepprove/` take the clone's location from `DP_ROOT` and never copy from it.
+
+Three further consequences, all of which shape what could be measured:
+
+1. **No internal instrumentation.** For binius64 we timed functions inside the prover
+   (`RESULTS.md` §4 decomposes its verifier into four terms). That was legitimate because
+   binius64 is Apache-2.0/MIT. It is NOT done here. Every DeepProve figure in this directory
+   is observable from outside the process: `/usr/bin/time -l`, wall-clock, artifact bytes,
+   and the timestamps DeepProve's own tracing layer prints.
+2. **No format reverse engineering.** The correctness control corrupts the serialized proof
+   artifact and asks DeepProve's own verifier CLI to judge it. Which byte belongs to which
+   field is deliberately NOT established; §4(b) forbids it. Offsets are reported as offsets.
+3. **The resulting asymmetry is declared, not hidden.** Wherever it stopped us from
+   answering something binius64 answered, `RESULTS.md` reports the hole.
+
+# Local modifications to the pinned tree
+
+**None.** The tree is pristine at `9d1a53e2`; `git status` is clean apart from Git LFS
+materialisation. Two builds were produced from it, differing only by a cargo environment
+override and never by an edit:
+
+  target/            `cargo build --release` — the configuration DeepProve's README
+                     documents. Used for every task measurement in RESULTS.md.
+  target-noassert/   the same, plus CARGO_PROFILE_RELEASE_DEBUG_ASSERTIONS=false. Used ONLY
+                     for the GPT-2 reproduction, because the documented build cannot run it.
+                     See REPRODUCTION.md §2.
+
+# Licence metadata inside the tree disagrees with the LICENSE file
+
+Recorded because a reader checking our licence claim will hit it. The workspace manifest
+declares `license = "MIT OR Apache-2.0"` (Cargo.toml, `[workspace.package]`), while the
+LICENSE file at the same commit is the proprietary Lagrange License and the commit itself is
+titled "implifying licensing just put Lagrange". **We treat the LICENSE file as governing**
+and behaved accordingly, which is the conservative reading. We have not asked the authors
+which is intended; `CHALLENGE.md`'s right of reply applies.
+
+# How to read the `file.rs:line` citations in these documents
+
+Because the tree is not vendored here (above), a reader of this repository **cannot check our
+source citations against a local copy**. That is a real limitation of publishing this way, so
+the citations fall into two classes and the distinction is worth knowing:
+
+**Corroborated by our own raw logs** — these appear verbatim in files under `bench/data/`,
+because the code path was executed and named itself in a panic or an error:
+
+  zkml/src/iop/context.rs:329        "Found different MLE for polynomial wte.weight"
+  dp-crypto/src/sumcheck/util.rs:31  "ceil_log2: x must be positive"
+  dp-crypto/src/sumcheck/verifier.rs:151
+                                     "0th round's prover message is not consistent..."
+  dp-crypto/src/sumcheck/util.rs:75  "thread size 10 is not power of 2, using 8 threads"
+  zkml/src/tensor/handle.rs:100-101  "Tensor is unavailable for a wrapped tensor handler"
+  deep-prove/src/bin/worker/immediate.rs:123   "key must be a string"
+  zkml/src/parser/onnx.rs (Gemm shape check)   "Incompatible shapes found for Gemm node..."
+
+**Read from the source at `9d1a53e2` and not otherwise checkable from this repository** —
+struct declarations, private flags, dispatch tables, and the padding and requantization call
+sites. They were read directly by us, not taken from a summary, and anyone who clones the
+pinned commit can check every one. But they rest on our transcription, and a reader who wants
+to verify them has to clone the tree themselves.
+
+Where a claim would have been load-bearing and only the second kind of evidence existed, we
+went and produced the first kind instead — the requantization finding in `EXPRESSION.md` §5 is
+the example: the source says the layer is inserted, and `bench/data/bench-binary-deepprove/`
+holds DeepProve printing the inserted layers.
+
+# Toolchain, pinned by the tree itself
+
+rust-toolchain.toml   channel = "nightly-2026-01-27"
+resolved              rustc 1.95.0-nightly (474276961 2026-01-26)
+
+# Corpus revision that produced these measurements
+
+corpus commit     06e0c0bea6255317fd308b0c2259ee21be79b2ad (HEAD at campaign start)

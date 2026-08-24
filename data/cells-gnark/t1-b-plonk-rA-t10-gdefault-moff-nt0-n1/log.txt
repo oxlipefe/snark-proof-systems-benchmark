@@ -1,0 +1,25 @@
+[gnark] t1-b backend=plonk regime=A gadget=hintedsign reps=1 warmup=0
+[gnark] go=go1.26.4 darwin/arm64 GOMAXPROCS=10 GOGC=unset(default 100) GOMEMLIMIT=unset(off)(bytes=9223372036854775807)
+[gnark] memory policy: default GC, no debug.FreeOSMemory() call anywhere in this binary; peak RSS and peak footprint are what the OS observed, not what we asked it to observe
+[gnark] clock: time.Now/time.Since (monotonic reading; does not advance during Darwin sleep); cell also bracketed by clockprobe.py
+[gnark] PLONK SRS comes from gnark's test/unsafekzg, whose own package doc says "a convenience package (to be use for test purposes only)". There is no ceremony behind it and its toxic waste is generated in this process. SRS time is reported in its own field and is never part of prove.
+[gnark] A1 max_abs_intermediate=602681 int64_max=9223372036854775807 margin=1.53e+13x static_worst_case=12582912 field=BN254_scalar_~2^254 field_overflow_impossible_at_these_magnitudes=true
+[gnark] go-heap only (NOT the published figure): HeapAlloc=10.134GB Sys=14.804GB TotalAlloc=33.960GB NumGC=28
+      219.13 real      1635.02 user        19.22 sys
+         10400301056  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1941011  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+               66479  signals received
+               37560  voluntary context switches
+             1631102  involuntary context switches
+      14102055288054  instructions retired
+       4841008825214  cycles elapsed
+         14529440472  peak memory footprint

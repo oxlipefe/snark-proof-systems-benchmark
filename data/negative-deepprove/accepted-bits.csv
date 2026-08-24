@@ -1,0 +1,73 @@
+task,artifact_bytes,offset,offset_from_end,byte_before,pattern,outcome,detail
+t1-0,59512,,,,none (round-trip control),VERIFY_ACCEPTED,
+t1-0,59512,59483,n-29,0x03,^0x01,VERIFY_ACCEPTED,
+t1-0,59512,59483,n-29,0x03,^0x02,VERIFY_ACCEPTED,
+t1-0,59512,59483,n-29,0x03,^0x08,VERIFY_REJECTED,"N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ShiftCheckTable"
+t1-0,59512,59483,n-29,0x03,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59483,n-29,0x03,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59497,n-15,0x03,^0x01,VERIFY_ACCEPTED,
+t1-0,59512,59497,n-15,0x03,^0x02,VERIFY_ACCEPTED,
+t1-0,59512,59497,n-15,0x03,^0x08,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59497,n-15,0x03,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59497,n-15,0x03,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59511,n-1,0x03,^0x01,VERIFY_ACCEPTED,
+t1-0,59512,59511,n-1,0x03,^0x02,VERIFY_ACCEPTED,
+t1-0,59512,59511,n-1,0x03,^0x08,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59511,n-1,0x03,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59511,n-1,0x03,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59510,n-2,0x01,^0x01,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59510,n-2,0x01,^0x02,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59510,n-2,0x01,^0x08,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59510,n-2,0x01,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59510,n-2,0x01,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59498,n-14,0x04,^0x01,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59498,n-14,0x04,^0x02,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59498,n-14,0x04,^0x08,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59498,n-14,0x04,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59498,n-14,0x04,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59496,n-16,0x01,^0x01,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59496,n-16,0x01,^0x02,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59496,n-16,0x01,^0x08,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59496,n-16,0x01,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59496,n-16,0x01,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59482,n-30,0x01,^0x01,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59482,n-30,0x01,^0x02,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59482,n-30,0x01,^0x08,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59482,n-30,0x01,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59482,n-30,0x01,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,,,,none (round-trip control),VERIFY_ACCEPTED,
+t1-a,116404,116375,n-29,0x03,^0x01,VERIFY_ACCEPTED,
+t1-a,116404,116375,n-29,0x03,^0x02,VERIFY_ACCEPTED,
+t1-a,116404,116375,n-29,0x03,^0x08,VERIFY_REJECTED,"N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ShiftCheckTable"
+t1-a,116404,116375,n-29,0x03,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116375,n-29,0x03,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116389,n-15,0x03,^0x01,VERIFY_ACCEPTED,
+t1-a,116404,116389,n-15,0x03,^0x02,VERIFY_ACCEPTED,
+t1-a,116404,116389,n-15,0x03,^0x08,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116389,n-15,0x03,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116389,n-15,0x03,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116403,n-1,0x03,^0x01,VERIFY_ACCEPTED,
+t1-a,116404,116403,n-1,0x03,^0x02,VERIFY_ACCEPTED,
+t1-a,116404,116403,n-1,0x03,^0x08,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116403,n-1,0x03,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116403,n-1,0x03,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116402,n-2,0x01,^0x01,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116402,n-2,0x01,^0x02,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116402,n-2,0x01,^0x08,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116402,n-2,0x01,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116402,n-2,0x01,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116390,n-14,0x04,^0x01,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116390,n-14,0x04,^0x02,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116390,n-14,0x04,^0x08,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116390,n-14,0x04,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116390,n-14,0x04,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116388,n-16,0x01,^0x01,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116388,n-16,0x01,^0x02,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116388,n-16,0x01,^0x08,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116388,n-16,0x01,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116388,n-16,0x01,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116374,n-30,0x01,^0x01,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116374,n-30,0x01,^0x02,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116374,n-30,0x01,^0x08,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116374,n-30,0x01,^0x80,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116374,n-30,0x01,^0xff,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format

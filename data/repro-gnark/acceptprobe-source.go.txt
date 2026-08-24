@@ -1,0 +1,82 @@
+package main
+
+import (
+	"fmt"
+
+	gb "github.com/viaas/zk-prover-bench/gnark"
+)
+
+// Which (layer, in, out) does a flattened weight index land on?
+func locate(spec gb.Spec, idx int) (l, i, o int, ok bool) {
+	base := 0
+	for l, lay := range spec.Layers {
+		n := lay.In * lay.Out
+		if idx < base+n {
+			r := idx - base
+			return l, r / lay.Out, r % lay.Out, true
+		}
+		base += n
+	}
+	return 0, 0, 0, false
+}
+
+func main() {
+	spec, err := gb.Lookup("t2")
+	if err != nil {
+		panic(err)
+	}
+	ref, err := gb.NewReference(spec)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("t2: batch=%d layers=%d out=%v\n", spec.Batch, len(spec.Layers), ref.OutB)
+	total := 0
+	for _, lay := range spec.Layers {
+		total += lay.In * lay.Out
+	}
+	fmt.Printf("total weights=%d\n\n", total)
+
+	for _, idx := range []int{0, 23056, 46112, 69168} {
+		l, i, o, ok := locate(spec, idx)
+		if !ok {
+			fmt.Printf("W[%d]: out of range\n", idx)
+			continue
+		}
+		lay := spec.Layers[l]
+		fmt.Printf("W[%d] -> layer %d (%d->%d, relu=%v), in=%d, out-neuron=%d\n",
+			idx, l, lay.In, lay.Out, lay.ReLU, i, o)
+
+		// The input value multiplying this weight.
+		var xi int64
+		if l == 0 {
+			xi = int64(ref.XB[i]) // batch=1
+		} else {
+			// input to layer l is the ReLU output of layer l-1, neuron i
+			pre := ref.ReluIn[l-1][i]
+			if pre < 0 {
+				xi = 0
+			} else {
+				xi = pre
+			}
+		}
+
+		if lay.ReLU {
+			pre := ref.ReluIn[l][o]
+			after := pre + xi // weight +1 changes the accumulator by exactly the input
+			relBefore := pre
+			if relBefore < 0 {
+				relBefore = 0
+			}
+			relAfter := after
+			if relAfter < 0 {
+				relAfter = 0
+			}
+			fmt.Printf("    input_value=%d  pre_activation=%d  pre_after_w+1=%d\n", xi, pre, after)
+			fmt.Printf("    relu_before=%d  relu_after=%d  RELU_OUTPUT_UNCHANGED=%v\n",
+				relBefore, relAfter, relBefore == relAfter)
+		} else {
+			fmt.Printf("    input_value=%d  (no ReLU on this layer; change propagates to output)\n", xi)
+		}
+		fmt.Println()
+	}
+}

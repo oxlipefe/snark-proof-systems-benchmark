@@ -1,0 +1,75 @@
+# binius64 — pinned revision under measurement
+
+repository        https://github.com/binius-zk/binius64
+commit            eac2484b1a2e0b68d7b9e9b2e40f3c86ef220d4d
+commit_date       2026-08-20T15:45:27Z
+commit_subject    BINIUS-508: defer the GHASH reduction in ring-switch's sumcheck-claim
+                  inner product (#2213)
+license           Apache-2.0 / MIT
+maturity          PROTOTYPE-RESEARCH
+measured_on       2026-08-23
+
+# Local modifications to the pinned tree, declared
+
+The vendored tree is NOT pristine. It carries the instrumentation patch written for our
+earlier experiment E-001:
+
+  8 files changed, 92 insertions(+), 15 deletions(-)
+  plus one untracked file: crates/field/src/e001_count.rs
+
+  crates/field/Cargo.toml
+  crates/field/src/arch/aarch64/arithmetic/ghash.rs
+  crates/field/src/lib.rs
+  crates/hash/src/binary_merkle_tree.rs
+  crates/ip-prover/Cargo.toml
+  crates/ip-prover/src/fracaddcheck/mod.rs
+  crates/ip-prover/src/sumcheck/drive.rs
+  crates/ip-prover/src/sumcheck/mle_store.rs
+
+The patch adds tracing spans and exact multiply/byte counters. The counters are behind the
+`e001-count` Cargo feature, and **that feature is NOT enabled in any measurement in this
+repository** — it adds an atomic increment per field multiply, which would make every timing
+meaningless. With the feature off the patch is spans only.
+
+# Harness
+
+The measuring harness is a separate Cargo workspace, not part of binius64, and it lives in
+this repository:
+
+  scripts/binius64/harness
+
+It depends on a clone of the revision above through path dependencies, supplied as
+BINIUS64_ROOT; see that directory's README.md and setup.sh. Its release profile is declared
+in BUILD.md and must match binius64's own, for the reason documented there. The task
+circuits live in src/e006/ and the measurement binaries are src/bin/e006_bench.rs,
+src/bin/e006_negative.rs and src/bin/e006_verify_split.rs.
+
+# Reproducing without the local patch
+
+The patch described above is NOT required to reproduce E-006. The counters it adds are
+behind the `e001-count` feature, the published harness manifest does not reference that
+feature, and no E-006 measurement enabled it; with the feature off the patch is tracing
+spans only, which no E-006 binary reads. A clean clone at the revision above is therefore
+the intended starting point.
+
+This was checked, not assumed. On 2026-08-24 the harness in this repository was built from
+a fresh clone of THIS repository against a fresh `git clone` of binius64 checked out at the
+revision above, with no patch applied:
+
+  * the build succeeded on the pinned 1.97.1 toolchain;
+  * the BUILD.md §2 build-integrity gate passed at ratio 0.985, inside the 0.983-0.996
+    band the campaign recorded;
+  * `scripts/run-negative.sh t1-0` reproduced `data/negative/t1-0/report.txt`
+    byte for byte, including every witness word and the 345,536-byte proof size;
+  * `scripts/run-cell.sh t1-0:1:1` reproduced every structural quantity of
+    `data/cells/t1-0-r1-t1/cell.json` exactly - 65,536 IMUL, 65,280 AND, 8,192 zero
+    constraints, 345,536 proof bytes - with prove and verify medians 5-6% above the
+    published run, which is the drift a non-dedicated machine produces (see BUILD.md §4).
+
+Timing figures are therefore machine-dependent, as declared; the circuits, the proof sizes
+and the correctness verdict are not, and they reproduce exactly from a clean clone.
+
+# Corpus revision that produced these measurements
+
+commit            06e0c0bea6255317fd308b0c2259ee21be79b2ad
+note              8 files dirty at campaign start (the bench/ tree being written)

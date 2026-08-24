@@ -1,0 +1,2 @@
+META label=tb-1 onnx=/tmp/bench-scratch/probes-ja/tb-1.onnx padding=true scale=14 max_num_vars=12 reps=1 warmup=0
+SETUP ms=13.593

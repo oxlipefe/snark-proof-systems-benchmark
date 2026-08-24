@@ -1,0 +1,72 @@
+package main
+
+import (
+	"fmt"
+
+	gb "github.com/viaas/zk-prover-bench/gnark"
+)
+
+// A weight is INERT for a given instance if perturbing it by +1 leaves every ReLU output,
+// and therefore the network output, unchanged. For a weight in layer l feeding neuron o,
+// the accumulator moves by exactly the input value multiplying it; the neuron is dead-and-
+// stays-dead iff both the pre-activation and the perturbed pre-activation are <= 0.
+func main() {
+	for _, task := range []string{"t2", "t3"} {
+		spec, err := gb.Lookup(task)
+		if err != nil {
+			panic(err)
+		}
+		ref, err := gb.NewReference(spec)
+		if err != nil {
+			panic(err)
+		}
+		totalW, inertW := 0, 0
+		fmt.Printf("=== %s (batch=%d) ===\n", task, spec.Batch)
+		for l, lay := range spec.Layers {
+			if !lay.ReLU {
+				totalW += lay.In * lay.Out
+				fmt.Printf("  layer %d (%d->%d) no ReLU: %d weights, none classifiable as inert\n",
+					l, lay.In, lay.Out, lay.In*lay.Out)
+				continue
+			}
+			// inputs to layer l, per batch item
+			inVals := make([][]int64, spec.Batch)
+			for b := 0; b < spec.Batch; b++ {
+				inVals[b] = make([]int64, lay.In)
+				for i := 0; i < lay.In; i++ {
+					if l == 0 {
+						inVals[b][i] = int64(ref.XB[b*lay.In+i])
+					} else {
+						pre := ref.ReluIn[l-1][b*spec.Layers[l-1].Out+i]
+						if pre > 0 {
+							inVals[b][i] = pre
+						}
+					}
+				}
+			}
+			li := 0
+			for i := 0; i < lay.In; i++ {
+				for o := 0; o < lay.Out; o++ {
+					totalW++
+					// inert only if dead-and-stays-dead for EVERY batch item
+					allDead := true
+					for b := 0; b < spec.Batch; b++ {
+						pre := ref.ReluIn[l][b*lay.Out+o]
+						after := pre + inVals[b][i]
+						if pre > 0 || after > 0 {
+							allDead = false
+							break
+						}
+					}
+					if allDead {
+						inertW++
+						li++
+					}
+				}
+			}
+			fmt.Printf("  layer %d (%d->%d) ReLU: %d weights, %d inert (%.2f%%)\n",
+				l, lay.In, lay.Out, lay.In*lay.Out, li, 100*float64(li)/float64(lay.In*lay.Out))
+		}
+		fmt.Printf("  TOTAL: %d weights, %d inert (%.2f%%)\n\n", totalW, inertW, 100*float64(inertW)/float64(totalW))
+	}
+}

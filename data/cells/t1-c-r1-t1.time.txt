@@ -1,0 +1,25 @@
+task=T1-c macs=9437184 relus=0 IMUL=9437184 AND=9424896 ZERO=1179648 BMUL=0 private_values=30068736 inout=12288 max_abs_acc=611801 build=18.179s
+setup=11.177s
+rep=0 prove=183.588s verify=7.5126s proof=591200B
+rep=1 prove=396.246s verify=8.7383s proof=591200B
+rep=2 prove=432.675s verify=9.2654s proof=591200B
+wrote /repo/data/cells/t1-c-r1-t1/reps.csv
+wrote /repo/data/cells/t1-c-r1-t1/cell.json
+     1081.88 real       154.71 user       254.61 sys
+         19149373440  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+            65138046  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+             4127592  voluntary context switches
+             1329002  involuntary context switches
+       3152452632647  instructions retired
+       1269360355561  cycles elapsed
+         92993641776  peak memory footprint

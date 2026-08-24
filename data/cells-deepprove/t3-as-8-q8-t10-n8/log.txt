@@ -1,0 +1,29 @@
+
+thread '<unnamed>' (12054902) panicked at /home/bench/.cargo/git/checkouts/dp-crypto-8724f154af4b9820/22e8e93/dp-crypto/src/sumcheck/util.rs:31:5:
+ceil_log2: x must be positive
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread '<unnamed>' (12054903) panicked at /home/bench/.cargo/git/checkouts/dp-crypto-8724f154af4b9820/22e8e93/dp-crypto/src/sumcheck/util.rs:31:5:
+ceil_log2: x must be positive
+Error: generating proof
+
+Caused by:
+    task 14 panicked with message "ceil_log2: x must be positive"
+        1.20 real         2.47 user         0.24 sys
+           104333312  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                7564  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                7474  involuntary context switches
+         24910649528  instructions retired
+          8140076873  cycles elapsed
+            83968504  peak memory footprint

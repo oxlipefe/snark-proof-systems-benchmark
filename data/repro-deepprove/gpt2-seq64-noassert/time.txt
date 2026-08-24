@@ -1,0 +1,22 @@
+
+thread 'main' (12086560) panicked at /home/bench/.cargo/git/checkouts/dp-crypto-8724f154af4b9820/22e8e93/dp-crypto/src/sumcheck/verifier.rs:151:17:
+0th round's prover message is not consistent with the claim. 19387534115087409086436529446446428128650174643557990835957281596030098830415 15622868743010094751920608776837910925421439361640645568627706393121260586774
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+      112.20 real       373.93 user        78.15 sys
+         15905734656  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             5820054  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               10731  voluntary context switches
+             3878571  involuntary context switches
+       3529343901756  instructions retired
+       1325890366325  cycles elapsed
+         24258905800  peak memory footprint

@@ -1,0 +1,9 @@
+task=T1-0 macs=65536 imul=65536 and=65280 zero=8192 bmul=0 private=270080 inout=256
+proof=345536B
+rep=0 total=0.0071s channel=0.000003s iop=0.0003s wiring=0.0062s finish=0.000627s wiring_share=0.8669
+rep=1 total=0.0063s channel=0.000003s iop=0.0003s wiring=0.0053s finish=0.000620s wiring_share=0.8533
+rep=2 total=0.0063s channel=0.000002s iop=0.0003s wiring=0.0053s finish=0.000628s wiring_share=0.8533
+rep=3 total=0.0062s channel=0.000002s iop=0.0003s wiring=0.0053s finish=0.000613s wiring_share=0.8555
+rep=4 total=0.0062s channel=0.000002s iop=0.0003s wiring=0.0053s finish=0.000611s wiring_share=0.8563
+wrote /repo/data/verify-split/t1-0-r1-t1-n5-cold.verify-split.csv
+wrote /repo/data/verify-split/t1-0-r1-t1-n5-cold.verify-split.json

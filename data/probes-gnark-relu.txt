@@ -1,0 +1,18 @@
+RELU label=tobinary backend=groth16 regime=- status=OK mode=isolated n=448 bits=24 constraints=12544 total_per_activation=28.000 verified=true
+RELU label=tobinary backend=groth16 regime=- status=OK mode=isolated n=896 bits=24 constraints=25088 total_per_activation=28.000 verified=true
+RELU label=tobinary backend=groth16 regime=- status=OK mode=marginal bits=24 c448=12544 c896=25088 marginal_per_activation=28.000
+RELU label=tobinary backend=plonk regime=- status=OK mode=isolated n=448 bits=24 constraints=23744 total_per_activation=53.000 verified=true
+RELU label=tobinary backend=plonk regime=- status=OK mode=isolated n=896 bits=24 constraints=47488 total_per_activation=53.000 verified=true
+RELU label=tobinary backend=plonk regime=- status=OK mode=marginal bits=24 c448=23744 c896=47488 marginal_per_activation=53.000
+RELU label=hintedsign backend=groth16 regime=- status=OK mode=isolated n=448 bits=24 constraints=5191 total_per_activation=11.587 verified=true
+RELU label=hintedsign backend=groth16 regime=- status=OK mode=isolated n=896 bits=24 constraints=10124 total_per_activation=11.299 verified=true
+RELU label=hintedsign backend=groth16 regime=- status=OK mode=marginal bits=24 c448=5191 c896=10124 marginal_per_activation=11.011
+RELU label=hintedsign backend=plonk regime=- status=OK mode=isolated n=448 bits=24 constraints=15104 total_per_activation=33.714 verified=true
+RELU label=hintedsign backend=plonk regime=- status=OK mode=isolated n=896 bits=24 constraints=29440 total_per_activation=32.857 verified=true
+RELU label=hintedsign backend=plonk regime=- status=OK mode=marginal bits=24 c448=15104 c896=29440 marginal_per_activation=32.000
+RELU label=tobinary backend=groth16 regime=A status=OK mode=t2_in_situ constraints=289864 relus=448 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855)
+RELU label=hintedsign backend=groth16 regime=A status=OK mode=t2_in_situ constraints=283408 relus=448 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855)
+RELU label=delta backend=groth16 regime=A status=OK mode=t2_delta tobinary=289864 hintedsign=283408 delta=6456 delta_per_activation=14.411 cheaper=hintedsign
+RELU label=tobinary backend=plonk regime=A status=OK mode=t2_in_situ constraints=763120 relus=448 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855)
+RELU label=hintedsign backend=plonk regime=A status=OK mode=t2_in_situ constraints=758448 relus=448 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855)
+RELU label=delta backend=plonk regime=A status=OK mode=t2_delta tobinary=763120 hintedsign=758448 delta=4672 delta_per_activation=10.429 cheaper=hintedsign

@@ -1,0 +1,27 @@
+# zk-prover-bench · Ceno · emulation-only harness.
+#
+# Generated from this template by setup.sh, which substitutes @CENO_ROOT@ with the path to
+# the pinned clone. The clone lives outside this repository, so the path cannot be committed;
+# the template can. Same pattern as bench/scripts/jolt-atlas/harness/.
+#
+# This crate links Ceno's own crates and calls its emulator directly. That is possible here
+# and NOT possible for DeepProve or jolt-atlas, and the difference is a licence difference,
+# not an opacity difference: Ceno is MIT OR Apache-2.0, so reading, linking and instrumenting
+# it is permitted. See systems/ceno/COMMIT.
+[package]
+name = "ceno-bench-harness"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+ceno_emul = { path = "@CENO_ROOT@/ceno_emul" }
+ceno_host = { path = "@CENO_ROOT@/ceno_host" }
+ceno_zkvm = { path = "@CENO_ROOT@/ceno_zkvm" }
+anyhow = "1"
+bincode = "1"
+ff_ext = { git = "https://github.com/scroll-tech/gkr-backend.git", package = "ff_ext", tag = "v1.0.0-alpha.35" }
+mpcs = { git = "https://github.com/scroll-tech/gkr-backend.git", package = "mpcs", tag = "v1.0.0-alpha.35", features = ["whir"] }
+
+[profile.release]
+opt-level = 3

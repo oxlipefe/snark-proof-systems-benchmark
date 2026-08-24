@@ -1,0 +1,28 @@
+{
+  "t2": {
+    "macs_published": 92224,
+    "macs_asserted": 92224,
+    "seed": "0xe0060200",
+    "input_shape": [
+      1,
+      200
+    ],
+    "max_abs_accumulator_int8_units": 6892363358637,
+    "int8_carrier_scale": 128.0,
+    "opset": 11,
+    "ir_version": 6
+  },
+  "t3": {
+    "macs_published": 737792,
+    "macs_asserted": 737792,
+    "seed": "0xe0060300",
+    "input_shape": [
+      8,
+      200
+    ],
+    "max_abs_accumulator_int8_units": 22686778764620,
+    "int8_carrier_scale": 128.0,
+    "opset": 11,
+    "ir_version": 6
+  }
+}

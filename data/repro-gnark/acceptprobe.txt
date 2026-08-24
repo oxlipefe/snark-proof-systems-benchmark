@@ -1,0 +1,19 @@
+t2: batch=1 layers=4 out=[14623789560139]
+total weights=92224
+
+W[0] -> layer 0 (200->256, relu=true), in=0, out-neuron=0
+    input_value=69  pre_activation=6310  pre_after_w+1=6379
+    relu_before=6310  relu_after=6379  RELU_OUTPUT_UNCHANGED=false
+
+W[23056] -> layer 0 (200->256, relu=true), in=90, out-neuron=16
+    input_value=-18  pre_activation=13447  pre_after_w+1=13429
+    relu_before=13447  relu_after=13429  RELU_OUTPUT_UNCHANGED=false
+
+W[46112] -> layer 0 (200->256, relu=true), in=180, out-neuron=32
+    input_value=-128  pre_activation=-11129  pre_after_w+1=-11257
+    relu_before=0  relu_after=0  RELU_OUTPUT_UNCHANGED=true
+
+W[69168] -> layer 1 (256->128, relu=true), in=140, out-neuron=48
+    input_value=35814  pre_activation=-87033032  pre_after_w+1=-86997218
+    relu_before=0  relu_after=0  RELU_OUTPUT_UNCHANGED=true
+

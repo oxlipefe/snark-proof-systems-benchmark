@@ -1,0 +1,4 @@
+META label=tb-4 onnx=/tmp/bench-scratch/probes-ja/tb-4.onnx padding=true scale=14 max_num_vars=12 reps=1 warmup=0
+SETUP ms=13.504
+REP i=0 prove_ms=255.483 verify_ms=18.848 proof_bytes=95104 verify_ok=true
+DONE proof_bytes=95104

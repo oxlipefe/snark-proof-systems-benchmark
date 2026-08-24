@@ -1,0 +1,4 @@
+label,task,n_macs,n_relus,log_inv_rate,threads,security_bits,n_test_queries,rep,prove_nanos,verify_nanos,proof_bytes
+t1-c-r1-t1,T1-c,9437184,0,1,1,96,232,0,183587873750,7512576333,591200
+t1-c-r1-t1,T1-c,9437184,0,1,1,96,232,1,396245673542,8738269417,591200
+t1-c-r1-t1,T1-c,9437184,0,1,1,96,232,2,432674738375,9265396250,591200

@@ -1,0 +1,11 @@
+=== machine state 2026-08-24T13:14:11Z ===
+ProductName:		macOS
+ProductVersion:		26.5.2
+BuildVersion:		25F84
+Darwin Lamas-MacBook-Pro.local 25.5.0 Darwin Kernel Version 25.5.0: Tue Jun  9 22:18:58 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6000 arm64
+Apple M1 Max
+10
+34359738368
+ 8:14  up 12 days, 20:17, 3 users, load averages: 5.65 3.27 2.38
+total = 9216.00M  used = 7664.94M  free = 1551.06M  (encrypted)
+/dev/disk3s3s1   926Gi    12Gi    68Gi    15%    459k  715M    0%   /

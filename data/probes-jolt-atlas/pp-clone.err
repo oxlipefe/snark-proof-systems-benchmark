@@ -1,0 +1,4 @@
+
+thread 'main' panicked at /tmp/bench-scratch/jolt-atlas/jolt-atlas-core/src/utils/dims.rs:262:13:
+Einsum equation (k,kn->mn) not supported by Einsum proof system
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

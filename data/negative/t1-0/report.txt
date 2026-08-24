@@ -1,0 +1,13 @@
+
+T1-0 — corrupted-trace control, log_inv_rate=1
+mode                   outcome            passed  detail
+private_word/first     VERIFY_REJECTED    true    private[0] 0xffffffffffffff83 -> 0xffffffffffffff82 (low bit flipped)
+private_word/middle    VERIFY_REJECTED    true    private[135040] 0x0000000000000061 -> 0x0000000000000060 (low bit flipped)
+private_word/last      VERIFY_REJECTED    true    private[270079] 0xfffffffffffff130 -> 0xfffffffffffff131 (low bit flipped)
+inout_word/first       VERIFY_REJECTED    true    inout[0] 0xfffffffffffe958a -> 0xfffffffffffe958b (low bit flipped)
+inout_word/last        VERIFY_REJECTED    true    inout[255] 0x0000000000004aee -> 0x0000000000004aef (low bit flipped)
+proof_byte/head        VERIFY_REJECTED    true    proof byte 0 of 345536 XOR 0x01
+proof_byte/middle      VERIFY_REJECTED    true    proof byte 172768 of 345536 XOR 0x01
+proof_byte/tail        VERIFY_REJECTED    true    proof byte 345535 of 345536 XOR 0x01
+
+T1-0: 8/8 corruptions produced no accepted proof — PASS

@@ -1,0 +1,4 @@
+MACCOST label=dot256 backend=groth16 regime=B status=OK macs=256 weights=constant range_checks=none_this_probe_prices_the_MAC_only constraints=1 constraints_per_mac=0.0039 verified=true
+MACCOST label=dot256 backend=groth16 regime=A status=OK macs=256 weights=witness range_checks=none_this_probe_prices_the_MAC_only constraints=257 constraints_per_mac=1.0039 verified=true
+MACCOST label=dot256 backend=plonk regime=B status=OK macs=256 weights=constant range_checks=none_this_probe_prices_the_MAC_only constraints=255 constraints_per_mac=0.9961 verified=true
+MACCOST label=dot256 backend=plonk regime=A status=OK macs=256 weights=witness range_checks=none_this_probe_prices_the_MAC_only constraints=512 constraints_per_mac=2.0000 verified=true

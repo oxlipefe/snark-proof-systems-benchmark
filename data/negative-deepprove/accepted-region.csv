@@ -1,0 +1,215 @@
+task,artifact_bytes,offset,offset_fraction,byte_before,byte_after,outcome,detail
+t1-0,59512,0,0.000000,0x01,0x00,VERIFY_ACCEPTED,
+t1-0,59512,64,0.001075,0x01,0x00,VERIFY_ACCEPTED,
+t1-0,59512,128,0.002151,0x01,0x00,VERIFY_ACCEPTED,
+t1-0,59512,192,0.003226,0x01,0x00,VERIFY_ACCEPTED,
+t1-0,59512,256,0.004302,0x01,0x00,VERIFY_ACCEPTED,
+t1-0,59512,320,0.005377,0xff,0xfe,VERIFY_ACCEPTED,
+t1-0,59512,384,0.006452,0x01,0x00,VERIFY_ACCEPTED,
+t1-0,59512,448,0.007528,0xfe,0xff,VERIFY_ACCEPTED,
+t1-0,59512,512,0.008603,0x00,0x01,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,576,0.009679,0x59,0x58,VERIFY_REJECTED,374148249669996121606883898919219750468468 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,640,0.010754,0xc3,0xc2,VERIFY_REJECTED,251740432335937261873825899509886791324551 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,704,0.011830,0x23,0x22,VERIFY_REJECTED,558909531970091490938749198040274528589619 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,768,0.012905,0x57,0x56,VERIFY_REJECTED,534333591743252527818973707108737548155843 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,832,0.013980,0x03,0x02,VERIFY_REJECTED,1: incorrect number of evaluations: 2 vs 3 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,896,0.015056,0x9e,0x9f,VERIFY_REJECTED,769072844411513975435088916589300878237767 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,960,0.016131,0xb5,0xb4,VERIFY_REJECTED,612872215501581355872868881723733679354931 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1024,0.017207,0x7b,0x7a,VERIFY_REJECTED,948878119905226112164287768245294766225387 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1088,0.018282,0x9b,0x9a,VERIFY_REJECTED,448313082465428785536696600391856273167622 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1152,0.019357,0x00,0x01,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,1216,0.020433,0xd4,0xd5,VERIFY_REJECTED,053687247918205141744982685109483181094500 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1280,0.021508,0x0e,0x0f,VERIFY_REJECTED,456744224845707730185676520284527015273704 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1344,0.022584,0xc1,0xc0,VERIFY_REJECTED,"6337464800868374020529993108143927552, got 10260286616585345840422494974549247180837624486761396879095180128720057585338"
+t1-0,59512,1408,0.023659,0xa8,0xa9,VERIFY_REJECTED,"37624486761396879095180128720057585338, got 1609007332817817457341598589536032014669883875200633654518142693669799156012"
+t1-0,59512,1472,0.024735,0xab,0xaa,VERIFY_REJECTED,183188298287102419980202984572851461116960 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1536,0.025810,0x43,0x42,VERIFY_REJECTED,190244899652280624992517634815045200277459 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1600,0.026885,0x46,0x47,VERIFY_REJECTED,932111120045031063913633221799040809105229 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1664,0.027961,0x9c,0x9d,VERIFY_REJECTED,342349503992597102339873347242116346874696 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1728,0.029036,0x82,0x83,VERIFY_REJECTED,508114597081941844032263681727254326056168 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1792,0.030112,0xe5,0xe4,VERIFY_REJECTED,751006095462526648932359749617632598952517 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1856,0.031187,0x40,0x41,VERIFY_REJECTED,313729499162118336077953871703081702095228 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1920,0.032262,0xe9,0xe8,VERIFY_REJECTED,532202656086892677696234080125057450729447 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,1984,0.033338,0x07,0x06,VERIFY_REJECTED,521413426748024317563022422378151301398126 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2048,0.034413,0x15,0x14,VERIFY_REJECTED,354313267735156556899553086575945024529506 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2112,0.035489,0x0a,0x0b,VERIFY_REJECTED,540750423211069157170991852104046324260509 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2176,0.036564,0xb8,0xb9,VERIFY_REJECTED,519174271808209895986433611100396394207443 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2240,0.037639,0xb9,0xb8,VERIFY_REJECTED,445377557944580169044623576088801432817284 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2304,0.038715,0xc6,0xc7,VERIFY_REJECTED,154722779820592848897226948919039567612342 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2368,0.039790,0x30,0x31,VERIFY_REJECTED,340621100159654344641085398684530327706414 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2432,0.040866,0x45,0x44,VERIFY_REJECTED,188403045790192216127870987988990500417972 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2496,0.041941,0xad,0xac,VERIFY_REJECTED,538096101295810545983827044648362979036561 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2560,0.043017,0x41,0x40,VERIFY_REJECTED,867875962419885588190353915851068688284205 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2624,0.044092,0x01,0x00,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,2688,0.045167,0x93,0x92,VERIFY_REJECTED,515309336158215420414158553924574847458375 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2752,0.046243,0x0b,0x0a,VERIFY_REJECTED,707535930339 does not match expected claim 12159250995933367794462287236989661503741687405017441413458035554926350859797
+t1-0,59512,2816,0.047318,0xd8,0xd9,VERIFY_REJECTED,413370763501 does not match expected claim 14577517576489292026309538758049577053428255977314437300676783194132420348603
+t1-0,59512,2880,0.048394,0x6b,0x6a,VERIFY_REJECTED,682503699618080437997842150704803424488511 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,2944,0.049469,0x69,0x68,VERIFY_REJECTED,s rounds sumcheck output claim: 2070144133120251178973323156543701860140819372622280524575267174114165331884 at round: 0
+t1-0,59512,2976,0.050007,0xb6,0xb7,VERIFY_REJECTED, rounds sumcheck output claim: 11444904813705435250678573907840128708476806220460685996596939608538504161496 at round: 0
+t1-0,59512,3008,0.050544,0x01,0x00,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,3072,0.051620,0x8a,0x8b,VERIFY_REJECTED,364923378190634700061392377224298605951002 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3136,0.052695,0x7c,0x7d,VERIFY_REJECTED,854527406085126661944756753385045768345585 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3200,0.053771,0x46,0x47,VERIFY_REJECTED,076084013656314865663751753857028862585360 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3264,0.054846,0x21,0x20,VERIFY_REJECTED,s rounds sumcheck output claim: 6194165385438019131007898897343745222185776008983427607187923660058767515836 at round: 1
+t1-0,59512,3328,0.055921,0xaa,0xab,VERIFY_REJECTED,019695133949142241901401461169709802287472 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3392,0.056997,0x37,0x36,VERIFY_REJECTED,266024348996411337941714225289708580676891 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3456,0.058072,0xab,0xaa,VERIFY_REJECTED,214513250967950714546673856146421326288005 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3520,0.059148,0x18,0x19,VERIFY_REJECTED,379297274059594606369990520055189133778532 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3584,0.060223,0xe8,0xe9,VERIFY_REJECTED,378586986757995978606699978598364151408222 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3648,0.061299,0x27,0x26,VERIFY_REJECTED,s rounds sumcheck output claim: 4924046986230915787038469740041441626276721318254752274675439766072641941353 at round: 2
+t1-0,59512,3712,0.062374,0x85,0x84,VERIFY_REJECTED,952367532667366138306038977768725871626474 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3776,0.063449,0x6b,0x6a,VERIFY_REJECTED,835834381797755945488099243594130533572687 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3840,0.064525,0x00,0x01,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,3904,0.065600,0xed,0xec,VERIFY_REJECTED,082388192431823098526303594631179795640554 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,3968,0.066676,0xe1,0xe0,VERIFY_REJECTED,471745631472165224413174707077040855243129 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,4032,0.067751,0xcc,0xcd,VERIFY_REJECTED,409724418064339338374520251071187277751084 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,5951,0.099997,0x1e,0x1f,VERIFY_REJECTED,516907445435018927620095614132075365324452 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,11902,0.199993,0x2d,0x2c,VERIFY_REJECTED,376832357091594326966684594369823055332786 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,17854,0.300007,0x87,0x86,VERIFY_REJECTED,504047351018700862162007648172461161042316 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,23805,0.400003,0xca,0xcb,VERIFY_REJECTED,229813993380071985492062161311275445898593 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,29756,0.500000,0x84,0x85,VERIFY_REJECTED,s rounds sumcheck output claim: 3987684708617004938224774454325579254949252182883726493380960664577504584625 at round: 2
+t1-0,59512,35707,0.599997,0xa7,0xa6,VERIFY_REJECTED,008746267565008772902678361978404438951679 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,41658,0.699993,0x04,0x05,VERIFY_REJECTED,/Projects/viaas-zkml/bench/data/negative-deepprove/scan-t1-0/probe.postcard[0m Error: Condition failed: `left == right`
+t1-0,59512,47610,0.800007,0xb8,0xb9,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,53561,0.900003,0x00,0x01,VERIFY_REJECTED,390843733554426635154726823407138677709758 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-0,59512,56536,0.949993,0x64,0x65,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59480,0.999462,0x03,0x02,VERIFY_REJECTED,"N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ShiftCheckTable"
+t1-0,59512,59481,0.999479,0x10,0x11,VERIFY_REJECTED,"N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ShiftCheckTable"
+t1-0,59512,59482,0.999496,0x01,0x00,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59483,0.999513,0x03,0x02,VERIFY_ACCEPTED,
+t1-0,59512,59484,0.999530,0x06,0x07,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59485,0.999546,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59486,0.999563,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59487,0.999580,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59488,0.999597,0xfc,0xfd,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59489,0.999614,0x03,0x02,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59490,0.999630,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59491,0.999647,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59492,0.999664,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59493,0.999681,0xfc,0xfd,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59494,0.999698,0x03,0x02,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59495,0.999714,0x10,0x11,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-0,59512,59496,0.999731,0x01,0x00,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-0,59512,59497,0.999748,0x03,0x02,VERIFY_ACCEPTED,
+t1-0,59512,59498,0.999765,0x04,0x05,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59499,0.999782,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59500,0.999798,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59501,0.999815,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59502,0.999832,0xfc,0xfd,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59503,0.999849,0x03,0x02,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59504,0.999866,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59505,0.999882,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59506,0.999899,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59507,0.999916,0xfc,0xfd,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59508,0.999933,0x03,0x02,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59509,0.999950,0x08,0x09,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59510,0.999966,0x01,0x00,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-0,59512,59511,0.999983,0x03,0x02,VERIFY_ACCEPTED,
+t1-a,116404,0,0.000000,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,64,0.000550,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,128,0.001100,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,192,0.001649,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,256,0.002199,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,320,0.002749,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,384,0.003299,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,448,0.003849,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,512,0.004398,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,576,0.004948,0xff,0xfe,VERIFY_ACCEPTED,
+t1-a,116404,640,0.005498,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,704,0.006048,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,768,0.006598,0xff,0xfe,VERIFY_ACCEPTED,
+t1-a,116404,832,0.007148,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,896,0.007697,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,960,0.008247,0xff,0xfe,VERIFY_ACCEPTED,
+t1-a,116404,1024,0.008797,0xfe,0xff,VERIFY_ACCEPTED,
+t1-a,116404,1088,0.009347,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,1152,0.009897,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,1216,0.010446,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,1280,0.010996,0xff,0xfe,VERIFY_ACCEPTED,
+t1-a,116404,1344,0.011546,0xfe,0xff,VERIFY_ACCEPTED,
+t1-a,116404,1408,0.012096,0xff,0xfe,VERIFY_ACCEPTED,
+t1-a,116404,1472,0.012646,0x01,0x00,VERIFY_ACCEPTED,
+t1-a,116404,1536,0.013195,0x04,0x05,VERIFY_REJECTED,578286617840584894747266776280728672102870 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,1600,0.013745,0x69,0x68,VERIFY_REJECTED,086150419856923312753986520229033702301683 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,1664,0.014295,0x60,0x61,VERIFY_REJECTED,507919035721206743856526490724789390599177 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,1728,0.014845,0x7a,0x7b,VERIFY_REJECTED,354915965902631711170070888008579548244143 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,1792,0.015395,0x57,0x56,VERIFY_REJECTED,442465120058995361011196032427946618822391 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,1856,0.015944,0xaf,0xae,VERIFY_REJECTED,175959516725894767319996023881690662671702 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,1920,0.016494,0xb6,0xb7,VERIFY_REJECTED,533439368324239546920324657113110068564819 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,1984,0.017044,0xb0,0xb1,VERIFY_REJECTED,282290932194798940111655635037688509968289 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2048,0.017594,0xf5,0xf4,VERIFY_REJECTED,781066113200905336197591205847643152705181 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2112,0.018144,0xa1,0xa0,VERIFY_REJECTED,063463572132987734495355462813823327807789 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2176,0.018694,0x88,0x89,VERIFY_REJECTED,781341803140400199630667815292018591312743 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2240,0.019243,0xc4,0xc5,VERIFY_REJECTED,416916110433857739202643050967877663793829 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2304,0.019793,0x91,0x90,VERIFY_REJECTED,482150578412583276459538971503687748671381 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2368,0.020343,0xcc,0xcd,VERIFY_REJECTED,243219258663135845916295719732389137000540 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2432,0.020893,0xab,0xaa,VERIFY_REJECTED,327785243070193377950954425836272632474059 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2496,0.021443,0x7d,0x7c,VERIFY_REJECTED,742388674582882600894698084350516445177043 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2560,0.021992,0x05,0x04,VERIFY_REJECTED,363076781098232046568943924571477334593170 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2624,0.022542,0x10,0x11,VERIFY_REJECTED,781864688897450932680980406223685466603506 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2688,0.023092,0x0d,0x0c,VERIFY_REJECTED,975589500184189582903835888539232930039469 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2752,0.023642,0x06,0x07,VERIFY_REJECTED,417298975923934596118498757010363255750940 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2816,0.024192,0x05,0x04,VERIFY_REJECTED,690146225058438668683334247757067575923073 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2880,0.024741,0x22,0x23,VERIFY_REJECTED,839544174594551620923374723921113763546649 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,2944,0.025291,0xf3,0xf2,VERIFY_REJECTED,294086873430701277012381257706999105399925 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3008,0.025841,0xe0,0xe1,VERIFY_REJECTED,535280358198592165487744604527035268890056 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3072,0.026391,0xa1,0xa0,VERIFY_REJECTED,154216033918747714223869135315327912301072 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3136,0.026941,0xc0,0xc1,VERIFY_REJECTED,4384685628036 does not match expected claim 8146216144742643057012384539503753007453504788815881470595915413188808267630
+t1-a,116404,3200,0.027490,0x38,0x39,VERIFY_REJECTED,4815502736814 does not match expected claim 8814332238178009543974123742824551676040980613094392257517986929950406988435
+t1-a,116404,3264,0.028040,0xf5,0xf4,VERIFY_REJECTED,759283905037 does not match expected claim 14103991137847132750369057481058317896067855406662459645114592980701660391695
+t1-a,116404,3328,0.028590,0x20,0x21,VERIFY_REJECTED,699330962613799213691210218125215217557784 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3392,0.029140,0x4a,0x4b,VERIFY_REJECTED,s rounds sumcheck output claim: 5766400875331370154127476369244678339856822207765353757864346087176395084088 at round: 0
+t1-a,116404,3456,0.029690,0x65,0x64,VERIFY_REJECTED,423290865867362770130067951361864098911515 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3520,0.030240,0xce,0xcf,VERIFY_REJECTED,434496167372607696164418840168990733931879 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3584,0.030789,0xa5,0xa4,VERIFY_REJECTED,075343117025137564594504469752512505728081 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3648,0.031339,0x77,0x76,VERIFY_REJECTED,s rounds sumcheck output claim: 6720010636061793358737616969607951712485393543620817099233411148615722847699 at round: 1
+t1-a,116404,3712,0.031889,0x88,0x89,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,3776,0.032439,0xc3,0xc2,VERIFY_REJECTED,371531520823061615812611431777304292396357 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3840,0.032989,0x34,0x35,VERIFY_REJECTED,150954782625808745668895445223539918684606 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3904,0.033538,0xd3,0xd2,VERIFY_REJECTED,763687345350551709866339489566410993856502 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,3968,0.034088,0x71,0x70,VERIFY_REJECTED,374847782292237825773442002593244755214576 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,4032,0.034638,0x80,0x81,VERIFY_REJECTED,035526771812423103722801060266131700417865 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,5820,0.049998,0x9e,0x9f,VERIFY_REJECTED,006842847895183230598350803382714117222188 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,11640,0.099997,0xca,0xcb,VERIFY_REJECTED, rounds sumcheck output claim: 20344989301995343618706888326305709355352443741574029780456553470929235100818 at round: 4
+t1-a,116404,23281,0.200002,0xd6,0xd7,VERIFY_REJECTED,474968690229172033236206891638040519208447 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,34921,0.299998,0x8b,0x8a,VERIFY_REJECTED, rounds sumcheck output claim: 18535897401247650371929354026068388354061260523024675187704993195820935558248 at round: 1
+t1-a,116404,46562,0.400003,0x33,0x32,VERIFY_REJECTED,/Projects/viaas-zkml/bench/data/negative-deepprove/scan-t1-a/probe.postcard[0m Error: Condition failed: `left == right`
+t1-a,116404,58202,0.500000,0x50,0x51,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,69842,0.599997,0xe8,0xe9,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,81483,0.700002,0x00,0x01,VERIFY_REJECTED,"7617063281124104402628162845396648, given: 15911730607871179866594670611729588679401461805888423913987008285051690933276"
+t1-a,116404,93123,0.799998,0x00,0x01,VERIFY_REJECTED,173834207158254042558238224418056307007138 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,104764,0.900003,0x48,0x49,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,110584,0.950002,0x00,0x01,VERIFY_REJECTED,619556087780110578237425872368932138791355 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+t1-a,116404,116372,0.999725,0x03,0x02,VERIFY_REJECTED,"N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ShiftCheckTable"
+t1-a,116404,116373,0.999734,0x10,0x11,VERIFY_REJECTED,"N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ShiftCheckTable"
+t1-a,116404,116374,0.999742,0x01,0x00,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116375,0.999751,0x03,0x02,VERIFY_ACCEPTED,
+t1-a,116404,116376,0.999759,0x06,0x07,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116377,0.999768,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116378,0.999777,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116379,0.999785,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116380,0.999794,0xfc,0xfd,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116381,0.999802,0x03,0x02,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116382,0.999811,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116383,0.999820,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116384,0.999828,0x80,0x81,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116385,0.999837,0xfc,0xfd,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116386,0.999845,0x03,0x02,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116387,0.999854,0x10,0x11,VERIFY_REJECTED,"equant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for SignedZeroCheckTable"
+t1-a,116404,116388,0.999863,0x01,0x00,DESERIALIZE_REJECTED,Error: failed to deserialize proof as either ONNX or LLM format
+t1-a,116404,116389,0.999871,0x03,0x02,VERIFY_ACCEPTED,
+t1-a,116404,116390,0.999880,0x04,0x05,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116391,0.999888,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116392,0.999897,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116393,0.999906,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116394,0.999914,0xfc,0xfd,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116395,0.999923,0x03,0x02,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116396,0.999931,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116397,0.999940,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116398,0.999948,0x80,0x81,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116399,0.999957,0xfc,0xfd,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116400,0.999966,0x03,0x02,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116401,0.999974,0x08,0x09,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116402,0.999983,0x01,0x00,VERIFY_REJECTED,"h ID N3: Requant ctx: fixed point multiplier: 16448, right shift: 21 Caused by: Could not find challenges for ValueTable"
+t1-a,116404,116403,0.999991,0x03,0x02,VERIFY_ACCEPTED,

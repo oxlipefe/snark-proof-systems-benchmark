@@ -1,0 +1,53 @@
+=== machine state, gnark campaign start ===
+2026-08-24T17:17:24Z
+
+--- hardware ---
+MacBookPro18,2
+Apple M1 Max
+10
+10
+34359738368
+
+--- os ---
+ProductName:		macOS
+ProductVersion:		26.5.2
+BuildVersion:		25F84
+Darwin Lamas-MacBook-Pro.local 25.5.0 Darwin Kernel Version 25.5.0: Tue Jun  9 22:18:58 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6000 arm64
+
+--- uptime / load ---
+12:17  up 13 days, 21 mins, 5 users, load averages: 10.11 17.57 13.07
+
+--- memory pressure ---
+The system has 34359738368 (2097152 pages with a page size of 16384).
+
+Stats: 
+Pages free: 129189 
+Pages purgeable: 37245 
+Pages purged: 67350297 
+
+Swap I/O:
+Swapins: 70833327 
+Swapouts: 86762211 
+
+Page Q counts:
+
+--- swap ---
+vm.swapusage: total = 10240.00M  used = 8839.31M  free = 1400.69M  (encrypted)
+
+--- disk ---
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s3s1   926Gi    12Gi    50Gi    19%    459k  529M    0%   /
+/dev/disk3s1     926Gi   844Gi    50Gi    95%    4.8M  529M    1%   /System/Volumes/Data
+
+--- power ---
+Now drawing from 'Battery Power'
+ -InternalBattery-0 (id=23396451)	40%; discharging; 1:35 remaining present: true
+Now drawing from 'Battery Power'
+ -InternalBattery-0 (id=23396451)	40%; discharging; 1:35 remaining present: true
+
+--- go ---
+go version go1.26.4 darwin/arm64
+arm64
+darwin
+
+1

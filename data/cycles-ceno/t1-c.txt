@@ -1,0 +1,4 @@
+elf,/home/bench/Claude/ext-bench/ceno/examples/target/riscv32im-ceno-zkvm-elf/release/examples/bench_t1
+hints,bench/tasks/ceno/t1-c.hints.bin
+instructions,100947798
+cycles,403791196

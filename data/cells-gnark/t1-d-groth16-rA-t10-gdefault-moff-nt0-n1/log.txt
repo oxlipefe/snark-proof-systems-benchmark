@@ -1,0 +1,5 @@
+[gnark] t1-d backend=groth16 regime=A gadget=hintedsign reps=1 warmup=0
+[gnark] go=go1.26.4 darwin/arm64 GOMAXPROCS=10 GOGC=unset(default 100) GOMEMLIMIT=unset(off)(bytes=9223372036854775807)
+[gnark] memory policy: default GC, no debug.FreeOSMemory() call anywhere in this binary; peak RSS and peak footprint are what the OS observed, not what we asked it to observe
+[gnark] clock: time.Now/time.Since (monotonic reading; does not advance during Darwin sleep); cell also bracketed by clockprobe.py
+[gnark] A1 max_abs_intermediate=614632 int64_max=9223372036854775807 margin=1.501e+13x static_worst_case=12582912 field=BN254_scalar_~2^254 field_overflow_impossible_at_these_magnitudes=true

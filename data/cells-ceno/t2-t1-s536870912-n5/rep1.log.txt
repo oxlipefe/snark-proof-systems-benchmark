@@ -1,0 +1,24 @@
+
+thread 'main' (13444650) panicked at /home/bench/.cargo/git/checkouts/gkr-backend-8d0edf9b4956b2af/5c9c8a6/crates/sumcheck/src/prover.rs:426:9:
+assertion `left != right` failed: Attempt to prove a constant.
+  left: 0
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+       39.30 real        36.64 user         1.05 sys
+          5599363072  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              489941  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   2  voluntary context switches
+               24483  involuntary context switches
+        418676937952  instructions retired
+        116692329213  cycles elapsed
+          5532668344  peak memory footprint

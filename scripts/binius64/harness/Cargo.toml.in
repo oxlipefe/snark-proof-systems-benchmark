@@ -1,0 +1,68 @@
+# zk-prover-bench · binius64 measurement harness.
+#
+# OUR code. No binius64 source is copied into this repository. This is a separate Cargo
+# workspace that depends on a pinned binius64 clone through path dependencies and calls
+# only its public API. Generated from this template by setup.sh, which substitutes
+# @BINIUS64_ROOT@ with the path to that clone. The clone lives outside this repository, so
+# the path cannot be committed; the template can. Same pattern as
+# scripts/ceno/harness/ and scripts/jolt-atlas/harness/.
+#
+# The commit to clone, and the local instrumentation patch the measured tree carried, are
+# declared in systems/binius64/COMMIT. Read it before building: the patch is NOT required
+# to reproduce E-006, and this manifest deliberately does not reference it.
+[package]
+name = "binius64-bench-harness"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "E-006 benchmark harness for the Binius64 prover"
+
+[workspace]
+
+[dependencies]
+binius-core = { path = "@BINIUS64_ROOT@/crates/core" }
+# `rayon` is opt-in upstream. Without it the whole prover stack compiles to the
+# single-threaded shim, which would make a "multi-threaded" run silently serial.
+binius-examples = { path = "@BINIUS64_ROOT@/crates/examples", features = ["rayon"] }
+binius-field = { path = "@BINIUS64_ROOT@/crates/field" }
+binius-frontend = { path = "@BINIUS64_ROOT@/crates/frontend" }
+binius-hash = { path = "@BINIUS64_ROOT@/crates/hash" }
+binius-ip = { path = "@BINIUS64_ROOT@/crates/ip" }
+binius-prover = { path = "@BINIUS64_ROOT@/crates/prover" }
+binius-utils = { path = "@BINIUS64_ROOT@/crates/utils" }
+binius-verifier = { path = "@BINIUS64_ROOT@/crates/verifier" }
+
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+rand = "0.10"
+serde_json = "1"
+
+# E-006: one cell of the public bench, and the blocking correctness control.
+[[bin]]
+name = "e006-bench"
+path = "src/bin/e006_bench.rs"
+
+[[bin]]
+name = "e006-negative"
+path = "src/bin/e006_negative.rs"
+
+# E-006 diagnostic: splits check_proof into its own terms. See the module doc.
+[[bin]]
+name = "e006-verify-split"
+path = "src/bin/e006_verify_split.rs"
+
+# Blocking build-integrity gate. systems/binius64/BUILD.md §2 explains why it exists and
+# what its pass criterion is. The binary keeps its original name because the published
+# raw output in data/probe-fieldmul-*.txt was produced under that name.
+[[bin]]
+name = "e001-fieldmul-sanity"
+path = "src/bin/fieldmul_sanity.rs"
+
+[profile.release]
+debug = true
+# binius64's own workspace builds release with `lto = "thin"` (its root Cargo.toml).
+# The harness is a separate workspace, so without this line the prover under measurement is
+# built with cross-crate inlining OFF and its GF(2^128) multiply runs ~28x slower than the
+# library ships. That failure inverted a prior experiment's conclusion; the gate in
+# src/sanity/ exists to catch it. See systems/binius64/BUILD.md.
+lto = "thin"

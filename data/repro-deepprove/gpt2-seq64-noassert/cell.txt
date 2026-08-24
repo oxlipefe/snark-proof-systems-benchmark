@@ -1,0 +1,4 @@
+label=gpt2-seq64-noassert seq=64 threads=default rc=101
+binary=/tmp/bench-scratch/deep-prove/target-noassert/release/bench-llm
+started_utc=2026-08-24T01:00:08Z loadavg_1m=15.24 swap_used_mb=9414.94
+mono_s=112.261 wall_s=112.261 slept_s=0.000 sleep_verdict=OK

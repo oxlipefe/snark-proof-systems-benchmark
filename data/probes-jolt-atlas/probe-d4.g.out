@@ -1,0 +1,4 @@
+META label=probe-d4 onnx=/tmp/bench-scratch/probes-ja/probe-d4.onnx padding=true scale=14 max_num_vars=6 reps=1 warmup=0
+SETUP ms=3.325
+REP i=0 prove_ms=29.162 verify_ms=4.253 proof_bytes=15659 verify_ok=true
+DONE proof_bytes=15659

@@ -1,0 +1,15 @@
+# binius64 check-snapshot — the project's own CI-enforced reference (machine-independent)
+# commit eac2484b1a2e0b68d7b9e9b2e40f3c86ef220d4d, run 2026-08-23T19:10:32Z
+sha512: ✓ Circuit statistics match snapshot
+sha256: ✓ Circuit statistics match snapshot
+keccak: ✓ Circuit statistics match snapshot
+blake3: ✓ Circuit statistics match snapshot
+ethsign: ✓ Circuit statistics match snapshot
+zklogin: ✓ Circuit statistics match snapshot
+bitcoin_headers: NO_OUTPUT
+blake2b: ✓ Circuit statistics match snapshot
+    hashsign
+    keccak
+    sha256
+    sha512
+    zklogin

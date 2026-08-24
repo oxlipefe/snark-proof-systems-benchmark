@@ -1,0 +1,7 @@
+
+thread 'main' panicked at atlas-onnx-tracer/src/model/load.rs:685:55:
+called `Result::unwrap()` on an `Err` value: Parsing as TDim: `((batch_size*sequence_length)//sequence_length)'
+
+Caused by:
+    Failed to parse "((batch_size*sequence_length)//sequence_length)", Error(VerboseError { errors: [("//sequence_length)", Nom(Tag)), ("((batch_size*sequence_length)//sequence_length)", Nom(Alt))] })
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

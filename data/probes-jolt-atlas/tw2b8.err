@@ -1,0 +1,658 @@
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 128
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 64
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 64
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 80
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 132
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 88
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 192
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 133
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 89
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 194
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 92
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 66
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 93
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 134
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 80
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 135
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 94
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 81
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 195
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 81
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 96
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 136
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 82
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 84
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 97
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 137
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 85
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 98
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 138
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 65
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 95
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 139
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 66
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 83
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 82
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 87
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 140
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 86
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 67
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 141
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 142
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 72
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 99
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 143
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 73
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 88
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 90
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 67
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 89
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 68
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 91
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 196
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 100
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 90
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 144
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 101
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 70
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 145
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 69
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 71
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 102
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 146
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 197
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 86
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 74
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 83
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 87
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 91
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 224
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 68
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 92
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 69
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 75
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 93
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 70
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 84
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 94
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 71
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 85
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 95
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 103
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 208
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 72
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 76
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 200
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 225
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 204
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 198
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 209
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 201
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 226
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 77
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 202
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 73
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 112
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 205
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 104
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 147
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 74
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 210
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 206
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 75
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 203
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 211
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 207
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 113
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 227
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 76
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 216
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 120
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 77
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 228
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 217
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 78
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 105
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 79
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 148
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 149
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 212
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 121
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 229
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 122
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 78
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 199
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 123
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 79
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 114
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 213
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 150
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 115
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 218
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 106
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 219
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 107
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 230
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 176
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 214
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 240
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 177
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 108
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 215
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 116
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 220
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 231
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 178
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 117
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 241
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 152
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 124
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 118
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 153
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 125
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 179
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 232
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 154
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 126
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 151
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 155
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 242
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 243
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 119
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 156
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 110
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 127
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 244
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 221
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 184
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 109
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 222
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 157
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 188
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 180
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 245
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 158
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 181
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 185
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 159
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 246
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 223
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 183
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 247
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 233
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 168
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 186
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 234
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 169
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 248
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 189
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 160
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 249
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 170
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 161
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 111
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 171
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 164
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 236
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 190
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 237
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 166
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 191
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 250
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 182
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 162
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 165
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 251
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 187
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 167
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 163
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 239
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 172
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 252
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 175
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 255
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 254
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 238
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 173
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 174
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 253
+
+thread '<unnamed>' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/multilinear_polynomial.rs:244:62:
+index out of bounds: the len is 64 but the index is 235

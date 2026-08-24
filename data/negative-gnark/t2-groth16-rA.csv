@@ -1,0 +1,11 @@
+t2,none,-,honest,VERIFY_ACCEPTED
+t2,none,-,roundtrip,VERIFY_ACCEPTED
+t2,public_input_word,0,xor01_from4b,VERIFY_REJECTED
+t2,witness_word,X[0],plus1_from69,PROVE_REJECTED
+t2,witness_word,X[6],plus1_from-113,PROVE_REJECTED
+t2,witness_word,X[12],plus1_from-122,PROVE_REJECTED
+t2,witness_word,X[18],plus1_from-54,PROVE_REJECTED
+t2,witness_word,X[25],plus1_from124,PROVE_REJECTED
+t2,witness_word,X[31],plus1_from-46,PROVE_REJECTED
+t2,witness_word,X[37],plus1_from-48,PROVE_REJECTED
+t2,witness_word,X[43],plus1_from22,PROVE_REJECTED

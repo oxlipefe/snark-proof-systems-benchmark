@@ -1,0 +1,4 @@
+META label=t1-b backend=groth16 regime=A gadget=hintedsign macs=2359296 macs_emitted=2359296 constraints=3555722 internal_vars=3552906 secret=592896 public=3073 coefficients=512 instructions=4148622 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- domain_cardinality=4194304 domain_source=groth16_bn254.ProvingKey.Domain.Cardinality gomaxprocs=10 gogc=default gomemlimit=off gomemlimit_bytes=9223372036854775807 nb_tasks=0 reps=1 warmup=0 curve=BN254 statistical_zk=false clock=go_time.Since_monotonic go=go1.26.4 compile_ms=6709.727
+SETUP ms=161892.141 pk_bytes=578425015 vk_bytes=98800
+REP i=1 prove_ms=7773.408 verify_ms=3.965 proof_bytes=196 proof_bytes_raw=388 verify_ok=true
+DONE proof_bytes=196

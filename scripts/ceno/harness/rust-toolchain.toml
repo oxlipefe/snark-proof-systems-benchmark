@@ -1,0 +1,5 @@
+# Pinned to the same channel the tree under test pins in its own rust-toolchain.toml, so the
+# harness compiles the subject's crates with the subject's compiler. Ceno's dependencies use
+# `#![feature(..)]`, so a stable toolchain cannot build them at all.
+[toolchain]
+channel = "nightly-2025-11-20"

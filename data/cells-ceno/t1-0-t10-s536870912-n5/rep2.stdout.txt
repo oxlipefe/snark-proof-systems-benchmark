@@ -1,0 +1,52 @@
+[wits_rmms] trace_idx=0 circuit=ADD num_instances=197687 elements=5767168 size=0.021484 GiB
+[wits_rmms] trace_idx=1 circuit=ADDI num_instances=136756 elements=4718592 size=0.017578 GiB
+[wits_rmms] trace_idx=2 circuit=AND num_instances=9603 elements=458752 size=0.001709 GiB
+[wits_rmms] trace_idx=3 circuit=ANDI num_instances=22 elements=768 size=0.000003 GiB
+[wits_rmms] trace_idx=4 circuit=AUIPC num_instances=24 elements=672 size=0.000003 GiB
+[wits_rmms] trace_idx=5 circuit=And_OPS_ROM_TABLE num_instances=65536 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=6 circuit=BEQ num_instances=31 elements=608 size=0.000002 GiB
+[wits_rmms] trace_idx=7 circuit=BGE num_instances=1 elements=44 size=0.000000 GiB
+[wits_rmms] trace_idx=8 circuit=BGEU num_instances=65797 elements=2883584 size=0.010742 GiB
+[wits_rmms] trace_idx=9 circuit=BLT num_instances=2 elements=44 size=0.000000 GiB
+[wits_rmms] trace_idx=10 circuit=BLTU num_instances=384 elements=11264 size=0.000042 GiB
+[wits_rmms] trace_idx=11 circuit=BNE num_instances=66772 elements=2490368 size=0.009277 GiB
+[wits_rmms] trace_idx=14 circuit=DOUBLE_RANGE_DoubleU8 num_instances=65536 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=15 circuit=DYNAMIC_RANGE_18 num_instances=524288 elements=524288 size=0.001953 GiB
+[wits_rmms] trace_idx=16 circuit=ECALL_HALT num_instances=1 elements=16 size=0.000000 GiB
+[wits_rmms] trace_idx=22 circuit=Ecall_PubioCommit num_instances=1 elements=72 size=0.000000 GiB
+[wits_rmms] trace_idx=33 circuit=HintsTable_Memory_RAM num_instances=16456 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=34 circuit=JAL num_instances=12 elements=208 size=0.000001 GiB
+[wits_rmms] trace_idx=35 circuit=JALR num_instances=42 elements=1408 size=0.000005 GiB
+[wits_rmms] trace_idx=39 circuit=LB num_instances=131072 elements=3801088 size=0.014160 GiB
+[wits_rmms] trace_idx=40 circuit=LBU num_instances=2073 elements=114688 size=0.000427 GiB
+[wits_rmms] trace_idx=44 circuit=LUI num_instances=223 elements=4096 size=0.000015 GiB
+[wits_rmms] trace_idx=45 circuit=LW num_instances=26871 elements=753664 size=0.002808 GiB
+[wits_rmms] trace_idx=46 circuit=LocalRAMTableFinal num_instances=21126 elements=163840 size=0.000610 GiB
+[wits_rmms] trace_idx=47 circuit=Ltu_OPS_ROM_TABLE num_instances=65536 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=48 circuit=MUL num_instances=65541 elements=2883584 size=0.010742 GiB
+[wits_rmms] trace_idx=52 circuit=OR num_instances=11152 elements=458752 size=0.001709 GiB
+[wits_rmms] trace_idx=54 circuit=Or_OPS_ROM_TABLE num_instances=65536 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=55 circuit=PROGRAM num_instances=2048 elements=2048 size=0.000008 GiB
+[wits_rmms] trace_idx=59 circuit=REMU num_instances=3 elements=156 size=0.000001 GiB
+[wits_rmms] trace_idx=60 circuit=SB num_instances=2062 elements=118784 size=0.000443 GiB
+[wits_rmms] trace_idx=61 circuit=SH num_instances=1 elements=48 size=0.000000 GiB
+[wits_rmms] trace_idx=63 circuit=SLLI num_instances=11404 elements=655360 size=0.002441 GiB
+[wits_rmms] trace_idx=66 circuit=SLTIU num_instances=10 elements=352 size=0.000001 GiB
+[wits_rmms] trace_idx=67 circuit=SLTU num_instances=258 elements=13312 size=0.000050 GiB
+[wits_rmms] trace_idx=71 circuit=SRLI num_instances=11904 elements=655360 size=0.002441 GiB
+[wits_rmms] trace_idx=72 circuit=SUB num_instances=30 elements=704 size=0.000003 GiB
+[wits_rmms] trace_idx=73 circuit=SW num_instances=21364 elements=753664 size=0.002808 GiB
+[wits_rmms] trace_idx=75 circuit=XOR num_instances=30209 elements=917504 size=0.003418 GiB
+[wits_rmms] trace_idx=76 circuit=XORI num_instances=9601 elements=393216 size=0.001465 GiB
+[wits_rmms] trace_idx=77 circuit=Xor_OPS_ROM_TABLE num_instances=65536 elements=65536 size=0.000244 GiB
+TRACE    ZKVM_create_proof [ 3.67s | 0.00% / 100.00% ]
+TRACE    ┝━ commit_to_vk_digest [ 2.75µs | 0.00% ] profiling_1: true
+TRACE    ┝━ commit_to_pi [ 15.4µs | 0.00% ] profiling_1: true
+TRACE    ┝━ commit_to_fixed_commit [ 9.29µs | 0.00% ] profiling_1: true
+TRACE    ┝━ batch commit to traces [ 1.01s | 27.52% ] profiling_1: true
+TRACE    ┝━ main_proofs [ 1.36s | 0.00% / 36.90% ] profiling_1: true
+TRACE    │  ┝━ build_chip_tasks [ 2.01ms | 0.05% ] profiling_1: true
+TRACE    │  ┝━ execute_chip_tasks [ 1.35s | 36.84% ] profiling_1: true
+TRACE    │  ┕━ collect_chip_results [ 15.9µs | 0.00% ] profiling_1: true
+TRACE    ┝━ prove_batched_main_constraints [ 383ms | 10.44% ] profiling_1: true
+TRACE    ┕━ pcs_opening [ 924ms | 25.14% ] profiling_1: true

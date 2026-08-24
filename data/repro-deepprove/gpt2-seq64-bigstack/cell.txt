@@ -1,0 +1,4 @@
+label=gpt2-seq64-bigstack seq=64 threads=default rc=101
+binary=/tmp/bench-scratch/deep-prove/target/release/bench-llm
+started_utc=2026-08-24T01:29:53Z loadavg_1m=8.33 swap_used_mb=12600.81
+mono_s=12.301 wall_s=12.301 slept_s=0.000 sleep_verdict=OK

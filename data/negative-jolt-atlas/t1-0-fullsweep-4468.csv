@@ -1,0 +1,10 @@
+task,family,position,detail,verdict
+t1-0,none,-,honest,VERIFY_ACCEPTED
+t1-0,none,-,roundtrip,VERIFY_ACCEPTED
+t1-0,output_word,0,xor1,VERIFY_REJECTED
+t1-0,output_word,1,xor1,VERIFY_REJECTED
+t1-0,output_word,2,xor1,VERIFY_REJECTED
+t1-0,output_word,255,xor1_last,VERIFY_REJECTED
+t1-0,input_word,0,xor1,VERIFY_REJECTED
+t1-0,input_word,1,xor1,VERIFY_REJECTED
+t1-0,input_word,255,xor1_last,VERIFY_REJECTED

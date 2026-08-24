@@ -1,0 +1,9 @@
+task,log_inv_rate,mode,index,outcome,passed,detail
+T1-a,1,private_word/first,0,VERIFY_REJECTED,true,"private[0] 0xffffffffffffff8b -> 0xffffffffffffff8a (low bit flipped)"
+T1-a,1,private_word/middle,1216128,VERIFY_REJECTED,true,"private[1216128] 0x0000000000001666 -> 0x0000000000001667 (low bit flipped)"
+T1-a,1,private_word/last,2432255,VERIFY_REJECTED,true,"private[2432255] 0xffffffffffffc201 -> 0xffffffffffffc200 (low bit flipped)"
+T1-a,1,inout_word/first,0,VERIFY_REJECTED,true,"inout[0] 0x000000000001fa9a -> 0x000000000001fa9b (low bit flipped)"
+T1-a,1,inout_word/last,767,VERIFY_REJECTED,true,"inout[767] 0xfffffffffffebd9e -> 0xfffffffffffebd9f (low bit flipped)"
+T1-a,1,proof_byte/head,0,VERIFY_REJECTED,true,"proof byte 0 of 460304 XOR 0x01"
+T1-a,1,proof_byte/middle,230152,VERIFY_REJECTED,true,"proof byte 230152 of 460304 XOR 0x01"
+T1-a,1,proof_byte/tail,460303,VERIFY_REJECTED,true,"proof byte 460303 of 460304 XOR 0x01"

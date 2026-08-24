@@ -1,0 +1,2 @@
+T1-a: honest proof verifies (460304 bytes) — the control is live
+wrote /repo/data/negative/t1-a/negative-control.csv

@@ -1,0 +1,409 @@
+[32m INFO[0m [2me2e[0m[2m:[0m Loading ELF file: /home/bench/Claude/ext-bench/ceno/examples/target/riscv32im-ceno-zkvm-elf/release/examples/bench_t1
+[32m INFO[0m [2me2e[0m[2m:[0m Running on platform Ceno Platform { rom: 0x8000000..0x8001ec8, prog_data: 0x8000000..0x10002044, stack: 0x3fe00000..0x40000000, heap: 0x18000000..0x18200000, hints: 0x28000000..0x30000000, unsafe_ecall_nop: false }
+[32m INFO[0m [2me2e[0m[2m:[0m Stack: 2097152 bytes. Heap: 2097152 bytes.
+[32m INFO[0m [2me2e[0m[2m:[0m Loading hints file: "/repo/tasks/ceno/t1-0.hints.bin"
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"ADD_main" [3mtotal_terms[0m[2m=[0m25 [3mtotal_factors[0m[2m=[0m51 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.04
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SUB_main" [3mtotal_terms[0m[2m=[0m25 [3mtotal_factors[0m[2m=[0m51 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.04
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"AND_main" [3mtotal_terms[0m[2m=[0m29 [3mtotal_factors[0m[2m=[0m57 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.9655172413793103
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"OR_main" [3mtotal_terms[0m[2m=[0m29 [3mtotal_factors[0m[2m=[0m57 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.9655172413793103
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"XOR_main" [3mtotal_terms[0m[2m=[0m29 [3mtotal_factors[0m[2m=[0m57 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.9655172413793103
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SLL_main" [3mtotal_terms[0m[2m=[0m108 [3mtotal_factors[0m[2m=[0m286 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.6481481481481484
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SRL_main" [3mtotal_terms[0m[2m=[0m117 [3mtotal_factors[0m[2m=[0m317 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.7094017094017095
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SRA_main" [3mtotal_terms[0m[2m=[0m117 [3mtotal_factors[0m[2m=[0m317 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.7094017094017095
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SLT_main" [3mtotal_terms[0m[2m=[0m57 [3mtotal_factors[0m[2m=[0m149 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.6140350877192984
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SLTU_main" [3mtotal_terms[0m[2m=[0m57 [3mtotal_factors[0m[2m=[0m149 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.6140350877192984
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"MUL_main" [3mtotal_terms[0m[2m=[0m26 [3mtotal_factors[0m[2m=[0m54 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.076923076923077
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"MULH_main" [3mtotal_terms[0m[2m=[0m37 [3mtotal_factors[0m[2m=[0m83 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.2432432432432434
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"MULHSU_main" [3mtotal_terms[0m[2m=[0m37 [3mtotal_factors[0m[2m=[0m83 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.2432432432432434
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"MULHU_main" [3mtotal_terms[0m[2m=[0m37 [3mtotal_factors[0m[2m=[0m83 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.2432432432432434
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"DIVU_main" [3mtotal_terms[0m[2m=[0m151 [3mtotal_factors[0m[2m=[0m450 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.980132450331126
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"REMU_main" [3mtotal_terms[0m[2m=[0m151 [3mtotal_factors[0m[2m=[0m450 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.980132450331126
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"DIV_main" [3mtotal_terms[0m[2m=[0m151 [3mtotal_factors[0m[2m=[0m450 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.980132450331126
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"REM_main" [3mtotal_terms[0m[2m=[0m151 [3mtotal_factors[0m[2m=[0m450 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.980132450331126
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"ADDI_main" [3mtotal_terms[0m[2m=[0m21 [3mtotal_factors[0m[2m=[0m43 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.0476190476190474
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"ANDI_main" [3mtotal_terms[0m[2m=[0m25 [3mtotal_factors[0m[2m=[0m49 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.96
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"ORI_main" [3mtotal_terms[0m[2m=[0m25 [3mtotal_factors[0m[2m=[0m49 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.96
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"XORI_main" [3mtotal_terms[0m[2m=[0m25 [3mtotal_factors[0m[2m=[0m49 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.96
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SLLI_main" [3mtotal_terms[0m[2m=[0m101 [3mtotal_factors[0m[2m=[0m272 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.6930693069306932
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SRLI_main" [3mtotal_terms[0m[2m=[0m110 [3mtotal_factors[0m[2m=[0m303 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.7545454545454544
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SRAI_main" [3mtotal_terms[0m[2m=[0m110 [3mtotal_factors[0m[2m=[0m303 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.7545454545454544
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SLTI_main" [3mtotal_terms[0m[2m=[0m53 [3mtotal_factors[0m[2m=[0m141 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.660377358490566
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SLTIU_main" [3mtotal_terms[0m[2m=[0m53 [3mtotal_factors[0m[2m=[0m141 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.660377358490566
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"LUI_main" [3mtotal_terms[0m[2m=[0m17 [3mtotal_factors[0m[2m=[0m33 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.9411764705882353
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"AUIPC_main" [3mtotal_terms[0m[2m=[0m69 [3mtotal_factors[0m[2m=[0m184 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.6666666666666665
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"BEQ_main" [3mtotal_terms[0m[2m=[0m30 [3mtotal_factors[0m[2m=[0m69 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.3
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"BNE_main" [3mtotal_terms[0m[2m=[0m30 [3mtotal_factors[0m[2m=[0m69 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.3
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"BLT_main" [3mtotal_terms[0m[2m=[0m54 [3mtotal_factors[0m[2m=[0m144 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.6666666666666665
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"BLTU_main" [3mtotal_terms[0m[2m=[0m54 [3mtotal_factors[0m[2m=[0m144 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.6666666666666665
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"BGE_main" [3mtotal_terms[0m[2m=[0m54 [3mtotal_factors[0m[2m=[0m144 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.6666666666666665
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"BGEU_main" [3mtotal_terms[0m[2m=[0m54 [3mtotal_factors[0m[2m=[0m144 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.6666666666666665
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"JAL_main" [3mtotal_terms[0m[2m=[0m14 [3mtotal_factors[0m[2m=[0m27 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.9285714285714286
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"JALR_main" [3mtotal_terms[0m[2m=[0m46 [3mtotal_factors[0m[2m=[0m114 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.4782608695652173
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"LW_main" [3mtotal_terms[0m[2m=[0m45 [3mtotal_factors[0m[2m=[0m110 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.4444444444444446
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"LHU_main" [3mtotal_terms[0m[2m=[0m50 [3mtotal_factors[0m[2m=[0m123 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.46
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"LH_main" [3mtotal_terms[0m[2m=[0m52 [3mtotal_factors[0m[2m=[0m128 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.4615384615384617
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"LBU_main" [3mtotal_terms[0m[2m=[0m56 [3mtotal_factors[0m[2m=[0m138 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.4642857142857144
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"LB_main" [3mtotal_terms[0m[2m=[0m58 [3mtotal_factors[0m[2m=[0m143 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.4655172413793105
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SW_main" [3mtotal_terms[0m[2m=[0m45 [3mtotal_factors[0m[2m=[0m110 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.4444444444444446
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SH_main" [3mtotal_terms[0m[2m=[0m50 [3mtotal_factors[0m[2m=[0m124 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.48
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"SB_main" [3mtotal_terms[0m[2m=[0m59 [3mtotal_factors[0m[2m=[0m146 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.4745762711864407
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"ECALL_HALT_main" [3mtotal_terms[0m[2m=[0m9 [3mtotal_factors[0m[2m=[0m17 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.8888888888888888
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"Ecall_PubioCommit_main" [3mtotal_terms[0m[2m=[0m37 [3mtotal_factors[0m[2m=[0m73 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.972972972972973
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"ECALL_STATE_CONTINUATION_main" [3mtotal_terms[0m[2m=[0m1 [3mtotal_factors[0m[2m=[0m1 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m1 [3mavg_factors[0m[2m=[0m1.0
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck common-term stats unavailable (no shared plan) [3mlayer[0m[2m=[0m"ECALL_STATE_CONTINUATION_main" [3mtotal_terms[0m[2m=[0m1
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"KeccakEcall_main" [3mtotal_terms[0m[2m=[0m363 [3mtotal_factors[0m[2m=[0m725 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.997245179063361
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"KeccakCore" [3mtotal_terms[0m[2m=[0m2523 [3mtotal_factors[0m[2m=[0m5071 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.0099088386841064
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"KeccakXorin_main" [3mtotal_terms[0m[2m=[0m768 [3mtotal_factors[0m[2m=[0m1535 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.9986979166666667
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"weierstrass_add" [3mtotal_terms[0m[2m=[0m4512 [3mtotal_factors[0m[2m=[0m11599 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.570700354609929
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"Ecall_ShaExtend" [3mtotal_terms[0m[2m=[0m174 [3mtotal_factors[0m[2m=[0m363 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.086206896551724
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"weierstrass_double" [3mtotal_terms[0m[2m=[0m5297 [3mtotal_factors[0m[2m=[0m13697 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.585803284878233
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"fp_add" [3mtotal_terms[0m[2m=[0m3192 [3mtotal_factors[0m[2m=[0m10242 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m3.2086466165413534
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"fp_mul" [3mtotal_terms[0m[2m=[0m3192 [3mtotal_factors[0m[2m=[0m10242 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m3.2086466165413534
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"fp2_add" [3mtotal_terms[0m[2m=[0m1938 [3mtotal_factors[0m[2m=[0m5124 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.6439628482972135
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"fp2_mul" [3mtotal_terms[0m[2m=[0m6656 [3mtotal_factors[0m[2m=[0m18527 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.783503605769231
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"weierstrass_add" [3mtotal_terms[0m[2m=[0m4507 [3mtotal_factors[0m[2m=[0m12613 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.7985356112713555
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"weierstrass_double" [3mtotal_terms[0m[2m=[0m4916 [3mtotal_factors[0m[2m=[0m13959 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.8395036615134255
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"weierstrass_decompress" [3mtotal_terms[0m[2m=[0m5022 [3mtotal_factors[0m[2m=[0m14061 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.7998805256869774
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"secp256k1_scalar_invert" [3mtotal_terms[0m[2m=[0m1877 [3mtotal_factors[0m[2m=[0m5337 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.8433670751198723
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"weierstrass_add" [3mtotal_terms[0m[2m=[0m4512 [3mtotal_factors[0m[2m=[0m11599 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.570700354609929
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"weierstrass_double" [3mtotal_terms[0m[2m=[0m5297 [3mtotal_factors[0m[2m=[0m13697 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.585803284878233
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"secp256r1_scalar_invert" [3mtotal_terms[0m[2m=[0m1877 [3mtotal_factors[0m[2m=[0m5337 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m3 [3mavg_factors[0m[2m=[0m2.8433670751198723
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"uint256_mul" [3mtotal_terms[0m[2m=[0m5298 [3mtotal_factors[0m[2m=[0m17558 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m3.314080785201963
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"DYNAMIC_RANGE_18" [3mtotal_terms[0m[2m=[0m4 [3mtotal_factors[0m[2m=[0m7 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.75
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"DOUBLE_RANGE_DoubleU8" [3mtotal_terms[0m[2m=[0m4 [3mtotal_factors[0m[2m=[0m7 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.75
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"And_OPS_ROM_TABLE" [3mtotal_terms[0m[2m=[0m5 [3mtotal_factors[0m[2m=[0m9 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.8
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"Or_OPS_ROM_TABLE" [3mtotal_terms[0m[2m=[0m5 [3mtotal_factors[0m[2m=[0m9 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.8
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"Xor_OPS_ROM_TABLE" [3mtotal_terms[0m[2m=[0m5 [3mtotal_factors[0m[2m=[0m9 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.8
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"Ltu_OPS_ROM_TABLE" [3mtotal_terms[0m[2m=[0m5 [3mtotal_factors[0m[2m=[0m9 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.8
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"RAM_Register_RegTable" [3mtotal_terms[0m[2m=[0m4 [3mtotal_factors[0m[2m=[0m7 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.75
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"RAM_Memory_StaticMemTable" [3mtotal_terms[0m[2m=[0m4 [3mtotal_factors[0m[2m=[0m7 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.75
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"HintsTable_Memory_RAM" [3mtotal_terms[0m[2m=[0m4 [3mtotal_factors[0m[2m=[0m7 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.75
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"StackTable_Memory_RAM" [3mtotal_terms[0m[2m=[0m2 [3mtotal_factors[0m[2m=[0m3 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.5
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"HeapTable_Memory_RAM" [3mtotal_terms[0m[2m=[0m2 [3mtotal_factors[0m[2m=[0m3 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.5
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"LocalRAMTableFinal" [3mtotal_terms[0m[2m=[0m6 [3mtotal_factors[0m[2m=[0m11 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.8333333333333333
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"ShardRamCircuit_main" [3mtotal_terms[0m[2m=[0m994 [3mtotal_factors[0m[2m=[0m2856 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m4 [3mavg_factors[0m[2m=[0m2.8732394366197185
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"ShardRamEcTreeCircuit_main" [3mtotal_terms[0m[2m=[0m65 [3mtotal_factors[0m[2m=[0m128 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.9692307692307693
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"LOG_PC_CYCLE_main" [3mtotal_terms[0m[2m=[0m26 [3mtotal_factors[0m[2m=[0m51 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.9615384615384615
+[32m INFO[0m [2mgkr::layer[0m[2m:[0m main sumcheck monomial terms stats [3mlayer[0m[2m=[0m"PROGRAM" [3mtotal_terms[0m[2m=[0m9 [3mtotal_factors[0m[2m=[0m17 [3mmin_factors[0m[2m=[0m1 [3mmax_factors[0m[2m=[0m2 [3mavg_factors[0m[2m=[0m1.8888888888888888
+[32m INFO[0m [2mceno_zkvm::e2e[0m[2m:[0m program executed 800913 instructions in 3203656 cycles
+[32m INFO[0m [2mceno_emul::tracer[0m[2m:[0m next-access tape finalized 17068 events in 289.875µs; sort=267.167µs, initialization=17068, non_initial=0
+[32m INFO[0m [2mceno_zkvm::e2e[0m[2m:[0m num_shards: 1, max_cycle 3203656, shard_cycle_boundaries [4, 3203656]
+[32m INFO[0m [1m[ceno] app_prove.inner[0m: [2mceno_zkvm::e2e[0m[2m:[0m FullTracer record buffer records=800914 bytes=108924304
+[33m WARN[0m [1m[ceno] app_prove.inner[0m:[1m[ceno] app_prove.generate_witness[0m:[1mposition_next_shard[0m: [2mmultilinear_extensions::util[0m[2m:[0m thread size 10 is not power of 2, using 8 threads instead. [2m[3mshard_id[0m[2m=[0m0[0m
+[wits_rmms] trace_idx=0 circuit=ADD num_instances=197687 elements=5767168 size=0.021484 GiB
+[wits_rmms] trace_idx=1 circuit=ADDI num_instances=136756 elements=4718592 size=0.017578 GiB
+[wits_rmms] trace_idx=2 circuit=AND num_instances=9603 elements=458752 size=0.001709 GiB
+[wits_rmms] trace_idx=3 circuit=ANDI num_instances=22 elements=768 size=0.000003 GiB
+[wits_rmms] trace_idx=4 circuit=AUIPC num_instances=24 elements=672 size=0.000003 GiB
+[wits_rmms] trace_idx=5 circuit=And_OPS_ROM_TABLE num_instances=65536 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=6 circuit=BEQ num_instances=31 elements=608 size=0.000002 GiB
+[wits_rmms] trace_idx=7 circuit=BGE num_instances=1 elements=44 size=0.000000 GiB
+[wits_rmms] trace_idx=8 circuit=BGEU num_instances=65797 elements=2883584 size=0.010742 GiB
+[wits_rmms] trace_idx=9 circuit=BLT num_instances=2 elements=44 size=0.000000 GiB
+[wits_rmms] trace_idx=10 circuit=BLTU num_instances=384 elements=11264 size=0.000042 GiB
+[wits_rmms] trace_idx=11 circuit=BNE num_instances=66772 elements=2490368 size=0.009277 GiB
+[wits_rmms] trace_idx=14 circuit=DOUBLE_RANGE_DoubleU8 num_instances=65536 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=15 circuit=DYNAMIC_RANGE_18 num_instances=524288 elements=524288 size=0.001953 GiB
+[wits_rmms] trace_idx=16 circuit=ECALL_HALT num_instances=1 elements=16 size=0.000000 GiB
+[wits_rmms] trace_idx=22 circuit=Ecall_PubioCommit num_instances=1 elements=72 size=0.000000 GiB
+[wits_rmms] trace_idx=33 circuit=HintsTable_Memory_RAM num_instances=16456 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=34 circuit=JAL num_instances=12 elements=208 size=0.000001 GiB
+[wits_rmms] trace_idx=35 circuit=JALR num_instances=42 elements=1408 size=0.000005 GiB
+[wits_rmms] trace_idx=39 circuit=LB num_instances=131072 elements=3801088 size=0.014160 GiB
+[wits_rmms] trace_idx=40 circuit=LBU num_instances=2073 elements=114688 size=0.000427 GiB
+[wits_rmms] trace_idx=44 circuit=LUI num_instances=223 elements=4096 size=0.000015 GiB
+[wits_rmms] trace_idx=45 circuit=LW num_instances=26871 elements=753664 size=0.002808 GiB
+[wits_rmms] trace_idx=46 circuit=LocalRAMTableFinal num_instances=21126 elements=163840 size=0.000610 GiB
+[wits_rmms] trace_idx=47 circuit=Ltu_OPS_ROM_TABLE num_instances=65536 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=48 circuit=MUL num_instances=65541 elements=2883584 size=0.010742 GiB
+[wits_rmms] trace_idx=52 circuit=OR num_instances=11152 elements=458752 size=0.001709 GiB
+[wits_rmms] trace_idx=54 circuit=Or_OPS_ROM_TABLE num_instances=65536 elements=65536 size=0.000244 GiB
+[wits_rmms] trace_idx=55 circuit=PROGRAM num_instances=2048 elements=2048 size=0.000008 GiB
+[wits_rmms] trace_idx=59 circuit=REMU num_instances=3 elements=156 size=0.000001 GiB
+[wits_rmms] trace_idx=60 circuit=SB num_instances=2062 elements=118784 size=0.000443 GiB
+[wits_rmms] trace_idx=61 circuit=SH num_instances=1 elements=48 size=0.000000 GiB
+[wits_rmms] trace_idx=63 circuit=SLLI num_instances=11404 elements=655360 size=0.002441 GiB
+[wits_rmms] trace_idx=66 circuit=SLTIU num_instances=10 elements=352 size=0.000001 GiB
+[wits_rmms] trace_idx=67 circuit=SLTU num_instances=258 elements=13312 size=0.000050 GiB
+[wits_rmms] trace_idx=71 circuit=SRLI num_instances=11904 elements=655360 size=0.002441 GiB
+[wits_rmms] trace_idx=72 circuit=SUB num_instances=30 elements=704 size=0.000003 GiB
+[wits_rmms] trace_idx=73 circuit=SW num_instances=21364 elements=753664 size=0.002808 GiB
+[wits_rmms] trace_idx=75 circuit=XOR num_instances=30209 elements=917504 size=0.003418 GiB
+[wits_rmms] trace_idx=76 circuit=XORI num_instances=9601 elements=393216 size=0.001465 GiB
+[wits_rmms] trace_idx=77 circuit=Xor_OPS_ROM_TABLE num_instances=65536 elements=65536 size=0.000244 GiB
+[32m INFO[0m [1m[ceno] app_prove.inner[0m: [2mceno_zkvm::e2e[0m[2m:[0m e2e proof stat: overall_size 1.11mb. 
+mpcs commitment 0% 
+mpcs opening 69% 
+mpcs opening break down: 
+mpcs opening.total: 0.77mb(69%, 810677 bytes)
+mpcs opening.rounds: 0.01mb(0%, 6304 bytes)
+mpcs opening.inner_proof: 0.77mb(69%, 804373 bytes)
+mpcs opening.round[0].total: 0.00mb(0%, 3648 bytes)
+mpcs opening.round[0].sumcheck_proof: 0.00mb(0%, 1008 bytes)
+mpcs opening.round[0].col_evals: 0.00mb(0%, 616 bytes)
+mpcs opening.round[0].f_at_rho: 0.00mb(0%, 16 bytes)
+mpcs opening.round[0].assist_proof: 0.00mb(0%, 2008 bytes)
+mpcs opening.round[1].total: 0.00mb(0%, 2648 bytes)
+mpcs opening.round[1].sumcheck_proof: 0.00mb(0%, 808 bytes)
+mpcs opening.round[1].col_evals: 0.00mb(0%, 216 bytes)
+mpcs opening.round[1].f_at_rho: 0.00mb(0%, 16 bytes)
+mpcs opening.round[1].assist_proof: 0.00mb(0%, 1608 bytes)
+mpcs opening.inner_proof.total: 0.77mb(69%, 804373 bytes)
+mpcs opening.inner_proof.commits: 0.00mb(0%, 616 bytes)
+mpcs opening.inner_proof.final_message: 0.00mb(0%, 176 bytes)
+mpcs opening.inner_proof.query_opening_proof: 0.77mb(69%, 802808 bytes)
+mpcs opening.inner_proof.sumcheck_proof: 0.00mb(0%, 769 bytes)
+mpcs opening.inner_proof.pow_witness: 0.00mb(0%, 4 bytes)
+mpcs opening.inner_proof.query_opening_proof[0].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[0].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[1].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[1].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[2].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[2].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[3].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[3].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[4].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[4].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[5].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[5].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[6].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[6].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[7].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[7].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[8].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[8].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[9].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[9].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[10].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[10].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[11].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[11].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[12].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[12].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[13].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[13].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[14].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[14].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[15].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[15].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[16].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[16].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[17].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[17].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[18].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[18].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[19].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[19].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[20].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[20].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[21].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[21].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[22].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[22].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[23].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[23].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[24].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[24].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[25].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[25].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[26].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[26].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[27].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[27].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[28].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[28].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[29].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[29].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[30].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[30].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[31].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[31].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[32].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[32].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[33].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[33].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[34].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[34].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[35].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[35].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[36].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[36].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[37].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[37].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[38].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[38].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[39].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[39].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[40].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[40].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[41].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[41].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[42].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[42].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[43].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[43].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[44].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[44].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[45].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[45].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[46].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[46].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[47].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[47].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[48].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[48].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[49].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[49].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[50].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[50].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[51].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[51].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[52].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[52].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[53].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[53].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[54].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[54].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[55].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[55].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[56].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[56].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[57].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[57].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[58].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[58].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[59].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[59].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[60].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[60].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[61].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[61].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[62].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[62].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[63].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[63].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[64].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[64].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[65].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[65].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[66].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[66].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[67].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[67].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[68].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[68].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[69].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[69].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[70].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[70].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[71].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[71].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[72].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[72].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[73].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[73].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[74].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[74].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[75].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[75].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[76].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[76].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[77].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[77].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[78].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[78].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[79].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[79].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[80].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[80].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[81].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[81].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[82].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[82].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[83].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[83].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[84].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[84].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[85].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[85].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[86].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[86].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[87].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[87].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[88].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[88].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[89].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[89].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[90].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[90].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[91].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[91].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[92].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[92].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[93].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[93].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[94].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[94].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[95].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[95].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[96].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[96].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[97].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[97].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[98].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[98].commit_phase_openings: 0.01mb(0%, 6544 bytes)
+mpcs opening.inner_proof.query_opening_proof[99].input_proofs: 0.00mb(0%, 1484 bytes)
+mpcs opening.inner_proof.query_opening_proof[99].commit_phase_openings: 0.01mb(0%, 6544 bytes) 
+tower proof 27% 
+main sumcheck proof 0% 
+by circuit_name break down: 
+0: 0.02mb(1%)
+1: 0.01mb(1%)
+39: 0.01mb(1%)
+48: 0.01mb(1%)
+11: 0.01mb(1%)
+8: 0.01mb(1%)
+45: 0.01mb(1%)
+77: 0.01mb(1%)
+73: 0.01mb(1%)
+71: 0.01mb(0%)
+78: 0.01mb(0%)
+2: 0.01mb(0%)
+52: 0.01mb(0%)
+63: 0.01mb(0%)
+15: 0.01mb(0%)
+40: 0.01mb(0%)
+60: 0.01mb(0%)
+33: 0.01mb(0%)
+14: 0.01mb(0%)
+79: 0.01mb(0%)
+54: 0.01mb(0%)
+5: 0.01mb(0%)
+47: 0.01mb(0%)
+46: 0.01mb(0%)
+67: 0.01mb(0%)
+10: 0.01mb(0%)
+44: 0.00mb(0%)
+56: 0.00mb(0%)
+55: 0.00mb(0%)
+35: 0.00mb(0%)
+4: 0.00mb(0%)
+3: 0.00mb(0%)
+72: 0.00mb(0%)
+6: 0.00mb(0%)
+66: 0.00mb(0%)
+34: 0.00mb(0%)
+76: 0.00mb(0%)
+32: 0.00mb(0%)
+22: 0.00mb(0%)
+59: 0.00mb(0%)
+57: 0.00mb(0%)
+61: 0.00mb(0%)
+7: 0.00mb(0%)
+9: 0.00mb(0%)
+16: 0.00mb(0%)
+17: 0.00mb(0%)
+            
+[32m INFO[0m [2mceno_zkvm::scheme::verifier[0m[2m:[0m verifying shard proof: expected_shard_id=0, proof_shard_id=0, chip_groups=46
+[32m INFO[0m [2mceno_zkvm::e2e[0m[2m:[0m exit code 0. Success.
+[32m INFO[0m [1mverify_proof[0m: [2mceno_zkvm::scheme::verifier[0m[2m:[0m verifying shard proof: expected_shard_id=0, proof_shard_id=0, chip_groups=46

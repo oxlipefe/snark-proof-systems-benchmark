@@ -1,0 +1,2 @@
+META label=pp-clone onnx=/tmp/bench-scratch/probes-ja/pp-clone.onnx padding=true scale=14 max_num_vars=9 reps=1 warmup=0
+SETUP ms=5.577

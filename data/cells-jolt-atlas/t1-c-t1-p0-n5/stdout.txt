@@ -1,0 +1,2 @@
+META label=t1-c onnx=/repo/tasks/jolt-atlas/t1-c.onnx padding=false scale=14 max_num_vars=18 reps=5 warmup=1
+SETUP ms=2170.890

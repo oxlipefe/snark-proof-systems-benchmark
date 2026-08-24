@@ -1,0 +1,27 @@
+task=T3 macs=737792 imul=737792 and=737784 zero=92224 bmul=0 private=2399408 inout=8
+proof=460112B
+rep=0 total=0.0610s channel=0.000000s iop=0.0003s wiring=0.0599s finish=0.000826s wiring_share=0.9820
+rep=1 total=0.0601s channel=0.000000s iop=0.0003s wiring=0.0590s finish=0.000859s wiring_share=0.9812
+rep=2 total=0.0602s channel=0.000001s iop=0.0003s wiring=0.0591s finish=0.000829s wiring_share=0.9813
+rep=3 total=0.0600s channel=0.000000s iop=0.0003s wiring=0.0590s finish=0.000821s wiring_share=0.9818
+rep=4 total=0.0604s channel=0.000000s iop=0.0003s wiring=0.0593s finish=0.000764s wiring_share=0.9829
+wrote /repo/data/verify-split/t3-r1-t1-n5.verify-split.csv
+wrote /repo/data/verify-split/t3-r1-t1-n5.verify-split.json
+        5.64 real         4.67 user         0.95 sys
+          7065288704  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              628939  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                1259  involuntary context switches
+         76943592579  instructions retired
+         18081033808  cycles elapsed
+          6546625960  peak memory footprint

@@ -1,0 +1,37 @@
+{
+  "bucket_c_memory_bandwidth": "NOT MEASURED DIRECTLY: needs hardware counters; `perf` is absent on macOS and dtrace is restricted by SIP",
+  "cells": [
+    {
+      "imul_per_and": 1.0158730158730158,
+      "log_inv_rate": 1,
+      "n_and_constraints": 129024,
+      "n_imul_constraints": 131072,
+      "n_macs": 131072,
+      "n_test_queries": 232,
+      "security_bits": 96,
+      "size": 2048,
+      "wall_nanos_max": 345772792.0,
+      "wall_nanos_median": 330525667.0,
+      "wall_nanos_min": 316692292.0
+    }
+  ],
+  "experiment": "E-001",
+  "hash_suite": "StdHashSuite = Sha256HashSuite (binius-hash/src/lib.rs:32)",
+  "label": "repro-e001-m2048-r1-t1",
+  "log_inv_rates": [
+    1
+  ],
+  "matmul_k_depth": 64,
+  "matmul_rows": 8,
+  "measured_reps": 5,
+  "rayon_pinned_single_thread": true,
+  "rayon_threads": 1,
+  "security_bits": 96,
+  "security_note": "constant across the rate sweep. binius64 sets SECURITY_BITS = 96 in crates/verifier/src/verify.rs:36 and derives the FRI query count from it and the rate via calculate_n_test_queries (crates/iop/src/fri/common.rs:506), called from Verifier::setup (crates/verifier/src/verify.rs:259). Raising the rate lowers the query count, so the sweep compares configurations of equal soundness.",
+  "size_unit": "output_elements",
+  "subject_circuit": "MatmulInt8",
+  "subject_description": "INT8 matmul tile: MATMUL_ROWS x MATMUL_K_DEPTH x cols",
+  "subject_repo": "binius-zk/binius64",
+  "warmup_proofs": 1,
+  "witness_seed": 57345
+}

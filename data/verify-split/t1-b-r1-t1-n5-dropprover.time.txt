@@ -1,0 +1,28 @@
+task=T1-b macs=2359296 imul=2359296 and=2356224 zero=294912 bmul=0 private=7959552 inout=3072
+proof=505952B
+prover dropped before verifying
+rep=0 total=0.2035s channel=0.000029s iop=0.0009s wiring=0.2016s finish=0.000923s wiring_share=0.9907
+rep=1 total=0.1967s channel=0.000025s iop=0.0009s wiring=0.1947s finish=0.000976s wiring_share=0.9901
+rep=2 total=0.1961s channel=0.000025s iop=0.0010s wiring=0.1942s finish=0.000956s wiring_share=0.9901
+rep=3 total=0.1966s channel=0.000027s iop=0.0009s wiring=0.1947s finish=0.000952s wiring_share=0.9904
+rep=4 total=0.1960s channel=0.000024s iop=0.0009s wiring=0.1941s finish=0.000967s wiring_share=0.9904
+wrote /repo/data/verify-split/t1-b-r1-t1-n5-dropprover.verify-split.csv
+wrote /repo/data/verify-split/t1-b-r1-t1-n5-dropprover.verify-split.json
+       25.00 real        17.00 user         6.47 sys
+         16051699712  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             3170305  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   1  voluntary context switches
+               22226  involuntary context switches
+        274778817747  instructions retired
+         74750833130  cycles elapsed
+         24276208696  peak memory footprint

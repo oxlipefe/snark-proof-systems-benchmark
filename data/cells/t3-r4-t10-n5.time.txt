@@ -1,0 +1,27 @@
+task=T3 macs=737792 relus=3584 IMUL=737792 AND=737784 ZERO=92224 BMUL=0 private_values=2399408 inout=8 max_abs_acc=19638755553042 build=1.206s
+setup=0.721s
+rep=0 prove=0.857s verify=0.0287s proof=324112B
+rep=1 prove=0.809s verify=0.0308s proof=324112B
+rep=2 prove=0.821s verify=0.0292s proof=324112B
+rep=3 prove=0.806s verify=0.0274s proof=324112B
+rep=4 prove=0.819s verify=0.0282s proof=324112B
+wrote /repo/data/cells/t3-r4-t10-n5/reps.csv
+wrote /repo/data/cells/t3-r4-t10-n5/cell.json
+        7.47 real        31.11 user         6.64 sys
+          8708915200  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1160083  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+              112037  involuntary context switches
+        310560808543  instructions retired
+        110281292951  cycles elapsed
+          8192514720  peak memory footprint

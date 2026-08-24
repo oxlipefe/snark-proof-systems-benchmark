@@ -1,0 +1,8 @@
+task,t2
+proof_bytes,1188781
+shards,1
+keygen_s,9.560947
+verifier_new_s,3.874443
+proof_deserialize_s,0.000999
+verify_s,0.051002
+verdict,VERIFY_ACCEPTED

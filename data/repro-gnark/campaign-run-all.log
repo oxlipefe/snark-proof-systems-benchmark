@@ -1,0 +1,337 @@
+=== 0. build + integrity + gadget correctness + gnark's own examples (BLOCKING) ===
+=== 0. toolchain ===
+go version go1.26.4 darwin/arm64
+=== 1. the clone is at the pinned commit (BLOCKING) ===
+clone HEAD = 9838556b92c7783cb82971cf37c0d081cc2b6aec (v0.16.2)
+=== 2. the module cache is byte-identical to the clone (BLOCKING) ===
+module cache == clone, 0 differing paths
+=== 3. build ===
+total 105128
+drwxr-xr-x@  6 bench  staff       192 Aug 24 12:47 .
+drwxr-xr-x@ 21 bench  staff       672 Aug 24 12:58 ..
+-rwxr-xr-x@  1 bench  staff   6849442 Aug 24 13:02 gnark-compile-grid
+-rwxr-xr-x@  1 bench  staff  15633394 Aug 24 13:02 gnark-negative
+-rwxr-xr-x@  1 bench  staff  15675410 Aug 24 13:02 gnark-probe
+-rwxr-xr-x@  1 bench  staff  15657042 Aug 24 13:02 gnark-runner
+=== 4. correctness of the gadgets (BLOCKING) ===
+ok  	github.com/viaas/zk-prover-bench/gnark	2.833s
+?   	github.com/viaas/zk-prover-bench/gnark/cmd/compile-grid	[no test files]
+?   	github.com/viaas/zk-prover-bench/gnark/cmd/negative	[no test files]
+?   	github.com/viaas/zk-prover-bench/gnark/cmd/probe	[no test files]
+?   	github.com/viaas/zk-prover-bench/gnark/runner	[no test files]
+=== 5. gnark's own example circuits through this harness (BLOCKING) ===
+EXAMPLE label=gnark-example-cubic backend=groth16 regime=- status=OK constraints=3 public=2 domain_measured=4 setup_ms=8.786 prove_ms=1.429 verify_ms=1.597 proof_bytes=164 proof_bytes_raw=324 witness_source=gnark_examples/cubic/cubic.go_v0.16.2_x^3+x+5=y_at_x=3
+EXAMPLE label=gnark-example-cubic backend=plonk regime=- status=OK constraints=4 public=1 domain_measured=8 setup_ms=2.978 prove_ms=4.115 verify_ms=2.485 proof_bytes=520 proof_bytes_raw=808 witness_source=gnark_examples/cubic/cubic.go_v0.16.2_x^3+x+5=y_at_x=3
+EXAMPLE label=gnark-example-mimc backend=groth16 regime=- status=OK constraints=331 public=2 domain_measured=512 setup_ms=39.587 prove_ms=7.519 verify_ms=1.336 proof_bytes=164 proof_bytes_raw=324 witness_source=gnark_examples/mimc/mimc_test.go_v0.16.2_verbatim
+EXAMPLE label=gnark-example-mimc backend=plonk regime=- status=OK constraints=442 public=1 domain_measured=512 setup_ms=5.496 prove_ms=13.214 verify_ms=1.550 proof_bytes=520 proof_bytes_raw=808 witness_source=gnark_examples/mimc/mimc_test.go_v0.16.2_verbatim
+BUILD OK
+=== 1. the traps, before any figure is attributed to gnark ===
+MINWIDTH label=p1x1 backend=groth16 regime=A status=OK out_width=1 macs=1 constraints=18 domain_measured=32 prove_ms=1.923 verify_ms=1.887 proof_bytes=196
+MINWIDTH label=p1x1 backend=groth16 regime=B status=OK out_width=1 macs=1 constraints=12 domain_measured=16 prove_ms=2.299 verify_ms=2.023 proof_bytes=196
+MINWIDTH label=p1x1 backend=plonk regime=A status=OK out_width=1 macs=1 constraints=54 domain_measured=64 prove_ms=5.083 verify_ms=1.543 proof_bytes=584
+MINWIDTH label=p1x1 backend=plonk regime=B status=OK out_width=1 macs=1 constraints=33 domain_measured=64 prove_ms=4.961 verify_ms=1.612 proof_bytes=584
+MINWIDTH label=p2x1 backend=groth16 regime=A status=OK out_width=1 macs=2 constraints=29 domain_measured=32 prove_ms=1.674 verify_ms=1.983 proof_bytes=196
+MINWIDTH label=p2x1 backend=groth16 regime=B status=OK out_width=1 macs=2 constraints=17 domain_measured=32 prove_ms=1.486 verify_ms=1.946 proof_bytes=196
+MINWIDTH label=p2x1 backend=plonk regime=A status=OK out_width=1 macs=2 constraints=96 domain_measured=128 prove_ms=6.635 verify_ms=1.624 proof_bytes=584
+MINWIDTH label=p2x1 backend=plonk regime=B status=OK out_width=1 macs=2 constraints=54 domain_measured=64 prove_ms=4.751 verify_ms=2.127 proof_bytes=584
+MINWIDTH label=p64x1 backend=groth16 regime=A status=OK out_width=1 macs=64 constraints=467 domain_measured=512 prove_ms=6.863 verify_ms=1.884 proof_bytes=196
+MINWIDTH label=p64x1 backend=groth16 regime=B status=OK out_width=1 macs=64 constraints=211 domain_measured=256 prove_ms=4.827 verify_ms=2.024 proof_bytes=196
+MINWIDTH label=p64x1 backend=plonk regime=A status=OK out_width=1 macs=64 constraints=1456 domain_measured=2048 prove_ms=33.499 verify_ms=1.666 proof_bytes=584
+MINWIDTH label=p64x1 backend=plonk regime=B status=OK out_width=1 macs=64 constraints=751 domain_measured=1024 prove_ms=19.784 verify_ms=1.959 proof_bytes=584
+MINWIDTH label=p64x2 backend=groth16 regime=A status=OK out_width=2 macs=128 constraints=725 domain_measured=1024 prove_ms=7.592 verify_ms=1.903 proof_bytes=196
+MINWIDTH label=p64x2 backend=groth16 regime=B status=OK out_width=2 macs=128 constraints=212 domain_measured=256 prove_ms=3.711 verify_ms=1.830 proof_bytes=196
+MINWIDTH label=p64x2 backend=plonk regime=A status=OK out_width=2 macs=128 constraints=2176 domain_measured=4096 prove_ms=58.945 verify_ms=1.707 proof_bytes=584
+MINWIDTH label=p64x2 backend=plonk regime=B status=OK out_width=2 macs=128 constraints=815 domain_measured=1024 prove_ms=19.715 verify_ms=1.679 proof_bytes=584
+MINWIDTH label=p64x4 backend=groth16 regime=A status=OK out_width=4 macs=256 constraints=1159 domain_measured=2048 prove_ms=12.689 verify_ms=2.209 proof_bytes=196
+MINWIDTH label=p64x4 backend=groth16 regime=B status=OK out_width=4 macs=256 constraints=214 domain_measured=256 prove_ms=3.594 verify_ms=1.889 proof_bytes=196
+MINWIDTH label=p64x4 backend=plonk regime=A status=OK out_width=4 macs=256 constraints=3200 domain_measured=4096 prove_ms=56.759 verify_ms=1.502 proof_bytes=584
+MINWIDTH label=p64x4 backend=plonk regime=B status=OK out_width=4 macs=256 constraints=942 domain_measured=1024 prove_ms=18.930 verify_ms=1.596 proof_bytes=584
+MINWIDTH label=t2 backend=groth16 regime=A status=OK out_width=1 macs=92224 constraints=283408 domain_measured=524288 prove_ms=1046.918 verify_ms=1.831 proof_bytes=196
+MINWIDTH label=t2 backend=plonk regime=A status=OK out_width=1 macs=92224 constraints=758448 domain_measured=1048576 prove_ms=9718.914 verify_ms=1.592 proof_bytes=584
+PADDING label=filler-100 backend=groth16 regime=- status=OK constraints=101 public=2 domain_measured=128 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=128 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.2673 pk_bytes=11367
+PADDING label=filler-100 backend=plonk regime=- status=OK constraints=101 public=1 domain_measured=128 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=128 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.2549 pk_bytes=42640
+PADDING label=filler-1000 backend=groth16 regime=- status=OK constraints=1001 public=2 domain_measured=1024 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=1024 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.0230 pk_bytes=99439
+PADDING label=filler-1000 backend=plonk regime=- status=OK constraints=1001 public=1 domain_measured=1024 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=1024 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.0220 pk_bytes=99984
+PADDING label=filler-1023 backend=groth16 regime=- status=OK constraints=1024 public=2 domain_measured=1024 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=1024 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.0000 pk_bytes=100957
+PADDING label=filler-1023 backend=plonk regime=- status=OK constraints=1024 public=1 domain_measured=2048 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=2048 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.9980 pk_bytes=165520
+PADDING label=filler-1024 backend=groth16 regime=- status=OK constraints=1025 public=2 domain_measured=2048 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=2048 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.9980 pk_bytes=133791
+PADDING label=filler-1024 backend=plonk regime=- status=OK constraints=1025 public=1 domain_measured=2048 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=2048 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.9961 pk_bytes=165520
+PADDING label=filler-1025 backend=groth16 regime=- status=OK constraints=1026 public=2 domain_measured=2048 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=2048 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.9961 pk_bytes=133857
+PADDING label=filler-1025 backend=plonk regime=- status=OK constraints=1026 public=1 domain_measured=2048 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=2048 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.9942 pk_bytes=165520
+PADDING label=filler-2000 backend=groth16 regime=- status=OK constraints=2001 public=2 domain_measured=2048 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=2048 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.0235 pk_bytes=198207
+PADDING label=filler-2000 backend=plonk regime=- status=OK constraints=2001 public=1 domain_measured=2048 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=2048 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.0230 pk_bytes=165520
+PADDING label=filler-4095 backend=groth16 regime=- status=OK constraints=4096 public=2 domain_measured=4096 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=4096 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.0000 pk_bytes=402013
+PADDING label=filler-4095 backend=plonk regime=- status=OK constraints=4096 public=1 domain_measured=8192 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=8192 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.9995 pk_bytes=558736
+PADDING label=filler-4096 backend=groth16 regime=- status=OK constraints=4097 public=2 domain_measured=8192 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=8192 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.9995 pk_bytes=533151
+PADDING label=filler-4096 backend=plonk regime=- status=OK constraints=4097 public=1 domain_measured=8192 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=8192 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.9990 pk_bytes=558736
+PADDING label=filler-4097 backend=groth16 regime=- status=OK constraints=4098 public=2 domain_measured=8192 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=8192 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.9990 pk_bytes=533217
+PADDING label=filler-4097 backend=plonk regime=- status=OK constraints=4098 public=1 domain_measured=8192 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=8192 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.9985 pk_bytes=558736
+PADDING label=filler-10000 backend=groth16 regime=- status=OK constraints=10001 public=2 domain_measured=16384 domain_measured_from=groth16_bn254.ProvingKey.Domain.Cardinality domain_derived=16384 domain_derived_from=fft.NewDomain(nbConstraints) derivation_agrees=true padding_ratio=1.6382 pk_bytes=1184959
+PADDING label=filler-10000 backend=plonk regime=- status=OK constraints=10001 public=1 domain_measured=16384 domain_measured_from=plonk_bn254.VerifyingKey.Size domain_derived=16384 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) derivation_agrees=true padding_ratio=1.6381 pk_bytes=1083024
+RANGECHECK label=rc-16 backend=groth16 regime=- status=OK n=16 constraints=67 per_value=4.1875 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-16 backend=plonk regime=- status=OK n=16 constraints=209 per_value=13.0625 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-64 backend=groth16 regime=- status=OK n=64 constraints=211 per_value=3.2969 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-64 backend=plonk regime=- status=OK n=64 constraints=689 per_value=10.7656 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-256 backend=groth16 regime=- status=OK n=256 constraints=771 per_value=3.0117 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-256 backend=plonk regime=- status=OK n=256 constraints=2305 per_value=9.0039 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-448 backend=groth16 regime=- status=OK n=448 constraints=1156 per_value=2.5804 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-448 backend=plonk regime=- status=OK n=448 constraints=3457 per_value=7.7165 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-1024 backend=groth16 regime=- status=OK n=1024 constraints=2309 per_value=2.2549 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-1024 backend=plonk regime=- status=OK n=1024 constraints=6913 per_value=6.7510 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-4096 backend=groth16 regime=- status=OK n=4096 constraints=8459 per_value=2.0652 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-4096 backend=plonk regime=- status=OK n=4096 constraints=25345 per_value=6.1877 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-65792 backend=groth16 regime=- status=OK n=65792 constraints=131972 per_value=2.0059 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RANGECHECK label=rc-65792 backend=plonk regime=- status=OK n=65792 constraints=395521 per_value=6.0117 note=per_value_is_NOT_a_constant_it_amortizes_a_shared_table
+RELU label=tobinary backend=groth16 regime=- status=OK mode=isolated n=448 bits=24 constraints=12544 total_per_activation=28.000 verified=true
+RELU label=tobinary backend=groth16 regime=- status=OK mode=isolated n=896 bits=24 constraints=25088 total_per_activation=28.000 verified=true
+RELU label=tobinary backend=groth16 regime=- status=OK mode=marginal bits=24 c448=12544 c896=25088 marginal_per_activation=28.000
+RELU label=tobinary backend=plonk regime=- status=OK mode=isolated n=448 bits=24 constraints=23744 total_per_activation=53.000 verified=true
+RELU label=tobinary backend=plonk regime=- status=OK mode=isolated n=896 bits=24 constraints=47488 total_per_activation=53.000 verified=true
+RELU label=tobinary backend=plonk regime=- status=OK mode=marginal bits=24 c448=23744 c896=47488 marginal_per_activation=53.000
+RELU label=hintedsign backend=groth16 regime=- status=OK mode=isolated n=448 bits=24 constraints=5191 total_per_activation=11.587 verified=true
+RELU label=hintedsign backend=groth16 regime=- status=OK mode=isolated n=896 bits=24 constraints=10124 total_per_activation=11.299 verified=true
+RELU label=hintedsign backend=groth16 regime=- status=OK mode=marginal bits=24 c448=5191 c896=10124 marginal_per_activation=11.011
+RELU label=hintedsign backend=plonk regime=- status=OK mode=isolated n=448 bits=24 constraints=15104 total_per_activation=33.714 verified=true
+RELU label=hintedsign backend=plonk regime=- status=OK mode=isolated n=896 bits=24 constraints=29440 total_per_activation=32.857 verified=true
+RELU label=hintedsign backend=plonk regime=- status=OK mode=marginal bits=24 c448=15104 c896=29440 marginal_per_activation=32.000
+RELU label=tobinary backend=groth16 regime=A status=OK mode=t2_in_situ constraints=289864 relus=448 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855)
+RELU label=hintedsign backend=groth16 regime=A status=OK mode=t2_in_situ constraints=283408 relus=448 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855)
+RELU label=delta backend=groth16 regime=A status=OK mode=t2_delta tobinary=289864 hintedsign=283408 delta=6456 delta_per_activation=14.411 cheaper=hintedsign
+RELU label=tobinary backend=plonk regime=A status=OK mode=t2_in_situ constraints=763120 relus=448 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855)
+RELU label=hintedsign backend=plonk regime=A status=OK mode=t2_in_situ constraints=758448 relus=448 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855)
+RELU label=delta backend=plonk regime=A status=OK mode=t2_delta tobinary=763120 hintedsign=758448 delta=4672 delta_per_activation=10.429 cheaper=hintedsign
+=== 2. constraint counts for the whole grid, from compilation alone ===
+[grid] CELL label=t1-0 backend=groth16 regime=A gadget=hintedsign status=OK macs=65536 macs_emitted=65536 relus=0 max_abs_intermediate=265403 static_worst_case=4194304 relu_bits=- constraints=197763 internal_vars=197763 secret=65792 public=257 coefficients=512 instructions=263559 domain_derived=262144 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.3255 constraints_per_mac=3.0176 compile_ms=308.286 go_heap_alloc_bytes=129675264 go_sys_bytes=156461352
+[grid] CELL label=t1-0 backend=groth16 regime=B gadget=hintedsign status=OK macs=65536 macs_emitted=65536 relus=0 max_abs_intermediate=265403 static_worst_case=4194304 relu_bits=- constraints=1026 internal_vars=1026 secret=256 public=257 coefficients=512 instructions=1286 domain_derived=2048 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.9961 constraints_per_mac=0.0157 compile_ms=163.393 go_heap_alloc_bytes=3201344 go_sys_bytes=19138824
+[grid] CELL label=t1-0 backend=plonk regime=A gadget=hintedsign status=OK macs=65536 macs_emitted=65536 relus=0 max_abs_intermediate=265403 static_worst_case=4194304 relu_bits=- constraints=526592 internal_vars=460543 secret=65792 public=256 coefficients=512 instructions=592388 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.9903 constraints_per_mac=8.0352 compile_ms=228.079 go_heap_alloc_bytes=172245968 go_sys_bytes=217151800
+[grid] CELL label=t1-0 backend=plonk regime=B gadget=hintedsign status=OK macs=65536 macs_emitted=65536 relus=0 max_abs_intermediate=265403 static_worst_case=4194304 relu_bits=- constraints=67592 internal_vars=67079 secret=256 public=256 coefficients=512 instructions=67852 domain_derived=131072 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.9318 constraints_per_mac=1.0314 compile_ms=44.925 go_heap_alloc_bytes=11987904 go_sys_bytes=26921224
+[grid] CELL label=t2 backend=groth16 regime=A gadget=hintedsign status=OK macs=92224 macs_emitted=92224 relus=448 max_abs_intermediate=14623789560139 static_worst_case=14411518807585587200 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855) constraints=283408 internal_vars=285967 secret=92424 public=2 coefficients=515 instructions=377180 domain_derived=524288 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.8499 constraints_per_mac=3.0730 compile_ms=423.834 go_heap_alloc_bytes=184354504 go_sys_bytes=241121592
+[grid] CELL label=t2 backend=groth16 regime=B gadget=hintedsign status=OK macs=92224 macs_emitted=92224 relus=448 max_abs_intermediate=14623789560139 static_worst_case=14411518807585587200 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855) constraints=6555 internal_vars=9114 secret=200 public=2 coefficients=515 instructions=8103 domain_derived=8192 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.2497 constraints_per_mac=0.0711 compile_ms=233.032 go_heap_alloc_bytes=18796504 go_sys_bytes=36002072
+[grid] CELL label=t2 backend=plonk regime=A gadget=hintedsign status=OK macs=92224 macs_emitted=92224 relus=448 max_abs_intermediate=14623789560139 static_worst_case=14411518807585587200 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855) constraints=758448 internal_vars=665126 secret=92424 public=1 coefficients=515 instructions=852220 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.3825 constraints_per_mac=8.2240 compile_ms=339.647 go_heap_alloc_bytes=241419096 go_sys_bytes=281184584
+[grid] CELL label=t2 backend=plonk regime=B gadget=hintedsign status=OK macs=92224 macs_emitted=92224 relus=448 max_abs_intermediate=14623789560139 static_worst_case=14411518807585587200 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855) constraints=110950 internal_vars=109852 secret=200 public=1 coefficients=2050 instructions=112498 domain_derived=131072 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.1814 constraints_per_mac=1.2030 compile_ms=76.545 go_heap_alloc_bytes=12770080 go_sys_bytes=35690776
+[grid] CELL label=t1-a backend=groth16 regime=A gadget=hintedsign status=OK macs=589824 macs_emitted=589824 relus=0 max_abs_intermediate=532359 static_worst_case=12582912 relu_bits=- constraints=1774726 internal_vars=1774214 secret=590592 public=769 coefficients=512 instructions=2365322 domain_derived=2097152 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.1817 constraints_per_mac=3.0089 compile_ms=2827.301 go_heap_alloc_bytes=854639448 go_sys_bytes=1416167000
+[grid] CELL label=t1-a backend=groth16 regime=B gadget=hintedsign status=OK macs=589824 macs_emitted=589824 relus=0 max_abs_intermediate=532359 static_worst_case=12582912 relu_bits=- constraints=4099 internal_vars=3587 secret=768 public=769 coefficients=512 instructions=4871 domain_derived=8192 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.9985 constraints_per_mac=0.0069 compile_ms=1558.060 go_heap_alloc_bytes=9934344 go_sys_bytes=48974088
+[grid] CELL label=t1-a backend=plonk regime=A gadget=hintedsign status=OK macs=589824 macs_emitted=589824 relus=0 max_abs_intermediate=532359 static_worst_case=12582912 relu_bits=- constraints=4723968 internal_vars=4132607 secret=590592 public=768 coefficients=512 instructions=5314564 domain_derived=8388608 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7755 constraints_per_mac=8.0091 compile_ms=2274.922 go_heap_alloc_bytes=1319529744 go_sys_bytes=1483788920
+[grid] CELL label=t1-a backend=plonk regime=B gadget=hintedsign status=OK macs=589824 macs_emitted=589824 relus=0 max_abs_intermediate=532359 static_worst_case=12582912 relu_bits=- constraints=592927 internal_vars=591390 secret=768 public=768 coefficients=512 instructions=593699 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7662 constraints_per_mac=1.0053 compile_ms=411.746 go_heap_alloc_bytes=78851416 go_sys_bytes=153774376
+[grid] CELL label=t3 backend=groth16 regime=A gadget=hintedsign status=OK macs=737792 macs_emitted=737792 relus=3584 max_abs_intermediate=19286700869800 static_worst_case=14411518807585587200 relu_bits=L0:20(max=315857)|L1:29(max=232370952)|L2:38(max=111810754416) constraints=973058 internal_vars=991738 secret=93824 public=9 coefficients=515 instructions=1077638 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.0776 constraints_per_mac=1.3189 compile_ms=1733.034 go_heap_alloc_bytes=424914776 go_sys_bytes=520726920
+[grid] CELL label=t3 backend=groth16 regime=B gadget=hintedsign status=OK macs=737792 macs_emitted=737792 relus=3584 max_abs_intermediate=19286700869800 static_worst_case=14411518807585587200 relu_bits=L0:20(max=315857)|L1:29(max=232370952)|L2:38(max=111810754416) constraints=41724 internal_vars=54004 secret=1600 public=9 coefficients=2050 instructions=54080 domain_derived=65536 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.5707 constraints_per_mac=0.0566 compile_ms=1439.571 go_heap_alloc_bytes=142006024 go_sys_bytes=222656824
+[grid] CELL label=t3 backend=plonk regime=A gadget=hintedsign status=OK macs=737792 macs_emitted=737792 relus=3584 max_abs_intermediate=19286700869800 static_worst_case=14411518807585587200 relu_bits=L0:20(max=315857)|L1:29(max=232370952)|L2:38(max=111810754416) constraints=2188800 internal_vars=2087799 secret=93824 public=8 coefficients=515 instructions=2293380 domain_derived=4194304 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.9163 constraints_per_mac=2.9667 compile_ms=1046.541 go_heap_alloc_bytes=357759256 go_sys_bytes=644606376
+[grid] CELL label=t3 backend=plonk regime=B gadget=hintedsign status=OK macs=737792 macs_emitted=737792 relus=3584 max_abs_intermediate=19286700869800 static_worst_case=14411518807585587200 relu_bits=L0:20(max=315857)|L1:29(max=232370952)|L2:38(max=111810754416) constraints=853672 internal_vars=844895 secret=1600 public=8 coefficients=2050 instructions=866028 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.2283 constraints_per_mac=1.1571 compile_ms=546.734 go_heap_alloc_bytes=122348984 go_sys_bytes=208861496
+[grid] CELL label=t1-b backend=groth16 regime=A gadget=hintedsign status=OK macs=2359296 macs_emitted=2359296 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- constraints=3555722 internal_vars=3552906 secret=592896 public=3073 coefficients=512 instructions=4148622 domain_derived=4194304 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.1796 constraints_per_mac=1.5071 compile_ms=6971.927 go_heap_alloc_bytes=1289323384 go_sys_bytes=1700859560
+[grid] CELL label=t1-b backend=groth16 regime=B gadget=hintedsign status=OK macs=2359296 macs_emitted=2359296 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- constraints=15624 internal_vars=12808 secret=3072 public=3073 coefficients=512 instructions=18700 domain_derived=16384 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.0486 constraints_per_mac=0.0066 compile_ms=5230.132 go_heap_alloc_bytes=34250040 go_sys_bytes=99195160
+[grid] CELL label=t1-b backend=plonk regime=A gadget=hintedsign status=OK macs=2359296 macs_emitted=2359296 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- constraints=8276736 internal_vars=7680767 secret=592896 public=3072 coefficients=512 instructions=8869636 domain_derived=8388608 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.0131 constraints_per_mac=3.5081 compile_ms=4181.821 go_heap_alloc_bytes=1681853424 go_sys_bytes=2025722616
+[grid] CELL label=t1-b backend=plonk regime=B gadget=hintedsign status=OK macs=2359296 macs_emitted=2359296 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- constraints=2369320 internal_vars=2363175 secret=3072 public=3072 coefficients=512 instructions=2372396 domain_derived=4194304 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7680 constraints_per_mac=1.0042 compile_ms=1555.493 go_heap_alloc_bytes=385061000 go_sys_bytes=539023768
+[grid] CELL label=t1-c backend=groth16 regime=A gadget=hintedsign status=OK macs=9437184 macs_emitted=9437184 relus=0 max_abs_intermediate=599015 static_worst_case=12582912 relu_bits=- constraints=10679708 internal_vars=10667676 secret=602112 public=12289 coefficients=512 instructions=11281824 domain_derived=16777216 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.5709 constraints_per_mac=1.1317 compile_ms=24017.214 go_heap_alloc_bytes=1954763440 go_sys_bytes=3535680088
+[grid] CELL label=t1-c backend=groth16 regime=B gadget=hintedsign status=OK macs=9437184 macs_emitted=9437184 relus=0 max_abs_intermediate=599015 static_worst_case=12582912 relu_bits=- constraints=61722 internal_vars=49690 secret=12288 public=12289 coefficients=512 instructions=74014 domain_derived=65536 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.0618 constraints_per_mac=0.0065 compile_ms=18660.097 go_heap_alloc_bytes=128909848 go_sys_bytes=361572712
+[grid] CELL label=t1-c backend=plonk regime=A gadget=hintedsign status=OK macs=9437184 macs_emitted=9437184 relus=0 max_abs_intermediate=599015 static_worst_case=12582912 relu_bits=- constraints=22487808 internal_vars=21873407 secret=602112 public=12288 coefficients=512 instructions=23089924 domain_derived=33554432 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.4913 constraints_per_mac=2.3829 compile_ms=12729.693 go_heap_alloc_bytes=3321421872 go_sys_bytes=5024588744
+[grid] CELL label=t1-c backend=plonk regime=B gadget=hintedsign status=OK macs=9437184 macs_emitted=9437184 relus=0 max_abs_intermediate=599015 static_worst_case=12582912 relu_bits=- constraints=9474768 internal_vars=9450191 secret=12288 public=12288 coefficients=512 instructions=9487060 domain_derived=16777216 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7684 constraints_per_mac=1.0040 compile_ms=6616.503 go_heap_alloc_bytes=1543784168 go_sys_bytes=2159178520
+[grid] CELL label=t1-d backend=groth16 regime=A gadget=hintedsign status=OK macs=37748736 macs_emitted=37748736 relus=0 max_abs_intermediate=614632 static_worst_case=12582912 relu_bits=- constraints=39175652 internal_vars=39126756 secret=638976 public=49153 coefficients=512 instructions=39814632 domain_derived=67108864 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.7130 constraints_per_mac=1.0378 compile_ms=94779.583 go_heap_alloc_bytes=7377303200 go_sys_bytes=12471600712
+[grid] CELL label=t1-d backend=groth16 regime=B gadget=hintedsign status=OK macs=37748736 macs_emitted=37748736 relus=0 max_abs_intermediate=614632 static_worst_case=12582912 relu_bits=- constraints=246114 internal_vars=197218 secret=49152 public=49153 coefficients=512 instructions=295270 domain_derived=262144 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.0651 constraints_per_mac=0.0065 compile_ms=73271.639 go_heap_alloc_bytes=569836504 go_sys_bytes=1245055544
+[grid] CELL label=t1-d backend=plonk regime=A gadget=hintedsign status=OK macs=37748736 macs_emitted=37748736 relus=0 max_abs_intermediate=614632 static_worst_case=12582912 relu_bits=- constraints=79332096 internal_vars=78643967 secret=638976 public=49152 coefficients=512 instructions=79971076 domain_derived=134217728 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.6908 constraints_per_mac=2.1016 compile_ms=61354.728 go_heap_alloc_bytes=10084953744 go_sys_bytes=14125938616
+[grid] CELL label=t1-d backend=plonk regime=B gadget=hintedsign status=OK macs=37748736 macs_emitted=37748736 relus=0 max_abs_intermediate=614632 static_worst_case=12582912 relu_bits=- constraints=37899520 internal_vars=37801215 secret=49152 public=49152 coefficients=512 instructions=37948676 domain_derived=67108864 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7684 constraints_per_mac=1.0040 compile_ms=28938.043 go_heap_alloc_bytes=6814520712 go_sys_bytes=8039924120
+[grid] -> /repo/data/compile-grid-gnark.csv
+MACCOST label=dot256 backend=groth16 regime=B status=OK macs=256 weights=constant range_checks=none_this_probe_prices_the_MAC_only constraints=1 constraints_per_mac=0.0039 verified=true
+MACCOST label=dot256 backend=groth16 regime=A status=OK macs=256 weights=witness range_checks=none_this_probe_prices_the_MAC_only constraints=257 constraints_per_mac=1.0039 verified=true
+MACCOST label=dot256 backend=plonk regime=B status=OK macs=256 weights=constant range_checks=none_this_probe_prices_the_MAC_only constraints=255 constraints_per_mac=0.9961 verified=true
+MACCOST label=dot256 backend=plonk regime=A status=OK macs=256 weights=witness range_checks=none_this_probe_prices_the_MAC_only constraints=512 constraints_per_mac=2.0000 verified=true
+EXAMPLE label=gnark-example-cubic backend=groth16 regime=- status=OK constraints=3 public=2 domain_measured=4 setup_ms=1.625 prove_ms=0.744 verify_ms=0.972 proof_bytes=164 proof_bytes_raw=324 witness_source=gnark_examples/cubic/cubic.go_v0.16.2_x^3+x+5=y_at_x=3
+EXAMPLE label=gnark-example-cubic backend=plonk regime=- status=OK constraints=4 public=1 domain_measured=8 setup_ms=1.103 prove_ms=2.860 verify_ms=1.610 proof_bytes=520 proof_bytes_raw=808 witness_source=gnark_examples/cubic/cubic.go_v0.16.2_x^3+x+5=y_at_x=3
+EXAMPLE label=gnark-example-mimc backend=groth16 regime=- status=OK constraints=331 public=2 domain_measured=512 setup_ms=24.654 prove_ms=5.311 verify_ms=0.977 proof_bytes=164 proof_bytes_raw=324 witness_source=gnark_examples/mimc/mimc_test.go_v0.16.2_verbatim
+EXAMPLE label=gnark-example-mimc backend=plonk regime=- status=OK constraints=442 public=1 domain_measured=512 setup_ms=4.321 prove_ms=11.897 verify_ms=1.542 proof_bytes=520 proof_bytes_raw=808 witness_source=gnark_examples/mimc/mimc_test.go_v0.16.2_verbatim
+=== 2. constraint counts for the whole grid, from compilation alone ===
+[grid] CELL label=t1-0 backend=groth16 regime=A gadget=hintedsign status=OK macs=65536 macs_emitted=65536 relus=0 max_abs_intermediate=265403 static_worst_case=4194304 relu_bits=- constraints=197763 internal_vars=197763 secret=65792 public=257 coefficients=512 instructions=263559 domain_derived=262144 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.3255 constraints_per_mac=3.0176 compile_ms=302.690 go_heap_alloc_bytes=145807512 go_sys_bytes=169376056
+[grid] CELL label=t1-0 backend=groth16 regime=B gadget=hintedsign status=OK macs=65536 macs_emitted=65536 relus=0 max_abs_intermediate=265403 static_worst_case=4194304 relu_bits=- constraints=1026 internal_vars=1026 secret=256 public=257 coefficients=512 instructions=1286 domain_derived=2048 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.9961 constraints_per_mac=0.0157 compile_ms=170.148 go_heap_alloc_bytes=2473656 go_sys_bytes=14489880
+[grid] CELL label=t1-0 backend=plonk regime=A gadget=hintedsign status=OK macs=65536 macs_emitted=65536 relus=0 max_abs_intermediate=265403 static_worst_case=4194304 relu_bits=- constraints=526592 internal_vars=460543 secret=65792 public=256 coefficients=512 instructions=592388 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.9903 constraints_per_mac=8.0352 compile_ms=221.759 go_heap_alloc_bytes=110935464 go_sys_bytes=187705640
+[grid] CELL label=t1-0 backend=plonk regime=B gadget=hintedsign status=OK macs=65536 macs_emitted=65536 relus=0 max_abs_intermediate=265403 static_worst_case=4194304 relu_bits=- constraints=67592 internal_vars=67079 secret=256 public=256 coefficients=512 instructions=67852 domain_derived=131072 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.9318 constraints_per_mac=1.0314 compile_ms=42.686 go_heap_alloc_bytes=11988072 go_sys_bytes=26708232
+[grid] CELL label=t2 backend=groth16 regime=A gadget=hintedsign status=OK macs=92224 macs_emitted=92224 relus=448 max_abs_intermediate=14623789560139 static_worst_case=14411518807585587200 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855) constraints=283408 internal_vars=285967 secret=92424 public=2 coefficients=515 instructions=377180 domain_derived=524288 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.8499 constraints_per_mac=3.0730 compile_ms=406.928 go_heap_alloc_bytes=185676976 go_sys_bytes=237189432
+[grid] CELL label=t2 backend=groth16 regime=B gadget=hintedsign status=OK macs=92224 macs_emitted=92224 relus=448 max_abs_intermediate=14623789560139 static_worst_case=14411518807585587200 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855) constraints=6555 internal_vars=9114 secret=200 public=2 coefficients=515 instructions=8103 domain_derived=8192 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.2497 constraints_per_mac=0.0711 compile_ms=220.886 go_heap_alloc_bytes=24685976 go_sys_bytes=44566792
+[grid] CELL label=t2 backend=plonk regime=A gadget=hintedsign status=OK macs=92224 macs_emitted=92224 relus=448 max_abs_intermediate=14623789560139 static_worst_case=14411518807585587200 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855) constraints=758448 internal_vars=665126 secret=92424 public=1 coefficients=515 instructions=852220 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.3825 constraints_per_mac=8.2240 compile_ms=322.439 go_heap_alloc_bytes=241418944 go_sys_bytes=289048904
+[grid] CELL label=t2 backend=plonk regime=B gadget=hintedsign status=OK macs=92224 macs_emitted=92224 relus=448 max_abs_intermediate=14623789560139 static_worst_case=14411518807585587200 relu_bits=L0:19(max=255443)|L1:29(max=151720706)|L2:38(max=81075383855) constraints=110950 internal_vars=109852 secret=200 public=1 coefficients=2050 instructions=112498 domain_derived=131072 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.1814 constraints_per_mac=1.2030 compile_ms=71.191 go_heap_alloc_bytes=15822408 go_sys_bytes=35428632
+[grid] CELL label=t1-a backend=groth16 regime=A gadget=hintedsign status=OK macs=589824 macs_emitted=589824 relus=0 max_abs_intermediate=532359 static_worst_case=12582912 relu_bits=- constraints=1774726 internal_vars=1774214 secret=590592 public=769 coefficients=512 instructions=2365322 domain_derived=2097152 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.1817 constraints_per_mac=3.0089 compile_ms=2739.037 go_heap_alloc_bytes=916228384 go_sys_bytes=1436728920
+[grid] CELL label=t1-a backend=groth16 regime=B gadget=hintedsign status=OK macs=589824 macs_emitted=589824 relus=0 max_abs_intermediate=532359 static_worst_case=12582912 relu_bits=- constraints=4099 internal_vars=3587 secret=768 public=769 coefficients=512 instructions=4871 domain_derived=8192 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.9985 constraints_per_mac=0.0069 compile_ms=1547.284 go_heap_alloc_bytes=9187328 go_sys_bytes=40392984
+[grid] CELL label=t1-a backend=plonk regime=A gadget=hintedsign status=OK macs=589824 macs_emitted=589824 relus=0 max_abs_intermediate=532359 static_worst_case=12582912 relu_bits=- constraints=4723968 internal_vars=4132607 secret=590592 public=768 coefficients=512 instructions=5314564 domain_derived=8388608 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7755 constraints_per_mac=8.0091 compile_ms=2261.873 go_heap_alloc_bytes=915319232 go_sys_bytes=1598071432
+[grid] CELL label=t1-a backend=plonk regime=B gadget=hintedsign status=OK macs=589824 macs_emitted=589824 relus=0 max_abs_intermediate=532359 static_worst_case=12582912 relu_bits=- constraints=592927 internal_vars=591390 secret=768 public=768 coefficients=512 instructions=593699 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7662 constraints_per_mac=1.0053 compile_ms=410.031 go_heap_alloc_bytes=78851696 go_sys_bytes=141469992
+[grid] CELL label=t3 backend=groth16 regime=A gadget=hintedsign status=OK macs=737792 macs_emitted=737792 relus=3584 max_abs_intermediate=19286700869800 static_worst_case=14411518807585587200 relu_bits=L0:20(max=315857)|L1:29(max=232370952)|L2:38(max=111810754416) constraints=973058 internal_vars=991738 secret=93824 public=9 coefficients=515 instructions=1077638 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.0776 constraints_per_mac=1.3189 compile_ms=1726.040 go_heap_alloc_bytes=424920384 go_sys_bytes=588495256
+[grid] CELL label=t3 backend=groth16 regime=B gadget=hintedsign status=OK macs=737792 macs_emitted=737792 relus=3584 max_abs_intermediate=19286700869800 static_worst_case=14411518807585587200 relu_bits=L0:20(max=315857)|L1:29(max=232370952)|L2:38(max=111810754416) constraints=41724 internal_vars=54004 secret=1600 public=9 coefficients=2050 instructions=54080 domain_derived=65536 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.5707 constraints_per_mac=0.0566 compile_ms=1415.878 go_heap_alloc_bytes=116614096 go_sys_bytes=188705064
+[grid] CELL label=t3 backend=plonk regime=A gadget=hintedsign status=OK macs=737792 macs_emitted=737792 relus=3584 max_abs_intermediate=19286700869800 static_worst_case=14411518807585587200 relu_bits=L0:20(max=315857)|L1:29(max=232370952)|L2:38(max=111810754416) constraints=2188800 internal_vars=2087799 secret=93824 public=8 coefficients=515 instructions=2293380 domain_derived=4194304 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.9163 constraints_per_mac=2.9667 compile_ms=1032.103 go_heap_alloc_bytes=355941240 go_sys_bytes=631515560
+[grid] CELL label=t3 backend=plonk regime=B gadget=hintedsign status=OK macs=737792 macs_emitted=737792 relus=3584 max_abs_intermediate=19286700869800 static_worst_case=14411518807585587200 relu_bits=L0:20(max=315857)|L1:29(max=232370952)|L2:38(max=111810754416) constraints=853672 internal_vars=844895 secret=1600 public=8 coefficients=2050 instructions=866028 domain_derived=1048576 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.2283 constraints_per_mac=1.1571 compile_ms=541.115 go_heap_alloc_bytes=122408848 go_sys_bytes=233765176
+[grid] CELL label=t1-b backend=groth16 regime=A gadget=hintedsign status=OK macs=2359296 macs_emitted=2359296 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- constraints=3555722 internal_vars=3552906 secret=592896 public=3073 coefficients=512 instructions=4148622 domain_derived=4194304 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.1796 constraints_per_mac=1.5071 compile_ms=6735.556 go_heap_alloc_bytes=1290717784 go_sys_bytes=1776283336
+[grid] CELL label=t1-b backend=groth16 regime=B gadget=hintedsign status=OK macs=2359296 macs_emitted=2359296 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- constraints=15624 internal_vars=12808 secret=3072 public=3073 coefficients=512 instructions=18700 domain_derived=16384 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.0486 constraints_per_mac=0.0066 compile_ms=4887.606 go_heap_alloc_bytes=31208168 go_sys_bytes=116025640
+[grid] CELL label=t1-b backend=plonk regime=A gadget=hintedsign status=OK macs=2359296 macs_emitted=2359296 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- constraints=8276736 internal_vars=7680767 secret=592896 public=3072 coefficients=512 instructions=8869636 domain_derived=8388608 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.0131 constraints_per_mac=3.5081 compile_ms=4025.393 go_heap_alloc_bytes=1434352504 go_sys_bytes=2039116568
+[grid] CELL label=t1-b backend=plonk regime=B gadget=hintedsign status=OK macs=2359296 macs_emitted=2359296 relus=0 max_abs_intermediate=602681 static_worst_case=12582912 relu_bits=- constraints=2369320 internal_vars=2363175 secret=3072 public=3072 coefficients=512 instructions=2372396 domain_derived=4194304 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7680 constraints_per_mac=1.0042 compile_ms=1544.993 go_heap_alloc_bytes=385624304 go_sys_bytes=605854104
+[grid] CELL label=t1-c backend=groth16 regime=A gadget=hintedsign status=OK macs=9437184 macs_emitted=9437184 relus=0 max_abs_intermediate=599015 static_worst_case=12582912 relu_bits=- constraints=10679708 internal_vars=10667676 secret=602112 public=12289 coefficients=512 instructions=11281824 domain_derived=16777216 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.5709 constraints_per_mac=1.1317 compile_ms=22095.580 go_heap_alloc_bytes=2096446864 go_sys_bytes=3583242840
+[grid] CELL label=t1-c backend=groth16 regime=B gadget=hintedsign status=OK macs=9437184 macs_emitted=9437184 relus=0 max_abs_intermediate=599015 static_worst_case=12582912 relu_bits=- constraints=61722 internal_vars=49690 secret=12288 public=12289 coefficients=512 instructions=74014 domain_derived=65536 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.0618 constraints_per_mac=0.0065 compile_ms=18367.846 go_heap_alloc_bytes=132924072 go_sys_bytes=390437208
+[grid] CELL label=t1-c backend=plonk regime=A gadget=hintedsign status=OK macs=9437184 macs_emitted=9437184 relus=0 max_abs_intermediate=599015 static_worst_case=12582912 relu_bits=- constraints=22487808 internal_vars=21873407 secret=602112 public=12288 coefficients=512 instructions=23089924 domain_derived=33554432 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.4913 constraints_per_mac=2.3829 compile_ms=12053.647 go_heap_alloc_bytes=4064621048 go_sys_bytes=4963287512
+[grid] CELL label=t1-c backend=plonk regime=B gadget=hintedsign status=OK macs=9437184 macs_emitted=9437184 relus=0 max_abs_intermediate=599015 static_worst_case=12582912 relu_bits=- constraints=9474768 internal_vars=9450191 secret=12288 public=12288 coefficients=512 instructions=9487060 domain_derived=16777216 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7684 constraints_per_mac=1.0040 compile_ms=6404.441 go_heap_alloc_bytes=1543789888 go_sys_bytes=2159403784
+[grid] CELL label=t1-d backend=groth16 regime=A gadget=hintedsign status=OK macs=37748736 macs_emitted=37748736 relus=0 max_abs_intermediate=614632 static_worst_case=12582912 relu_bits=- constraints=39175652 internal_vars=39126756 secret=638976 public=49153 coefficients=512 instructions=39814632 domain_derived=67108864 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.7130 constraints_per_mac=1.0378 compile_ms=86637.923 go_heap_alloc_bytes=7367068440 go_sys_bytes=12539213432
+[grid] CELL label=t1-d backend=groth16 regime=B gadget=hintedsign status=OK macs=37748736 macs_emitted=37748736 relus=0 max_abs_intermediate=614632 static_worst_case=12582912 relu_bits=- constraints=246114 internal_vars=197218 secret=49152 public=49153 coefficients=512 instructions=295270 domain_derived=262144 domain_derived_from=fft.NewDomain(nbConstraints) domain_measured=0 padding_ratio=1.0651 constraints_per_mac=0.0065 compile_ms=73521.611 go_heap_alloc_bytes=550775416 go_sys_bytes=1412639320
+[grid] CELL label=t1-d backend=plonk regime=A gadget=hintedsign status=OK macs=37748736 macs_emitted=37748736 relus=0 max_abs_intermediate=614632 static_worst_case=12582912 relu_bits=- constraints=79332096 internal_vars=78643967 secret=638976 public=49152 coefficients=512 instructions=79971076 domain_derived=134217728 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.6908 constraints_per_mac=2.1016 compile_ms=63399.136 go_heap_alloc_bytes=7923799832 go_sys_bytes=16141165224
+[grid] CELL label=t1-d backend=plonk regime=B gadget=hintedsign status=OK macs=37748736 macs_emitted=37748736 relus=0 max_abs_intermediate=614632 static_worst_case=12582912 relu_bits=- constraints=37899520 internal_vars=37801215 secret=49152 public=49152 coefficients=512 instructions=37948676 domain_derived=67108864 domain_derived_from=fft.NewDomain(nbConstraints+nbPublic) domain_measured=0 padding_ratio=1.7684 constraints_per_mac=1.0040 compile_ms=29253.839 go_heap_alloc_bytes=6814575512 go_sys_bytes=8443048456
+[grid] -> /repo/data/compile-grid-gnark.csv
+=== 3. correctness control, every task that will be timed (BLOCKING) ===
+[sweep] t1-0/groth16: 196 bytes, one 0x01 flip each
+[sweep] no accepted offsets; nothing to re-probe
+  DESERIALIZE_REJECTED   125
+  VERIFY_REJECTED        71
+[neg] t1-0/groth16/rA:
+  DESERIALIZE_REJECTED   125
+  PROVE_REJECTED         8
+  VERIFY_ACCEPTED        2
+  VERIFY_REJECTED        327
+[sweep] t2/groth16: 196 bytes, one 0x01 flip each
+[sweep] no accepted offsets; nothing to re-probe
+  DESERIALIZE_REJECTED   139
+  VERIFY_REJECTED        57
+[neg] t2/groth16/rA:
+  DESERIALIZE_REJECTED   139
+  PROVE_REJECTED         6
+  VERIFY_ACCEPTED        4
+  VERIFY_REJECTED        58
+[sweep] t1-0/plonk: 584 bytes, one 0x01 flip each
+[sweep] no accepted offsets; nothing to re-probe
+  DESERIALIZE_REJECTED   162
+  VERIFY_REJECTED        422
+[neg] t1-0/plonk/rA:
+  DESERIALIZE_REJECTED   162
+  PROVE_REJECTED         8
+  VERIFY_ACCEPTED        2
+  VERIFY_REJECTED        678
+[sweep] t1-0/groth16: 196 bytes, one 0x01 flip each
+[sweep] no accepted offsets; nothing to re-probe
+  DESERIALIZE_REJECTED   133
+  VERIFY_REJECTED        63
+[neg] t1-0/groth16/rB:
+  DESERIALIZE_REJECTED   133
+  PROVE_REJECTED         8
+  VERIFY_ACCEPTED        2
+  VERIFY_REJECTED        319
+[sweep] t2/groth16: 196 bytes, one 0x01 flip each
+[sweep] no accepted offsets; nothing to re-probe
+  DESERIALIZE_REJECTED   128
+  VERIFY_REJECTED        68
+[neg] t2/groth16/rB:
+  DESERIALIZE_REJECTED   128
+  PROVE_REJECTED         8
+  VERIFY_ACCEPTED        2
+  VERIFY_REJECTED        69
+=== 4. timing grid, regime A, Groth16 — THE HEADLINE ===
+[gnark] t1-0-groth16-rA-t10-gdefault-moff-nt0-n5 -> OK real=18.85s cpu=6.3454 fp=618906608B rss=620822528B cons=197763 prove=662.513ms proof=196B slept=-0.002s
+[gnark] t2-groth16-rA-t10-gdefault-moff-nt0-n5 -> OK real=28.68s cpu=6.4550 fp=1040696592B rss=1048838144B cons=283408 prove=1113.879ms proof=196B slept=-0.001s
+[gnark] t1-a-groth16-rA-t10-gdefault-moff-nt0-n3 -> OK real=163.68s cpu=6.5588 fp=4212641248B rss=4216537088B cons=1774726 prove=5771.056ms proof=196B slept=0.001s
+[gnark] t3-groth16-rA-t10-gdefault-moff-nt0-n3 -> OK real=48.29s cpu=6.6817 fp=1801307960B rss=1807138816B cons=973058 prove=1941.312ms proof=196B slept=0.000s
+[gnark] t1-b-groth16-rA-t10-gdefault-moff-nt0-n1 -> OK real=177.12s cpu=6.6409 fp=5410623760B rss=5413879808B cons=3555722 prove=7773.408ms proof=196B slept=0.001s
+[gnark] t1-c-groth16-rA-t10-gdefault-moff-nt0-n1 -> OK real=403.86s cpu=6.8268 fp=18867500880B rss=6960726016B cons=10679708 prove=22667.542ms proof=196B slept=0.003s
+[watchdog] free space on / is 19 GiB, below the 20 GiB floor — killing the cell
+/repo/scripts/gnark/run-cell-guarded.sh: line 36: 29921 Terminated: 15          "${ROOT}/bench/scripts/gnark/run-cell.sh" "$@"
+=== 5. timing grid, regime A, PLONK ===
+[gnark] t1-0-plonk-rA-t10-gdefault-moff-nt0-n5 -> OK real=72.74s cpu=7.3079 fp=2611661200B rss=2617507840B cons=526592 prove=9016.392ms proof=584B slept=0.001s
+[gnark] t2-plonk-rA-t10-gdefault-moff-nt0-n5 -> OK real=75.90s cpu=7.2939 fp=2707212760B rss=2763800576B cons=758448 prove=9653.859ms proof=584B slept=0.001s
+[gnark] t1-a-plonk-rA-t10-gdefault-moff-nt0-n3 -> OK real=508.12s cpu=6.4561 fp=16806261168B rss=12532776960B cons=4723968 prove=95125.691ms proof=584B slept=0.004s
+[gnark] t3-plonk-rA-t10-gdefault-moff-nt0-n3 -> OK real=219.96s cpu=7.1867 fp=8733137544B rss=8759066624B cons=2188800 prove=36660.758ms proof=584B slept=-0.002s
+[gnark] t1-b-plonk-rA-t10-gdefault-moff-nt0-n1 -> OK real=219.13s cpu=7.5491 fp=14529440472B rss=10400301056B cons=8276736 prove=75842.925ms proof=584B slept=0.001s
+=== 6. timing grid, regime B — A DECLARED LEVER, never mixed into a cross-system number ===
+[gnark] t1-0-groth16-rB-t10-gdefault-moff-nt0-n5 -> OK real=0.33s cpu=3.2121 fp=17891928B rss=23478272B cons=1026 prove=10.352ms proof=196B slept=0.000s
+[gnark] t2-groth16-rB-t10-gdefault-moff-nt0-n5 -> OK real=1.03s cpu=4.8447 fp=35340840B rss=43941888B cons=6555 prove=42.338ms proof=196B slept=0.000s
+[gnark] t1-a-groth16-rB-t10-gdefault-moff-nt0-n5 -> OK real=1.85s cpu=2.3351 fp=37552704B rss=43237376B cons=4099 prove=27.083ms proof=196B slept=0.000s
+[gnark] t3-groth16-rB-t10-gdefault-moff-nt0-n5 -> OK real=5.86s cpu=4.8430 fp=200377040B rss=206323712B cons=41724 prove=200.163ms proof=196B slept=0.000s
+[gnark] t1-b-groth16-rB-t10-gdefault-moff-nt0-n5 -> OK real=6.51s cpu=2.0707 fp=95650416B rss=101466112B cons=15624 prove=69.586ms proof=196B slept=0.000s
+[gnark] t1-c-groth16-rB-t10-gdefault-moff-nt0-n5 -> OK real=22.55s cpu=2.1632 fp=334463768B rss=340803584B cons=61722 prove=194.887ms proof=196B slept=0.000s
+[gnark] t1-d-groth16-rB-t10-gdefault-moff-nt0-n5 -> OK real=87.76s cpu=2.1711 fp=1243202976B rss=1248657408B cons=246114 prove=722.903ms proof=196B slept=0.001s
+[gnark] t1-0-plonk-rB-t10-gdefault-moff-nt0-n5 -> OK real=8.91s cpu=7.4444 fp=330973976B rss=337018880B cons=67592 prove=1119.356ms proof=584B slept=0.000s
+[gnark] t2-plonk-rB-t10-gdefault-moff-nt0-n5 -> OK real=10.09s cpu=7.4044 fp=344326960B rss=359284736B cons=110950 prove=1288.642ms proof=584B slept=0.000s
+[gnark] t1-a-plonk-rB-t10-gdefault-moff-nt0-n5 -> OK real=67.59s cpu=7.6948 fp=2767636976B rss=2773057536B cons=592927 prove=8416.401ms proof=584B slept=0.000s
+[gnark] t3-plonk-rB-t10-gdefault-moff-nt0-n5 -> OK real=68.96s cpu=7.6955 fp=2471708952B rss=2513403904B cons=853672 prove=8616.147ms proof=584B slept=0.000s
+=== 7. threads (secondary cut) ===
+[gnark] t1-0-groth16-rA-t1-gdefault-moff-nt0-n5 -> OK real=109.10s cpu=0.9974 fp=558908352B rss=566853632B cons=197763 prove=4547.620ms proof=196B slept=0.001s
+[gnark] t2-groth16-rA-t1-gdefault-moff-nt0-n5 -> OK real=165.34s cpu=0.9976 fp=906052784B rss=911654912B cons=283408 prove=7037.944ms proof=196B slept=0.001s
+[gnark] t1-0-groth16-rA-t2-gdefault-moff-nt0-n5 -> OK real=56.61s cpu=1.9210 fp=575882200B rss=581271552B cons=197763 prove=2336.735ms proof=196B slept=0.000s
+[gnark] t2-groth16-rA-t2-gdefault-moff-nt0-n5 -> OK real=87.52s cpu=1.9142 fp=1032520976B rss=1043005440B cons=283408 prove=3649.255ms proof=196B slept=0.001s
+[gnark] t1-0-groth16-rA-t4-gdefault-moff-nt0-n5 -> OK real=30.92s cpu=3.5579 fp=619332568B rss=624852992B cons=197763 prove=1221.242ms proof=196B slept=0.000s
+[gnark] t2-groth16-rA-t4-gdefault-moff-nt0-n5 -> OK real=46.93s cpu=3.5932 fp=1063109928B rss=1069072384B cons=283408 prove=1898.764ms proof=196B slept=0.000s
+=== 8. the memory-knob question — data, not a verdict ===
+=== axis 1: GOGC ===
+[gnark] t1-0-groth16-rA-t10-g400-moff-nt0-n3 -> OK real=16.45s cpu=6.5739 fp=1229817248B rss=1234731008B cons=197763 prove=679.012ms proof=196B slept=0.000s
+[gnark] t1-0-groth16-rA-t10-g100-moff-nt0-n3 -> OK real=16.44s cpu=6.5845 fp=602194928B rss=607698944B cons=197763 prove=672.413ms proof=196B slept=0.000s
+[gnark] t1-0-groth16-rA-t10-g50-moff-nt0-n3 -> OK real=16.68s cpu=6.4856 fp=441123704B rss=456605696B cons=197763 prove=683.125ms proof=196B slept=0.000s
+[gnark] t1-0-groth16-rA-t10-g25-moff-nt0-n3 -> OK real=16.61s cpu=6.5563 fp=373670752B rss=383926272B cons=197763 prove=682.180ms proof=196B slept=0.000s
+=== axis 2: GOMEMLIMIT ===
+[gnark] t1-0-groth16-rA-t10-gdefault-m2GiB-nt0-n3 -> OK real=16.46s cpu=6.5796 fp=618464264B rss=623837184B cons=197763 prove=654.778ms proof=196B slept=0.000s
+=== axis 3: solver.WithNbTasks (a parallelism knob, swept separately) ===
+[gnark] t1-0-groth16-rA-t10-gdefault-moff-nt1-n3 -> OK real=16.48s cpu=6.5655 fp=551191488B rss=556646400B cons=197763 prove=675.330ms proof=196B slept=0.000s
+[gnark] t1-0-groth16-rA-t10-gdefault-moff-nt2-n3 -> OK real=16.37s cpu=6.6225 fp=663766024B rss=670957568B cons=197763 prove=666.290ms proof=196B slept=0.000s
+[gnark] t1-0-groth16-rA-t10-gdefault-moff-nt4-n3 -> OK real=16.47s cpu=6.5974 fp=606913520B rss=612253696B cons=197763 prove=672.995ms proof=196B slept=0.000s
+[gnark] t1-0-groth16-rA-t10-gdefault-moff-nt10-n3 -> OK real=16.40s cpu=6.6274 fp=638632968B rss=644038656B cons=197763 prove=665.160ms proof=196B slept=0.000s
+=== 9. report ===
+
+/repo/data/results-gnark.csv
+
+### groth16 · regime A — HEADLINE, cross-system comparable
+
+| Task | MACs | constraints | domain | thr | GOGC | N | status | compile s | setup s | prove ms (median) | [min–max] | verify ms | proof B | peak RSS MB | peak fp MB | (u+s)/real | **MAC/s** | **B/MAC fp** |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T1-0 | 65 536 | 197 763 | 262 144 | 1 | default | 5 | OK | 0.40 | 81.32 | 4 547.6 | [4507.0–4563.4] | 3.58 | 196 | 566.9 | 558.9 | 0.9974 | **14 411** | **8 528.3** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | 100 | 3 | OK | 0.29 | 13.40 | 672.4 | [654.7–681.6] | 2.11 | 196 | 607.7 | 602.2 | 6.5845 | **97 464** | **9 188.8** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | 25 | 3 | OK | 0.38 | 13.47 | 682.2 | [664.8–684.2] | 2.29 | 196 | 383.9 | 373.7 | 6.5563 | **96 068** | **5 701.8** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | 400 | 3 | OK | 0.27 | 13.41 | 679.0 | [658.6–680.7] | 2.07 | 196 | 1 234.7 | 1 229.8 | 6.5739 | **96 517** | **18 765.5** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | 50 | 3 | OK | 0.31 | 13.58 | 683.1 | [667.8–689.9] | 2.17 | 196 | 456.6 | 441.1 | 6.4856 | **95 936** | **6 731.0** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | default | 3 | OK | 0.29 | 13.45 | 654.8 | [653.3–658.4] | 2.10 | 196 | 623.8 | 618.5 | 6.5796 | **100 089** | **9 437.0** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | default | 5 | OK | 0.31 | 14.11 | 662.5 | [654.6–674.0] | 2.13 | 196 | 620.8 | 618.9 | 6.3454 | **98 920** | **9 443.8** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | default | 3 | OK | 0.29 | 13.42 | 675.3 | [674.2–681.0] | 2.14 | 196 | 556.6 | 551.2 | 6.5655 | **97 043** | **8 410.5** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | default | 3 | OK | 0.29 | 13.36 | 665.2 | [660.3–672.1] | 2.06 | 196 | 644.0 | 638.6 | 6.6274 | **98 527** | **9 744.8** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | default | 3 | OK | 0.28 | 13.36 | 666.3 | [661.7–672.7] | 2.07 | 196 | 671.0 | 663.8 | 6.6225 | **98 360** | **10 128.3** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 10 | default | 3 | OK | 0.30 | 13.41 | 673.0 | [651.9–703.4] | 2.16 | 196 | 612.3 | 606.9 | 6.5974 | **97 380** | **9 260.8** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 2 | default | 5 | OK | 0.31 | 42.19 | 2 336.7 | [2330.4–2342.7] | 2.54 | 196 | 581.3 | 575.9 | 1.9210 | **28 046** | **8 787.3** |
+| T1-0 | 65 536 | 197 763 | 262 144 | 4 | default | 5 | OK | 0.29 | 23.18 | 1 221.2 | [1216.9–1255.5] | 2.34 | 196 | 624.9 | 619.3 | 3.5579 | **53 663** | **9 450.3** |
+| T2 | 92 224 | 283 408 | 524 288 | 1 | default | 5 | OK | 0.55 | 122.50 | 7 037.9 | [7018.6–7049.7] | 2.37 | 196 | 911.7 | 906.1 | 0.9976 | **13 104** | **9 824.5** |
+| T2 | 92 224 | 283 408 | 524 288 | 10 | default | 5 | OK | 0.40 | 21.50 | 1 113.9 | [1065.3–1192.9] | 1.92 | 196 | 1 048.8 | 1 040.7 | 6.4550 | **82 795** | **11 284.4** |
+| T2 | 92 224 | 283 408 | 524 288 | 2 | default | 5 | OK | 0.42 | 65.11 | 3 649.3 | [3621.3–3656.3] | 1.84 | 196 | 1 043.0 | 1 032.5 | 1.9142 | **25 272** | **11 195.8** |
+| T2 | 92 224 | 283 408 | 524 288 | 4 | default | 5 | OK | 0.40 | 35.06 | 1 898.8 | [1880.4–1899.1] | 1.83 | 196 | 1 069.1 | 1 063.1 | 3.5932 | **48 571** | **11 527.5** |
+| T1-A | 589 824 | 1 774 726 | 2 097 152 | 10 | default | 3 | OK | 2.83 | 137.29 | 5 771.1 | [5730.8–5845.8] | 2.75 | 196 | 4 216.5 | 4 212.6 | 6.5588 | **102 204** | **7 142.2** |
+| T3 | 737 792 | 973 058 | 1 048 576 | 10 | default | 3 | OK | 1.71 | 38.58 | 1 941.3 | [1913.9–1968.7] | 1.88 | 196 | 1 807.1 | 1 801.3 | 6.6817 | **380 048** | **2 441.5** |
+| T1-B | 2 359 296 | 3 555 722 | 4 194 304 | 10 | default | 1 | OK | 6.71 | 161.89 | 7 773.4 | [7773.4–7773.4] | 3.96 | 196 | 5 413.9 | 5 410.6 | 6.6409 | **303 509** | **2 293.3** |
+| T1-C | 9 437 184 | 10 679 708 | 16 777 216 | 10 | default | 1 | OK | 22.48 | 355.14 | 22 667.5 | [22667.5–22667.5] | 8.26 | 196 | 6 960.7 | 18 867.5 | 6.8268 | **416 330** | **1 999.3** |
+
+### groth16 · regime B — DECLARED LEVER — weights baked into the circuit and bound into the verifying key. NEVER a cross-system number.
+
+| Task | MACs | constraints | domain | thr | GOGC | N | status | compile s | setup s | prove ms (median) | [min–max] | verify ms | proof B | peak RSS MB | peak fp MB | (u+s)/real | **MAC/s** | **B/MAC fp** |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T1-0 | 65 536 | 1 026 | 2 048 | 10 | default | 5 | OK | 0.16 | 0.10 | 10.4 | [8.7–10.8] | 2.05 | 196 | 23.5 | 17.9 | 3.2121 | **6 330 757** | **273.0** |
+| T2 | 92 224 | 6 555 | 8 192 | 10 | default | 5 | OK | 0.20 | 0.54 | 42.3 | [41.6–43.2] | 1.81 | 196 | 43.9 | 35.3 | 4.8447 | **2 178 280** | **383.2** |
+| T1-A | 589 824 | 4 099 | 8 192 | 10 | default | 5 | OK | 1.38 | 0.29 | 27.1 | [26.1–27.8] | 2.44 | 196 | 43.2 | 37.6 | 2.3351 | **21 778 385** | **63.7** |
+| T3 | 737 792 | 41 724 | 65 536 | 10 | default | 5 | OK | 1.40 | 3.17 | 200.2 | [190.3–202.5] | 1.87 | 196 | 206.3 | 200.4 | 4.8430 | **3 685 956** | **271.6** |
+| T1-B | 2 359 296 | 15 624 | 16 384 | 10 | default | 5 | OK | 4.95 | 1.10 | 69.6 | [61.6–73.7] | 4.26 | 196 | 101.5 | 95.7 | 2.0707 | **33 904 751** | **40.5** |
+| T1-C | 9 437 184 | 61 722 | 65 536 | 10 | default | 5 | OK | 18.25 | 3.05 | 194.9 | [192.6–197.0] | 7.74 | 196 | 340.8 | 334.5 | 2.1632 | **48 423 876** | **35.4** |
+| T1-D | 37 748 736 | 246 114 | 262 144 | 10 | default | 5 | OK | 71.52 | 11.58 | 722.9 | [710.5–746.6] | 21.20 | 196 | 1 248.7 | 1 243.2 | 2.1711 | **52 218 259** | **32.9** |
+
+### plonk · regime A — HEADLINE, cross-system comparable
+
+| Task | MACs | constraints | domain | thr | GOGC | N | status | compile s | setup s | prove ms (median) | [min–max] | verify ms | proof B | peak RSS MB | peak fp MB | (u+s)/real | **MAC/s** | **B/MAC fp** |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T1-0 | 65 536 | 526 592 | 1 048 576 | 10 | default | 5 | OK | 0.24 | 2.11 | 9 016.4 | [8836.7–9104.7] | 1.73 | 584 | 2 617.5 | 2 611.7 | 7.3079 | **7 269** | **39 850.8** |
+| T2 | 92 224 | 758 448 | 1 048 576 | 10 | default | 5 | OK | 0.32 | 2.40 | 9 653.9 | [9525.0–10019.6] | 1.61 | 584 | 2 763.8 | 2 707.2 | 7.2939 | **9 553** | **29 354.8** |
+| T1-A | 589 824 | 4 723 968 | 8 388 608 | 10 | default | 3 | OK | 2.24 | 15.46 | 95 125.7 | [88256.5–113894.5] | 3.35 | 584 | 12 532.8 | 16 806.3 | 6.4561 | **6 200** | **28 493.7** |
+| T3 | 737 792 | 2 188 800 | 4 194 304 | 10 | default | 3 | OK | 0.94 | 7.95 | 36 660.8 | [36012.4–36828.2] | 1.61 | 584 | 8 759.1 | 8 733.1 | 7.1867 | **20 125** | **11 836.9** |
+| T1-B | 2 359 296 | 8 276 736 | 8 388 608 | 10 | default | 1 | OK | 3.96 | 16.04 | 75 842.9 | [75842.9–75842.9] | 2.83 | 584 | 10 400.3 | 14 529.4 | 7.5491 | **31 108** | **6 158.4** |
+
+### plonk · regime B — DECLARED LEVER — weights baked into the circuit and bound into the verifying key. NEVER a cross-system number.
+
+| Task | MACs | constraints | domain | thr | GOGC | N | status | compile s | setup s | prove ms (median) | [min–max] | verify ms | proof B | peak RSS MB | peak fp MB | (u+s)/real | **MAC/s** | **B/MAC fp** |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T1-0 | 65 536 | 67 592 | 131 072 | 10 | default | 5 | OK | 0.04 | 0.33 | 1 119.4 | [1113.2–1131.7] | 1.58 | 584 | 337.0 | 331.0 | 7.4444 | **58 548** | **5 050.3** |
+| T2 | 92 224 | 110 950 | 131 072 | 10 | default | 5 | OK | 0.06 | 0.35 | 1 288.6 | [1286.9–1311.2] | 1.55 | 584 | 359.3 | 344.3 | 7.4044 | **71 567** | **3 733.6** |
+| T1-A | 589 824 | 592 927 | 1 048 576 | 10 | default | 5 | OK | 0.38 | 2.10 | 8 416.4 | [8400.1–8457.5] | 1.80 | 584 | 2 773.1 | 2 767.6 | 7.6948 | **70 080** | **4 692.3** |
+| T3 | 737 792 | 853 672 | 1 048 576 | 10 | default | 5 | OK | 0.47 | 2.32 | 8 616.1 | [8603.3–8663.5] | 1.53 | 584 | 2 513.4 | 2 471.7 | 7.6955 | **85 629** | **3 350.1** |
+
+Memory curve — groth16, regime A, GOMAXPROCS = 10, GOGC = default:
+
+| Task | MACs | constraints | domain | peak footprint | **B/MAC** | vs previous rung | local exponent |
+|---|---:|---:|---:|---:|---:|---|---:|
+| T1-0 | 65 536 | 197 763 | 262 144 | 618.9 MB | **9 443.8** | — | — |
+| T1-0 | 65 536 | 197 763 | 262 144 | 618.5 MB | **9 437.0** | MACs ×1.00, memory ×1.00 | — |
+| T1-0 | 65 536 | 197 763 | 262 144 | 551.2 MB | **8 410.5** | MACs ×1.00, memory ×0.89 | — |
+| T1-0 | 65 536 | 197 763 | 262 144 | 663.8 MB | **10 128.3** | MACs ×1.00, memory ×1.20 | — |
+| T1-0 | 65 536 | 197 763 | 262 144 | 606.9 MB | **9 260.8** | MACs ×1.00, memory ×0.91 | — |
+| T1-0 | 65 536 | 197 763 | 262 144 | 638.6 MB | **9 744.8** | MACs ×1.00, memory ×1.05 | — |
+| T1-A | 589 824 | 1 774 726 | 2 097 152 | 4 212.6 MB | **7 142.2** | MACs ×9.00, memory ×6.60 | 0.859 |
+| T1-B | 2 359 296 | 3 555 722 | 4 194 304 | 5 410.6 MB | **2 293.3** | MACs ×4.00, memory ×1.28 | 0.181 |
+| T1-C | 9 437 184 | 10 679 708 | 16 777 216 | 18 867.5 MB | **1 999.3** | MACs ×4.00, memory ×3.49 | 0.901 |

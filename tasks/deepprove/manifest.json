@@ -1,0 +1,135 @@
+{
+  "t1-0": {
+    "onnx": "t1-0.onnx",
+    "io": "t1-0.io.json",
+    "published_macs": 65536,
+    "emitted_macs": 65536,
+    "seed": "0xe0060100",
+    "input_shape": [
+      1,
+      256
+    ],
+    "output_shape": [
+      1,
+      256
+    ],
+    "samples": 6,
+    "max_abs_accumulator_int8_units": 344362.0,
+    "onnx_bytes": 262289,
+    "io_bytes": 70303
+  },
+  "t1-a": {
+    "onnx": "t1-a.onnx",
+    "io": "t1-a.io.json",
+    "published_macs": 589824,
+    "emitted_macs": 589824,
+    "seed": "0xe00601a0",
+    "input_shape": [
+      1,
+      768
+    ],
+    "output_shape": [
+      1,
+      768
+    ],
+    "samples": 6,
+    "max_abs_accumulator_int8_units": 530464.0,
+    "onnx_bytes": 2359444,
+    "io_bytes": 212601
+  },
+  "t1-b": {
+    "onnx": "t1-b.onnx",
+    "io": "t1-b.io.json",
+    "published_macs": 2359296,
+    "emitted_macs": 2359296,
+    "seed": "0xe00601b0",
+    "input_shape": [
+      4,
+      768
+    ],
+    "output_shape": [
+      4,
+      768
+    ],
+    "samples": 6,
+    "max_abs_accumulator_int8_units": 614008.0,
+    "onnx_bytes": 2359444,
+    "io_bytes": 849356
+  },
+  "t1-c": {
+    "onnx": "t1-c.onnx",
+    "io": "t1-c.io.json",
+    "published_macs": 9437184,
+    "emitted_macs": 9437184,
+    "seed": "0xe00601c0",
+    "input_shape": [
+      16,
+      768
+    ],
+    "output_shape": [
+      16,
+      768
+    ],
+    "samples": 6,
+    "max_abs_accumulator_int8_units": 643644.0,
+    "onnx_bytes": 2359444,
+    "io_bytes": 3397271
+  },
+  "t1-d": {
+    "onnx": "t1-d.onnx",
+    "io": "t1-d.io.json",
+    "published_macs": 37748736,
+    "emitted_macs": 37748736,
+    "seed": "0xe00601d0",
+    "input_shape": [
+      64,
+      768
+    ],
+    "output_shape": [
+      64,
+      768
+    ],
+    "samples": 6,
+    "max_abs_accumulator_int8_units": 673977.0,
+    "onnx_bytes": 2359444,
+    "io_bytes": 13585958
+  },
+  "t2": {
+    "onnx": "t2.onnx",
+    "io": "t2.io.json",
+    "published_macs": 92224,
+    "emitted_macs": 92224,
+    "seed": "0xe0060200",
+    "input_shape": [
+      1,
+      200
+    ],
+    "output_shape": [
+      1,
+      1
+    ],
+    "samples": 6,
+    "max_abs_accumulator_int8_units": 39618179235840.0,
+    "onnx_bytes": 369263,
+    "io_bytes": 12943
+  },
+  "t3": {
+    "onnx": "t3.onnx",
+    "io": "t3.io.json",
+    "published_macs": 737792,
+    "emitted_macs": 737792,
+    "seed": "0xe0060300",
+    "input_shape": [
+      8,
+      200
+    ],
+    "output_shape": [
+      8,
+      1
+    ],
+    "samples": 6,
+    "max_abs_accumulator_int8_units": 29160797896704.0,
+    "onnx_bytes": 369263,
+    "io_bytes": 102729
+  }
+}

@@ -1,0 +1,22 @@
+
+thread 'main' panicked at /tmp/bench-scratch/jolt-atlas/jolt-atlas-core/src/utils/dims.rs:262:13:
+Einsum equation (k,k->mn) not supported by Einsum proof system
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+        0.06 real         0.05 user         0.00 sys
+            14237696  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1066  page reclaims
+                  23  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   1  voluntary context switches
+                 395  involuntary context switches
+           585385788  instructions retired
+           185220103  cycles elapsed
+             8339792  peak memory footprint

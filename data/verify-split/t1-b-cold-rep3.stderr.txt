@@ -1,0 +1,9 @@
+task=T1-b macs=2359296 imul=2359296 and=2356224 zero=294912 bmul=0 private=7959552 inout=3072
+proof=505952B
+rep=0 total=0.5537s channel=0.000038s iop=0.0010s wiring=0.5516s finish=0.001024s wiring_share=0.9962
+rep=1 total=0.2005s channel=0.000026s iop=0.0009s wiring=0.1986s finish=0.000935s wiring_share=0.9905
+rep=2 total=0.2279s channel=0.000025s iop=0.0009s wiring=0.2260s finish=0.000963s wiring_share=0.9916
+rep=3 total=0.2445s channel=0.000026s iop=0.0010s wiring=0.2425s finish=0.001006s wiring_share=0.9917
+rep=4 total=0.1989s channel=0.000027s iop=0.0010s wiring=0.1969s finish=0.001035s wiring_share=0.9898
+wrote /repo/data/verify-split/t1-b-r1-t1-n5-cold-rep3.verify-split.csv
+wrote /repo/data/verify-split/t1-b-r1-t1-n5-cold-rep3.verify-split.json

@@ -1,0 +1,33 @@
+# jolt-atlas GPT-2: their own scripts/download_gpt2.py flow, this machine, 2026-08-24
+# optimum 1.24.0 + transformers 4.48.3 + torch 2.13.0 on Python 3.13
+
+    )
+    ^
+  File "/tmp/bench-scratch/venv-gpt2b/lib/python3.13/site-packages/optimum/exporters/onnx/convert.py", line 762, in export_models
+    export(
+    ~~~~~~^
+        model=submodel,
+        ^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        model_kwargs=model_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/tmp/bench-scratch/venv-gpt2b/lib/python3.13/site-packages/optimum/exporters/onnx/convert.py", line 866, in export
+    export_output = export_pytorch(
+        model,
+    ...<7 lines>...
+        model_kwargs=model_kwargs,
+    )
+  File "/tmp/bench-scratch/venv-gpt2b/lib/python3.13/site-packages/optimum/exporters/onnx/convert.py", line 606, in export_pytorch
+    os.remove(output.parent / tensor)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'atlas-onnx-tracer/models/gpt2/model.onnx.data'
+[torch.onnx] Obtain model graph for `GPT2LMHeadModel([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `GPT2LMHeadModel([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅

@@ -1,0 +1,27 @@
+task=T2 macs=92224 relus=448 IMUL=92224 AND=92223 ZERO=11528 BMUL=0 private_values=380622 inout=1 max_abs_acc=8955951054519 build=0.140s
+setup=0.090s
+rep=0 prove=0.126s verify=0.0055s proof=258880B
+rep=1 prove=0.127s verify=0.0053s proof=258880B
+rep=2 prove=0.124s verify=0.0053s proof=258880B
+rep=3 prove=0.121s verify=0.0053s proof=258880B
+rep=4 prove=0.123s verify=0.0053s proof=258880B
+wrote /repo/data/cells/t2-r4-t10-n5/reps.csv
+wrote /repo/data/cells/t2-r4-t10-n5/cell.json
+        1.08 real         3.91 user         1.33 sys
+          1134002176  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               92705  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   1  voluntary context switches
+               63182  involuntary context switches
+         42663419302  instructions retired
+         15481791908  cycles elapsed
+          1067107528  peak memory footprint

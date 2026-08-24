@@ -1,0 +1,3 @@
+=== nanoGPT ONNX Proof ===
+(Run with --trace for JSON output or --trace-terminal for terminal output)
+

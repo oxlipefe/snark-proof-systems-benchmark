@@ -1,0 +1,2 @@
+META label=probe-d1 onnx=/tmp/bench-scratch/probes-ja/probe-d1.onnx padding=true scale=14 max_num_vars=4 reps=1 warmup=0
+SETUP ms=4.653

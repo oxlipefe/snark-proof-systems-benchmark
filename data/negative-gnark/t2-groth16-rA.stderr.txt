@@ -1,0 +1,5 @@
+[neg] region map: 1 commitment(s), derived total 196 vs artifact 196 (agrees=true)
+[neg] t2 groth16 regime=A proof=196 bytes (raw 388) cached in /repo/data/negative-gnark/cache/t2-groth16-rA
+[neg] public witness: 1 elements of 32 bytes starting at offset 12
+[neg] witness_word: 8 samples (proving is not free; coverage is declared not inferred)
+[neg] witness_word: 8 live corruptions tested, 0 inert positions skipped (inert = the ReLU zeroes that weight, so the bump does not change the statement)

@@ -1,0 +1,22 @@
+
+thread 'main' panicked at /tmp/bench-scratch/jolt-atlas/joltworks/src/poly/dense_mlpoly.rs:34:9:
+Dense multi-linear polynomials must be made from a power of 2 (not 768)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+        9.61 real         9.41 user         0.18 sys
+           312344576  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               19261  page reclaims
+                 145  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   2  voluntary context switches
+                2118  involuntary context switches
+         90335662074  instructions retired
+         30133348362  cycles elapsed
+           305103448  peak memory footprint

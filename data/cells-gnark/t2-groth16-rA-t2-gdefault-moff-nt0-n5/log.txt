@@ -1,0 +1,24 @@
+[gnark] t2 backend=groth16 regime=A gadget=hintedsign reps=5 warmup=1
+[gnark] go=go1.26.4 darwin/arm64 GOMAXPROCS=2 GOGC=unset(default 100) GOMEMLIMIT=unset(off)(bytes=9223372036854775807)
+[gnark] memory policy: default GC, no debug.FreeOSMemory() call anywhere in this binary; peak RSS and peak footprint are what the OS observed, not what we asked it to observe
+[gnark] clock: time.Now/time.Since (monotonic reading; does not advance during Darwin sleep); cell also bracketed by clockprobe.py
+[gnark] A1 max_abs_intermediate=14623789560139 int64_max=9223372036854775807 margin=6.307e+05x static_worst_case=14411518807585587200 field=BN254_scalar_~2^254 field_overflow_impossible_at_these_magnitudes=true
+[gnark] go-heap only (NOT the published figure): HeapAlloc=0.662GB Sys=1.042GB TotalAlloc=5.332GB NumGC=42
+       87.52 real       166.61 user         0.92 sys
+          1043005440  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               63912  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                6952  signals received
+                1523  voluntary context switches
+               91440  involuntary context switches
+       1552957928315  instructions retired
+        523502176053  cycles elapsed
+          1032520976  peak memory footprint

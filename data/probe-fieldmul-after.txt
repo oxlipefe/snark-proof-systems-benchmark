@@ -1,0 +1,29 @@
+# fieldmul_sanity AFTER the campaign — 2026-08-23T19:34:43Z
+# swap at this moment: total = 13312.00M  used = 12316.31M  free = 995.69M  (encrypted)
+--- launch 1  slept=0.000s OK
+raw PMULL (lower bd)      3079.2 Mops/s
+hand-written 6-PMULL       957.9 Mmul/s
+binius B128 mul            945.9 Mmul/s
+
+binius / hand-written      0.987   (floor 0.50)
+PMULL per field mul          3.3   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.
+--- launch 2  slept=0.000s OK
+raw PMULL (lower bd)      3089.4 Mops/s
+hand-written 6-PMULL       974.1 Mmul/s
+binius B128 mul            944.3 Mmul/s
+
+binius / hand-written      0.969   (floor 0.50)
+PMULL per field mul          3.3   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.
+--- launch 3  slept=0.000s OK
+raw PMULL (lower bd)      3064.2 Mops/s
+hand-written 6-PMULL       965.5 Mmul/s
+binius B128 mul            938.7 Mmul/s
+
+binius / hand-written      0.972   (floor 0.50)
+PMULL per field mul          3.3   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.

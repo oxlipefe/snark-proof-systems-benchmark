@@ -1,0 +1,111 @@
+# gnark — pinned revision under measurement
+
+repository        https://github.com/Consensys/gnark
+commit            9838556b92c7783cb82971cf37c0d081cc2b6aec
+commit_date       2026-08-24T09:28:24-05:00
+commit_subject    fix: Bind quotient in smallCheckZero
+version           v0.16.2 (annotated tag at this commit)
+branch            master is ONE commit ahead: dec60c0afb235fcc028672e4d8259889aae120f2
+                  "fix: update version", `git diff v0.16.2 master` = doc.go | 2 +-.
+                  A version string. We pinned the release tag rather than the tip because
+                  gnark is the one system in this benchmark that ships releases.
+license           Apache-2.0 (LICENSE, "Apache License Version 2.0, January 2004")
+maturity          PROD-AUDITED — the only such system in this benchmark
+cloned_on         2026-08-24
+measured_on       2026-08-24 (UTC)
+
+# The maturity label, and its exact scope
+
+Every other system measured here is PROTOTYPE-RESEARCH and says so in its own README.
+gnark does not, and the difference is not a matter of tone: it lists **nine third-party
+audits**, five of them vendored in `audits/` in the tree we measured.
+
+    2022-10  Kudelski Security      gnark-crypto              (contracted by Algorand Fdn)
+    2023-06  Consensys Diligence    gnark PLONK Solidity verifier
+    2023-08  Least Authority        Groth16 Solidity verifier template  (Worldcoin)
+    2023-11  OpenZeppelin           gnark PLONK Solidity verifier template
+    2024-05  Sigma Prime            gnark-crypto KZG          (contracted by Ethereum Fdn)
+    2024-05  ZKSecurity.xyz         gnark standard library
+    2024-06  OpenZeppelin           gnark PLONK prover and verifier
+    2024-09  Least Authority        gnark general and GKR
+    2024-11  Least Authority        Linea zkEVM
+
+**Scope, stated precisely rather than rounded up.** The PLONK *prover and verifier* were
+audited (OpenZeppelin, 2024-06). For Groth16, what appears in the list is the **Solidity
+verifier template**, not the Go prover. The standard library — which is where
+`std/rangecheck`, the mechanism this benchmark's INT8 encoding rests on, lives — was audited
+(ZKSecurity, 2024-05). We did not read the reports and we do not restate their findings.
+
+The authors' own caveat, verbatim from README.md line 124, and it governs the label:
+
+    **`gnark` and [`gnark-crypto`] have been [extensively audited](#audits), but are provided
+    as-is with no guarantees or warranties. In particular, `gnark` does not guarantee
+    constant-time implementations or side-channel resistance.**
+
+README.md line 66, which bears directly on the proof-size and corruption figures:
+
+    - Serialized formats are not guaranteed to be stable across versions.
+
+# The licence permits what DeepProve's and jolt-atlas's do not
+
+Apache-2.0. As with binius64 and Ceno, we may read the source, link the packages, instrument
+them and publish the mechanism. Three things in this directory exist only because of that:
+
+1. `RESULTS.md` publishes a **complete byte map of the Groth16 proof**, field by field,
+   derived from `backend/groth16/bn254/marshal.go`. Every accepted offset in the corruption
+   sweep is therefore attributable to a named field. jolt-atlas had two accepted regions and
+   could only name one; the other stayed NOT DETERMINED because its licence forbids the
+   reverse engineering that would have named it.
+2. `EXPRESSION.md` cites `std/rangecheck`'s selection logic to explain *why* the per-value
+   range-check cost is not a constant, rather than reporting that it moved and declining to
+   say why.
+3. `BUILD.md` states which assembly this machine does and does not get, file by file.
+
+**This asymmetry is a licence difference, not an opacity difference.**
+
+# The tree is NOT vendored into this repository
+
+The clone lives at `~/Claude/ext-bench/gnark` and is not committed here. `COMMIT` plus
+`bench/scripts/gnark/` reconstruct it from zero. The task circuits under
+`bench/tasks/gnark/` are ours and are committed; they depend on gnark as a normal Go module
+at the pinned version, so no copy of gnark's source is redistributed.
+
+# Local modifications to the pinned tree
+
+**None.** `git status` is clean at `9838556b92c7783cb82971cf37c0d081cc2b6aec`.
+
+Unlike Ceno, gnark needed no patch to build on aarch64.
+
+# The second tree, for the reproduction only
+
+repository        https://github.com/Consensys/gnark-bench
+commit            2dda93f047b12407412493c6d29df6492c71ace2
+commit_date       2022-08-27T08:48:24-05:00
+status            ARCHIVED by its owner 2026-06-01 (read-only)
+pins              gnark v0.7.2-0.20220819150950-b308ebb1407d, gnark-crypto v0.8.0
+used for          REPRODUCTION.md only. Built unmodified. Produces no figure in RESULTS.md.
+
+# Toolchain
+
+go.mod            go 1.25.7
+resolved          go version go1.26.4 darwin/arm64
+gnark-crypto      v0.21.0 (the version go.mod requires; not overridden)
+CGO_ENABLED       0 (default on this machine for these builds)
+build tags        none. In particular NOT `purego` — see BUILD.md.
+
+# What was actually measured
+
+Backends          Groth16 (R1CS frontend, r1cs.NewBuilder) and PLONK (SCS frontend,
+                  scs.NewBuilder), both over BN254
+Curve             BN254. The scalar field is ~254 bits, so no INT8/INT32 quantity in any
+                  task can overflow it; the A1 accumulator bound is checked against int64
+                  in the reference computation, not against the field.
+GPU               NOT measured. `WithIcicleAcceleration` is DEPRECATED in its own docstring
+                  and round one of this benchmark is CPU-only by declaration.
+PLONK SRS         test/unsafekzg, whose own docstring says "to be use for test purposes
+                  only". This is NOT an MPC ceremony. Declared in RESULTS.md's conditions
+                  line, not in a footnote.
+
+# Corpus revision that produced these measurements
+
+corpus commit     06e0c0bea6255317fd308b0c2259ee21be79b2ad (HEAD at campaign start)

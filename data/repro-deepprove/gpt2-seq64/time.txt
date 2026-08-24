@@ -1,0 +1,22 @@
+
+thread 'main' (12034569) panicked at zkml/src/iop/context.rs:329:17:
+Found different MLE for polynomial wte.weight
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+       11.57 real        10.41 user         1.28 sys
+         12745080832  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              814980  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   6  voluntary context switches
+               12375  involuntary context switches
+        142635992960  instructions retired
+         36808445790  cycles elapsed
+         12737078920  peak memory footprint

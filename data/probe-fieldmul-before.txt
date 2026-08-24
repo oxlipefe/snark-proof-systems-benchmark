@@ -1,0 +1,65 @@
+# E-006 fieldmul_sanity probe, under caffeinate -dimsu, sleep-checked per launch
+# discarded predecessor: 5 launches 13:09-13:11 local, straddled 'Idle Sleep' 13:11:51 -> wake 13:14:49 (pmset -g log)
+--- launch 1  load1=7.78  exit=0  mono=0.489s wall=0.489s slept=0.000s OK
+raw PMULL (lower bd)      3226.4 Mops/s
+hand-written 6-PMULL      1012.3 Mmul/s
+binius B128 mul            998.8 Mmul/s
+
+binius / hand-written      0.987   (floor 0.50)
+PMULL per field mul          3.2   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.
+--- launch 2  load1=7.78  exit=0  mono=0.478s wall=0.478s slept=0.000s OK
+raw PMULL (lower bd)      3225.6 Mops/s
+hand-written 6-PMULL      1013.2 Mmul/s
+binius B128 mul            997.7 Mmul/s
+
+binius / hand-written      0.985   (floor 0.50)
+PMULL per field mul          3.2   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.
+--- launch 3  load1=7.40  exit=0  mono=0.481s wall=0.481s slept=0.000s OK
+raw PMULL (lower bd)      3130.2 Mops/s
+hand-written 6-PMULL      1013.1 Mmul/s
+binius B128 mul            999.6 Mmul/s
+
+binius / hand-written      0.987   (floor 0.50)
+PMULL per field mul          3.1   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.
+--- launch 4  load1=7.40  exit=0  mono=0.484s wall=0.484s slept=0.000s OK
+raw PMULL (lower bd)      3226.7 Mops/s
+hand-written 6-PMULL      1013.8 Mmul/s
+binius B128 mul            996.7 Mmul/s
+
+binius / hand-written      0.983   (floor 0.50)
+PMULL per field mul          3.2   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.
+--- launch 5  load1=7.40  exit=0  mono=0.482s wall=0.482s slept=0.000s OK
+raw PMULL (lower bd)      3224.7 Mops/s
+hand-written 6-PMULL      1001.8 Mmul/s
+binius B128 mul            998.0 Mmul/s
+
+binius / hand-written      0.996   (floor 0.50)
+PMULL per field mul          3.2   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.
+--- launch 6  load1=7.40  exit=0  mono=0.480s wall=0.480s slept=-0.000s OK
+raw PMULL (lower bd)      3224.2 Mops/s
+hand-written 6-PMULL      1014.3 Mmul/s
+binius B128 mul            998.6 Mmul/s
+
+binius / hand-written      0.984   (floor 0.50)
+PMULL per field mul          3.2   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.
+--- launch 7  load1=7.40  exit=0  mono=0.480s wall=0.480s slept=-0.000s OK
+raw PMULL (lower bd)      3226.5 Mops/s
+hand-written 6-PMULL      1014.6 Mmul/s
+binius B128 mul            998.7 Mmul/s
+
+binius / hand-written      0.984   (floor 0.50)
+PMULL per field mul          3.2   (algorithm costs 6; below that means the PMULL row is understated, not that the multiply is free)
+
+OK: the measured build is fit to produce numbers.

@@ -1,0 +1,22 @@
+
+thread 'main' (13477490) panicked at ceno_zkvm/src/e2e.rs:1279:33:
+emulator trapped before halt: Trap IllegalInstruction(0xc0001073)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+        9.73 real        14.51 user         0.64 sys
+          2354642944  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              209936  page reclaims
+                 582  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   2  voluntary context switches
+               22335  involuntary context switches
+        121070677655  instructions retired
+         46193215110  cycles elapsed
+          2297841848  peak memory footprint

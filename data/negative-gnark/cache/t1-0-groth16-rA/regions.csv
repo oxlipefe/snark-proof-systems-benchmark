@@ -1,0 +1,8 @@
+task,backend,region,start,end,bytes,source
+t1-0,groth16,Ar_G1_compressed,0,31,32,gnark_v0.16.2_backend/groth16/bn254/marshal.go:33-57
+t1-0,groth16,Bs_G2_compressed,32,95,64,gnark_v0.16.2_backend/groth16/bn254/marshal.go:33-57
+t1-0,groth16,Krs_G1_compressed,96,127,32,gnark_v0.16.2_backend/groth16/bn254/marshal.go:33-57
+t1-0,groth16,Commitments_slice_length_prefix,128,131,4,gnark_v0.16.2_backend/groth16/bn254/marshal.go:33-57
+t1-0,groth16,Commitments_G1_compressed_x1,132,163,32,gnark_v0.16.2_backend/groth16/bn254/marshal.go:33-57
+t1-0,groth16,CommitmentPok_G1_compressed,164,195,32,gnark_v0.16.2_backend/groth16/bn254/marshal.go:33-57
+t1-0,groth16,LAYOUT_TOTAL_MATCHES_ARTIFACT_TRUE,0,195,196,expected=196_actual=196_commitments=1

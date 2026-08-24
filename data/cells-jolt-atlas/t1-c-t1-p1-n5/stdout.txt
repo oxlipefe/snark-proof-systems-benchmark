@@ -1,0 +1,9 @@
+META label=t1-c onnx=/repo/tasks/jolt-atlas/t1-c.onnx padding=true scale=14 max_num_vars=18 reps=5 warmup=1
+SETUP ms=2064.030
+WARMUP i=0 prove_ms=2180.831 verify_ms=22.441 proof_bytes=27179 verify_ok=true
+REP i=1 prove_ms=2161.980 verify_ms=22.021 proof_bytes=27179 verify_ok=true
+REP i=2 prove_ms=2148.273 verify_ms=22.419 proof_bytes=27179 verify_ok=true
+REP i=3 prove_ms=2163.259 verify_ms=22.455 proof_bytes=27179 verify_ok=true
+REP i=4 prove_ms=2180.329 verify_ms=22.076 proof_bytes=27179 verify_ok=true
+REP i=5 prove_ms=2163.404 verify_ms=22.526 proof_bytes=27179 verify_ok=true
+DONE proof_bytes=27179

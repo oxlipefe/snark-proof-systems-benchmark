@@ -1,0 +1,58 @@
+[2m2026-08-24T01:50:57.729988Z[0m [32m INFO[0m [2mbench[0m[2m:[0m == Reading Model ==
+[2m2026-08-24T01:50:57.730481Z[0m [32m INFO[0m [2mbench[0m[2m:[0m [+] Read input from /repo/tasks/deepprove/t2.io.json with 1 IO samples
+[2m2026-08-24T01:50:57.744598Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Model description:
+[2m2026-08-24T01:50:57.744659Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Input shapes: [[200]]
+[2m2026-08-24T01:50:57.744687Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Padded input shapes: [[256]]
+[2m2026-08-24T01:50:57.744707Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N1: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.744720Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N0 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N1, N1 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N2]
+[2m2026-08-24T01:50:57.744743Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N2: ReLU
+[2m2026-08-24T01:50:57.744754Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N1 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N2, N2 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N3]
+[2m2026-08-24T01:50:57.744769Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N3: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.744780Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N2 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N3, N3 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N4]
+[2m2026-08-24T01:50:57.744794Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N4: ReLU
+[2m2026-08-24T01:50:57.744805Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N3 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N4, N4 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N5]
+[2m2026-08-24T01:50:57.744819Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N5: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.744830Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N4 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N5, N5 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N6]
+[2m2026-08-24T01:50:57.744843Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N6: ReLU
+[2m2026-08-24T01:50:57.744853Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N5 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N6, N6 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N7]
+[2m2026-08-24T01:50:57.744918Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N7: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.744930Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N6 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N7, N7 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N8]
+[2m2026-08-24T01:50:57.744939Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Input nodes:
+[2m2026-08-24T01:50:57.744943Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N0:0
+[2m2026-08-24T01:50:57.744948Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Output nodes:
+[2m2026-08-24T01:50:57.744952Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N8:0
+[2m2026-08-24T01:50:57.745096Z[0m [32m INFO[0m [2mzkml::quantization::strategy[0m[2m:[0m Using the 1 provided representative inputs to quantize model
+[2m2026-08-24T01:50:57.748552Z[0m [32m INFO[0m [2mzkml::quantization::strategy[0m[2m:[0m Quantized model with 13 layers, output node ids: [Node(8)]
+[2m2026-08-24T01:50:57.748712Z[0m [32m INFO[0m [2mbench[0m[2m:[0m [+] Model loaded:
+[2m2026-08-24T01:50:57.748719Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Model description:
+[2m2026-08-24T01:50:57.748723Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Input shapes: [[200]]
+[2m2026-08-24T01:50:57.748730Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Padded input shapes: [[256]]
+[2m2026-08-24T01:50:57.748752Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N1: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.748757Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N0 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N1, N1 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N9]
+[2m2026-08-24T01:50:57.748766Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N9: Requant: right shift: 25, scale: 18500
+[2m2026-08-24T01:50:57.748769Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N1 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N9, N9 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N2]
+[2m2026-08-24T01:50:57.748773Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N2: ReLU
+[2m2026-08-24T01:50:57.748776Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N2 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N3, N9 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N2]
+[2m2026-08-24T01:50:57.748780Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N3: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.748782Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N2 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N3, N3 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N10]
+[2m2026-08-24T01:50:57.748787Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N10: Requant: right shift: 24, scale: 25809
+[2m2026-08-24T01:50:57.748789Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N3 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N10, N10 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N4]
+[2m2026-08-24T01:50:57.748793Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N4: ReLU
+[2m2026-08-24T01:50:57.748796Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N4 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N5, N10 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N4]
+[2m2026-08-24T01:50:57.748800Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N5: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.748802Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N4 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N5, N5 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N11]
+[2m2026-08-24T01:50:57.748806Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N11: Requant: right shift: 24, scale: 26667
+[2m2026-08-24T01:50:57.748809Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N5 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N11, N11 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N6]
+[2m2026-08-24T01:50:57.748812Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N6: ReLU
+[2m2026-08-24T01:50:57.748814Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N6 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N7, N11 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N6]
+[2m2026-08-24T01:50:57.748818Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N7: EinSum(A(j)@W(ij)->O(i))
+[2m2026-08-24T01:50:57.748820Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N6 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N7, N7 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N12]
+[2m2026-08-24T01:50:57.748824Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N12: Requant: right shift: 22, scale: 26045
+[2m2026-08-24T01:50:57.748827Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 		- edges: [N7 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N12, N12 -- [Ports([PortLink { source_port: Port(0), target_port: Port(0) }])] --> N8]
+[2m2026-08-24T01:50:57.748835Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Input nodes:
+[2m2026-08-24T01:50:57.748837Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N0:0
+[2m2026-08-24T01:50:57.748840Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m Output nodes:
+[2m2026-08-24T01:50:57.748842Z[0m [32m INFO[0m [2mzkml::model[0m[2m:[0m 	- N8:0
+[2m2026-08-24T01:50:57.748872Z[0m [32m INFO[0m [2mbench[0m[2m:[0m == Reading model metrics: elapsed=18.829916ms peak= in_use= ==
+[2m2026-08-24T01:50:57.748879Z[0m [32m INFO[0m [2mbench[0m[2m:[0m == Accuracy ==
+[2m2026-08-24T01:50:57.748883Z[0m [32m INFO[0m [2mbench[0m[2m:[0m [+] Running model in float format
