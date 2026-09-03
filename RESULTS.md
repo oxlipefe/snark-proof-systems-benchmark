@@ -953,3 +953,101 @@ exponent. Every other system publishes its own.
 **If any of this is wrong, [`CHALLENGE.md`](CHALLENGE.md) applies to every row.** We would
 rather be corrected in public than be wrong in private, and the old numbers stay in the record
 next to the new ones.
+
+---
+
+# Amendments
+
+This file was frozen when the campaign closed. Frozen does not mean immutable — it means every
+change is logged here with its date, its reason, and its effect on figures already published.
+**Silent edits are the failure mode this log exists to prevent.** Amendments A1–A3 amend the
+task specification and live in [TASKS.md](TASKS.md#amendments); A4 amends
+[README.md](README.md#amendments). The series is shared across the frozen documents.
+
+## A5 · Ceno's top rungs were run, and four claims in this file are now wrong (2026-09-02)
+
+**What changed.** Ceno T1-c and T1-d — reported in §4 as `✗ NOT ATTEMPTED` — were run at a
+**reduced shard cap** (`--max-cycle-per-shard` = 2²³ = 8 388 608), together with a new T1-b cell
+at the same cap and a thread sweep. All proved and **all verified**. T1-b was also re-run at 4
+threads, and T1-a was re-measured at the same cap with N = 3.
+
+```
+task  shards  threads  prove s    peak fp   proof      verify s
+T1-a       4       10    30.02*   9.19 GB   4.61 MB      —
+T1-b      13       10   129.97   11.29 GB  15.02 MB   0.6066
+T1-b      13        4   315.76    9.89 GB  15.02 MB      —
+T1-c      49       10   539.29   11.43 GB  56.50 MB   2.2893
+T1-d     193       10  2107.82   11.75 GB 222.40 MB   8.8756
+```
+\* prove figures were taken on an uncontended machine except T1-a's re-runs; see "Corrections" below.
+
+**These cells use a configuration the authors do not document as their default.** The fairness
+protocol measures each system in the configuration its own authors document, and the default caps
+(2²⁹ cycles / 2³¹ cells) are one of them. **These rows are published as what they are — a
+declared deviation, with the cap and the shard count in the same row — and they do NOT fill the
+default-configuration gap.** At default caps, T1-c and T1-d remain unmeasured on this machine.
+
+**What is now wrong in this file, item by item:**
+
+1. **§4, the grid.** Ceno T1-c and T1-d read `✗ NOT ATTEMPTED`. They are now proved and verified
+   at cap 2²³. The default-cap cells remain unattempted, and the grid does not distinguish the
+   two. **The cause of the original absence is also now known and it was ours:**
+   `scripts/ceno/run-all.sh:82` skipped T1-c behind a pre-flight disk guard, and **T1-d had no
+   invocation in the script at all.**
+2. **§13.7.** *"Ceno's T1-c and T1-d have no proving cell at all"* — obsolete.
+3. **§5.1, Ceno's curve.** Its exponents (0.412, 0.734) are measured with **the shard count
+   changing inside the table** (1, 1, 2). The table's own note declares this without correcting
+   it. **It is not a fixed-configuration curve**, and the cells above are the first one in this
+   benchmark that is.
+4. **§5.5 is falsified in both its coverage and its mechanism.** It states *"every other cell in
+   the campaign — within ~1 %"* and attributes divergence to RSS saturating *"above ~16 GB"*.
+   The new cells diverge **1.238 / 1.341 / 1.459 with peak RSS of 8.0–9.2 GB** — nowhere near
+   saturation. The coverage claim is false and the stated mechanism does not apply. **A
+   replacement mechanism is NOT established.**
+5. **§14, item 10.** It says thread count is *"not a comparable quantity in three of five
+   systems"*, treating it as a time variable. **In Ceno, threads are a memory knob**: the same
+   task at the same cap and the same 13 shards peaks at **9.89 GB on 4 threads and 11.29 GB on
+   10** (×1.142). **No memory column in this file declares its thread count as a condition of
+   the memory figure.** Every Ceno memory figure should be read as a property of
+   (task, shard cap, **threads**).
+
+**What this campaign adds, stated as a bound and not as an exponent.** Once shard count exceeds
+thread count, peak footprint stops tracking task size: T1-b/c/d at 13, 49 and 193 shards on 10
+threads peak at 11.29 / 11.43 / 11.75 GB — **×1.040 across ×16 in MACs**, where linear scaling
+predicts +1500 %. Two cells with the **same number of shards in flight** but tasks 4× apart in
+size land **7.6 %** apart. Meanwhile the cost is exactly linear elsewhere: **1.153 MB of proof
+per shard** (spread 0.25 %) and **0.0466 s of verify per shard** (1.59 %), with throughput
+constant at 17 500–18 150 MAC/s (3.74 %). **A quantitative model is NOT established: 0.73 GB of
+the difference between the two same-in-flight cells is unexplained.**
+
+**A composition control was run, and it passed.** Because proof bytes and verify time are exactly
+linear in shard count with no sign of aggregation, we tested whether the verifier binds the shards
+into one statement. Six mutations on the T1-d (193-shard) and T1-c (49-shard) proofs — drop,
+duplicate, transpose, graft a shard from the other proof, truncate: **26 of 26 rejected by
+semantic `VerifyError`, zero panics, zero deserialization errors**, against three controls that
+accept. The binding mechanisms observed are `init_pc` chaining, a **global `shard_ec_sum`
+elliptic-curve accumulator**, hint continuation, and a halt-position check. **This establishes
+that honestly-produced shards cannot be recomposed. It says nothing about an adversarial prover**,
+which is a soundness claim this benchmark does not make. Raw data: `data/compose-ceno/`.
+
+**Corrections to method, disclosed:**
+
+- **A harness bug is fixed in the derived ledger, not in the raw data.** `scripts/ceno/run-cell.sh`
+  recorded `create_proof_s` from **one** `ZKVM_create_proof` span out of the 49 or 193 emitted —
+  18.80 s instead of 539.29 s for T1-c, which would have made segmented cells look **28× faster**
+  than they are. `scripts/ceno/reparse.py` sums them, and its own comment documents the same class
+  of bug caught once before. It also writes rows one field short of the header. **Re-deriving the
+  whole Ceno ledger from the raw logs reproduces all 31 previously published rows byte for byte**,
+  so no published figure changes.
+- **One measurement was contaminated by us and is flagged rather than dropped.** T1-a's three
+  repetitions ran while another process was working the disk: prove time rose **25.5 %** against
+  the 2026-08-24 figure and `(u+s)/real` fell to 3.77. Peak footprint was unaffected
+  (**+0.3 %, spread 0.1 %, across a 3× range of load average**), which is itself the finding:
+  **footprint is robust to contention on this machine and prove time is not.**
+- **Peak RSS is not measurement-grade here.** Across four measurements of the same cell it varies
+  **22.9 %** between repetitions minutes apart. §5.5 already said *"the footprint column is the
+  one to read"*; these numbers say why.
+
+**Effect on previously published figures.** None. No figure, no verdict and no raw data file from
+the original campaign is altered by this amendment. Every claim above rests on cells added after
+it, committed uncurated alongside the originals.

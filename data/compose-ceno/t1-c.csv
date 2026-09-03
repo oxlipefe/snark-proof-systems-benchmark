@@ -1,0 +1,17 @@
+task,mutation,k,shards_in,shards_out,verdict,detail,elapsed_s
+t1-c,M0_LAYOUT,-,49,49,ACCEPTED,"reassembled=56500102 whole=56500102 on_disk=56500102 identical=true",0.0
+t1-c,M0_ORIGINAL,-,49,49,ACCEPTED,"",3.536016
+t1-c,M0_CONTROL,-,49,49,ACCEPTED,"reassemble all 49 shards in order",3.863766
+t1-c,M1_DROP,0,49,48,REJECTED_VERIFY,"shard 0 removed | VerifyError(""0th shard init_pc mismatch: expected 134217728 != 134218356"")",0.007200
+t1-c,M1_DROP,24,49,48,REJECTED_VERIFY,"shard 24 removed | VerifyError(""24th shard init_pc mismatch: expected 134218324 != 134218340"")",2.059023
+t1-c,M1_DROP,48,49,48,REJECTED_VERIFY,"shard 48 removed | VerifyError(""shard_ec_sum is not infinity"")",3.887501
+t1-c,M2_DUP,0,49,49,REJECTED_VERIFY,"shard 0 duplicated over position 1 | VerifyError(""1th shard init_pc mismatch: expected 134218356 != 134217728"")",0.066986
+t1-c,M2_DUP,24,49,49,REJECTED_VERIFY,"shard 24 duplicated over position 25 | VerifyError(""25th shard init_pc mismatch: expected 134218340 != 134218324"")",2.325609
+t1-c,M2_DUP,47,49,49,REJECTED_VERIFY,"shard 47 duplicated over position 48 | VerifyError(""48th shard init_pc mismatch: expected 134222920 != 134221560"")",2.860184
+t1-c,M3_SWAP,0,49,49,REJECTED_VERIFY,"shards 0 and 1 transposed | VerifyError(""0th shard init_pc mismatch: expected 134217728 != 134218356"")",0.007175
+t1-c,M3_SWAP,24,49,49,REJECTED_VERIFY,"shards 24 and 25 transposed | VerifyError(""24th shard init_pc mismatch: expected 134218324 != 134218340"")",1.574158
+t1-c,M3_SWAP,47,49,49,REJECTED_VERIFY,"shards 47 and 48 transposed | VerifyError(""47th proof ecall/halt mismatch: expected false != true"")",3.795650
+t1-c,M4_GRAFT,0,49,49,REJECTED_VERIFY,"position 0 replaced by donor shard 0 | VerifyError(""hint continuation mismatch"")",0.095219
+t1-c,M4_GRAFT,24,49,49,REJECTED_VERIFY,"position 24 replaced by donor shard 24 | VerifyError(""hint continuation mismatch"")",2.069793
+t1-c,M4_GRAFT,48,49,49,REJECTED_VERIFY,"position 48 replaced by donor shard 48 | VerifyError(""48th shard init_pc mismatch: expected 134222920 != 134218336"")",3.952680
+t1-c,M5_TRUNC,-,49,24,REJECTED_VERIFY,"kept first 24 of 49 shards | VerifyError(""shard_ec_sum is not infinity"")",1.882748

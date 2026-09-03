@@ -1,0 +1,16 @@
+=== M0_ORIGINAL ===
+[compose] donor /Users/erikatorres/Claude/Projects/viaas-zkml/bench/data/cells-ceno/t1-d-t10-s8388608-n1/rep1.proof.bin: 193 shards
+=== M0_CONTROL k=- (reassemble all 49 shards in order) ===
+=== M1_DROP k=0 (shard 0 removed) ===
+=== M1_DROP k=24 (shard 24 removed) ===
+=== M1_DROP k=48 (shard 48 removed) ===
+=== M2_DUP k=0 (shard 0 duplicated over position 1) ===
+=== M2_DUP k=24 (shard 24 duplicated over position 25) ===
+=== M2_DUP k=47 (shard 47 duplicated over position 48) ===
+=== M3_SWAP k=0 (shards 0 and 1 transposed) ===
+=== M3_SWAP k=24 (shards 24 and 25 transposed) ===
+=== M3_SWAP k=47 (shards 47 and 48 transposed) ===
+=== M4_GRAFT k=0 (position 0 replaced by donor shard 0) ===
+=== M4_GRAFT k=24 (position 24 replaced by donor shard 24) ===
+=== M4_GRAFT k=48 (position 48 replaced by donor shard 48) ===
+=== M5_TRUNC k=- (kept first 24 of 49 shards) ===

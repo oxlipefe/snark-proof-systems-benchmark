@@ -1,0 +1,15 @@
+Files present in the local campaign tree but NOT pushed to this repository (2026-09-03).
+
+Verifying keys of the 2026-09-02 top-rung cells (amendment A5) — omitted under the standing
+policy stated in README.txt: at the pinned commit a bincode-serialised vk cannot verify any
+proof (systems/ceno/BUILD.md §5). All five are byte-identical (same ELF, one vk for the ladder):
+  89 880 549 bytes  sha256 c0685bc9ea9093c6cb3090742aea891142c225c5f4c33ad1ff63930f2f6a297a
+  t1-a-t10-s8388608-n3/rep3.vk.bin  t1-b-t10-s8388608-n1/rep1.vk.bin  t1-b-t4-s8388608-n1/rep1.vk.bin
+  t1-c-t10-s8388608-n1/rep1.vk.bin  t1-d-t10-s8388608-n1/rep1.vk.bin
+
+One proof omitted because it exceeds GitHub's 100 MB per-file limit; its size is what
+cells-ceno.csv reports for that cell, and this checksum lets a reproducer compare:
+  t1-d-t10-s8388608-n1/rep1.proof.bin  222 401 974 bytes (212.1 MiB)
+  sha256 b3d7cd528ffa3b24d6b029ce4ca4d08f871fb3e3b849f7767afcced3c3efa8f1
+
+Every other file of those cells (stdout, time logs, the t1-c proof at 53.9 MiB) is pushed.

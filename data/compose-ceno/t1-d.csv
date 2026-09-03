@@ -1,0 +1,17 @@
+task,mutation,k,shards_in,shards_out,verdict,detail,elapsed_s
+t1-d,M0_LAYOUT,-,193,193,ACCEPTED,"reassembled=222401974 whole=222401974 on_disk=222401974 identical=true",0.0
+t1-d,M0_ORIGINAL,-,193,193,ACCEPTED,"",12.340518
+t1-d,M0_CONTROL,-,193,193,ACCEPTED,"reassemble all 193 shards in order",17.455156
+t1-d,M1_DROP,0,193,192,REJECTED_VERIFY,"shard 0 removed | VerifyError(""0th shard init_pc mismatch: expected 134217728 != 134218356"")",0.059075
+t1-d,M1_DROP,96,193,192,REJECTED_VERIFY,"shard 96 removed | VerifyError(""96th shard init_pc mismatch: expected 134218332 != 134218356"")",7.861401
+t1-d,M1_DROP,192,193,192,REJECTED_VERIFY,"shard 192 removed | VerifyError(""shard_ec_sum is not infinity"")",10.842417
+t1-d,M2_DUP,0,193,193,REJECTED_VERIFY,"shard 0 duplicated over position 1 | VerifyError(""1th shard init_pc mismatch: expected 134218356 != 134217728"")",0.081585
+t1-d,M2_DUP,96,193,193,REJECTED_VERIFY,"shard 96 duplicated over position 97 | VerifyError(""97th shard init_pc mismatch: expected 134218356 != 134218332"")",4.715874
+t1-d,M2_DUP,191,193,193,REJECTED_VERIFY,"shard 191 duplicated over position 192 | VerifyError(""192th shard init_pc mismatch: expected 134221580 != 134222928"")",9.196058
+t1-d,M3_SWAP,0,193,193,REJECTED_VERIFY,"shards 0 and 1 transposed | VerifyError(""0th shard init_pc mismatch: expected 134217728 != 134218356"")",0.030018
+t1-d,M3_SWAP,96,193,193,REJECTED_VERIFY,"shards 96 and 97 transposed | VerifyError(""96th shard init_pc mismatch: expected 134218332 != 134218356"")",4.565848
+t1-d,M3_SWAP,191,193,193,REJECTED_VERIFY,"shards 191 and 192 transposed | VerifyError(""191th proof ecall/halt mismatch: expected false != true"")",9.555972
+t1-d,M4_GRAFT,0,193,193,REJECTED_VERIFY,"position 0 replaced by donor shard 0 | VerifyError(""hint continuation mismatch"")",0.081546
+t1-d,M4_GRAFT,96,193,193,REJECTED_VERIFY,"position 96 replaced by donor shard 47 | VerifyError(""96th shard init_pc mismatch: expected 134218332 != 134221560"")",4.634513
+t1-d,M4_GRAFT,192,193,193,REJECTED_VERIFY,"position 192 replaced by donor shard 45 | VerifyError(""192th shard init_pc mismatch: expected 134221580 != 134218336"")",9.369496
+t1-d,M5_TRUNC,-,193,96,REJECTED_VERIFY,"kept first 96 of 193 shards | VerifyError(""shard_ec_sum is not infinity"")",4.583953

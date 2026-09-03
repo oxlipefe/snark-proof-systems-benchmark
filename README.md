@@ -2,9 +2,11 @@
 
 **A cross-system benchmark of zero-knowledge proof systems that measures the metric nobody publishes: bytes of prover memory per arithmetic operation.**
 
-> **Status: in progress.** Methodology is frozen; measurements are being collected.
-> This file contains no results yet. When it does, every number will carry its full
-> conditions line. Nothing here is a marketing claim.
+> **Status: round one complete, published 2026-08-24.** Five systems, one machine, one
+> campaign, the same tasks. **The results are in [RESULTS.md](RESULTS.md)** — including
+> every cell that did not run, and why. Methodology remains frozen; every change to a
+> frozen document is logged with its date under [Amendments](#amendments). Every number
+> carries its full conditions line. Nothing here is a marketing claim.
 
 ---
 
@@ -168,6 +170,37 @@ convenient one unless the transformation is published alongside it.
 Every system directory under `systems/` contains the pinned commit, the build check, the
 task expression, and the exact commands. `data/` holds raw uncurated CSVs. `scripts/`
 rebuilds everything from zero.
+
+## Amendments
+
+This file is frozen the same way [TASKS.md](TASKS.md) is. Frozen does not mean immutable —
+it means every change is logged here with its date and its reason. **Silent edits are the
+failure mode this log exists to prevent.** Amendments A1–A3 amend the task specification and
+live in [TASKS.md](TASKS.md#amendments); the series is shared across both frozen documents.
+
+### A4 · The status line was false (2026-09-01)
+
+**Defect.** From the first public commit until this amendment, this file opened with
+*"Status: in progress. Methodology is frozen; measurements are being collected. This file
+contains no results yet."* That was true when it was written and stopped being true on
+2026-08-24, when the five-system campaign was committed as `RESULTS.md`. It was never
+updated. This file also linked `RESULTS.md` nowhere, so a reader arriving at the repository
+was told there were no results and given no path to the results sitting in the directory
+beside this file.
+
+**Resolution.** The status block now states that round one is complete, carries its date,
+and links `RESULTS.md`.
+
+**Direction of the error, stated because it matters.** The stale line understated the work
+rather than overstating it. That makes it a cheaper mistake, not a different kind of one:
+the rule is that this file says what is true on the day it is read, in either direction.
+
+**Why it is logged rather than quietly fixed.** The claim this repository makes is that its
+numbers can be trusted because nothing about it is edited in silence. A stale front page is
+a small defect; repairing it without a record would be a larger one.
+
+**Effect on measurements.** None. No figure, no verdict, no cell and no raw data file is
+touched by this amendment.
 
 ## License
 
