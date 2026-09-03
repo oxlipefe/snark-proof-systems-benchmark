@@ -541,15 +541,4 @@ already desynchronizes on; `committed_binding` is the first control in this dire
 what the commitment *binds* rather than whether the proof is rejected, and both committed routes
 reject it (`sumcheck_ok=true opening_ok=true bound_matches=false`).
 
-**Discrepancy to flag, not silently resolved.** `bench/RESULTS.md` A8 reports "18 corruptions, 18
-rejected." The `18` is exactly what the current `p3_negative.rs` source runs for one task (above)
-— but `bench/data/negative-plonky3/report.txt` and `negative.csv` on disk are the **pre-split**
-run: 22 rows (T1-0 **and** T1-a, 11 each), one committed-route kind only (`sumcheck-whir`,
-`weight_bit`), no `sumcheck-whir-split` row and no `committed_binding` row at all — this is what
-§1.1 above still cites. `git status` confirms `p3_negative.rs` is modified relative to the commit
-that produced those files, and `route.rs`/`pcs.rs`/`matmul.rs` (which `committed_binding_control`
-and the split route depend on) are modified too. So A8's 18/18 is traceable to what the current
-harness *would* produce, not to a regenerated artifact in this repo — no file here backs the
-`committed_binding` verdict or the split-route corruption rows as an executed, logged run. This
-section does not run that control (out of scope here); the gap is reported so `data/negative-
-plonky3/` gets regenerated before `committed_binding` is cited as a verified result elsewhere.
+**Artifact status (resolved 2026-09-03).** When this section was first written, `bench/data/negative-plonky3/` still held the pre-split run (22 rows over T1-0 and T1-a, one committed-route kind, no `sumcheck-whir-split` row, no `committed_binding` row — the run §1.1 describes), because the split route's author wrote its negative-control output to scratch. The artifact was then regenerated with `scripts/plonky3/run-negative.sh t1-0` from the committed source, and `negative.csv` / `report.txt` on disk now read: **18 corruptions applied; 18 REJECTED, 0 ACCEPTED, 0 WITNESS_INERT** — four kinds on each of `sumcheck-whir` and `sumcheck-whir-split`, `committed_binding` present on both (`sumcheck_ok=true opening_ok=true bound_matches=false`). This is the run A8 cites. §1.1's 11/11 over two tasks is the earlier artifact and is superseded for T1-0 by this one; T1-a was not re-run under the regenerated binary.
