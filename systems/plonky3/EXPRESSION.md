@@ -274,3 +274,172 @@ That the two harnesses drew the **same numbers** is checked rather than asserted
 T2 and T3 contain ReLU. A sumcheck over a product of two multilinears proves a bilinear form;
 an activation is not one. Expressing them needs either a GKR circuit or an AIR, and neither was
 written. See [`NOT_EXPRESSIBLE.md`](NOT_EXPRESSIBLE.md) §2.
+
+---
+
+## 11. `G-13b''` — removing the stacking padding, and what it cost to remove it
+
+**Status of this section:** it describes a route that exists in the harness and passes its
+controls. **No campaign has been run on it.** Every figure below is either a *configuration*
+fact — read off `WhirConfig` without proving anything — or a **SMOKE** measurement with one
+repetition and no dispersion, and a smoke measurement is not a result.
+
+### 11.1 What was wrong
+
+§4 commits `A` and `B` as one stacked multilinear and justifies it with *"committing them
+separately would pay the FFT and Merkle overhead twice."* That is true and it is the smaller
+term. The larger one is that **the stack's arity is `log2_ceil` of the SUM of the tables' cell
+counts** — `plan_layout`, `sumcheck/src/layout/plan.rs:52-57`:
+
+```rust
+let k = log2_ceil_usize(
+    shapes.iter().map(|s| s.width * (1usize << s.arity)).sum::<usize>(),
+);
+```
+
+With `a_vars < b_vars` the sum sits just above `2^b_vars`, so `k = b_vars + 1` and the
+commitment covers **very nearly twice the operands**. `bench/RESULTS.md` A7 item 3 declares this
+for T1-a and does not correct it. This section corrects it.
+
+### 11.2 The three candidates, and which one Plonky3 permits
+
+| | idea | verdict |
+|---|---|---|
+| **(a)** | two commitments, `A` under a scheme of `a_vars` variables and `B` under one of `b_vars` | **available; implemented** |
+| **(b)** | one commitment sized to `2^b_vars` with `A` packed into the slack | **impossible** |
+| **(c)** | one commitment, several polynomials batched *without* stacking | **does not exist: (c) IS the stacking** |
+
+**(b) is refused by the type that carries the commitment.** A WHIR commitment is a multilinear
+over a hypercube and its size is fixed by the config, not by the witness:
+
+```rust
+    fn commit(
+        &self,
+        witness: Self::Witness,
+        challenger: &mut Challenger,
+    ) -> (Self::Commitment, Self::ProverData) {
+        assert_eq!(witness.num_variables(), self.config.num_variables);
+```
+
+`whir/src/pcs/adapter.rs:86-91`, at commit `3152b14a`. One `WhirConfig` is one power of two, and
+`2^20 + 2^10` is not one. There is no "sized" commitment to ask for.
+
+**(c) turns out to be the same thing as the stacking, not an alternative to it.** The harness
+already passes a batch: `OpeningProtocol::new(vec![TableSpec…, TableSpec…])` with two
+`TableShape`s, and `p3-whir` does support several opening claims against one commitment
+(`PrescribedPointPcs::open_at`, `whir/src/pcs/adapter.rs:218-252`). But the batch is realised by
+`Witness::new` (`sumcheck/src/layout/witness.rs:246-286`), which **is** the stacking: it calls
+`plan_layout`, lays each column into a contiguous slot, and rounds the total up. There is no
+second batching path in the tree. So the multi-polynomial API and the padding are the same
+mechanism, and (c) collapses into the thing being removed.
+
+**(a) is therefore the only option that does not require writing a PCS**, and it is what
+`sumcheck-whir-split` does.
+
+### 11.3 What the new route is, and what it deliberately keeps
+
+`sumcheck-whir-split` (`route.rs`, `WhirSetup::Split`). **The statement and the transcript order
+are unchanged**, which is the part that had to survive:
+
+1. `commit(A)` — Merkle root absorbed;
+2. `commit(B)` — second Merkle root absorbed;
+3. absorb the public `C`; sample `(r1, r2)`;
+4. `log K` sumcheck rounds; close on `A~(r1,r3)·B~(r3,r2)`;
+5. open `A` at `(r1, r3)` and `B` at `(r3, r2)`, each under its own scheme.
+
+Both commitments are fixed **before** the transcript produces `(r1, r2)`, which is the condition
+`PrescribedPointPcs` states for prescribed openings and the one §4 records for the stacked
+route. `C` stays public and the verifier still recomputes `C̃(r1, r2)` from it. The verifier
+still checks that the values the commitments bind are the values the sumcheck closed on — for
+the split route that is two separate `verify_open` calls, one per commitment, and the same
+final equality.
+
+**`sumcheck-whir` is untouched.** It runs the same code path through `WhirSetup::Stacked`, and
+the smoke below reproduces its recorded proof size to the byte, so rows `…-n5` and `…-n6` stay
+reproducible.
+
+### 11.4 The commitments, per rung — configuration only, nothing proved
+
+| task | route | commitments | `whir_vars` | committed elements | operands | padding | final STIR queries |
+|---|---|---:|---|---:|---:|---:|---|
+| T1-0 | `sumcheck-whir` | 1 | 17 | 131 072 | 65 792 | **1.9922×** | 91 |
+| T1-0 | `sumcheck-whir-split` | 2 | 8 + 16 | **65 792** | 65 792 | **1.0000×** | 215 + 91 |
+| T1-a | `sumcheck-whir` | 1 | 21 | 2 097 152 | 1 049 600 | **1.9980×** | 90 |
+| T1-a | `sumcheck-whir-split` | 2 | 10 + 20 | **1 049 600** | 1 049 600 | **1.0000×** | 215 + 90 |
+
+Read off `WhirConfig` at `UniqueDecoding`, 96 bits, rate 1, PoW 7, folding 4 — the §4 run-2
+regime — via `p3-bench --stat-only`, which derives the configuration and proves nothing.
+
+**The split is not free, and the cost is in the column on the right.** The `A` commitment is a
+short polynomial (8 or 10 variables), and WHIR's query count *rises* as the code gets short:
+**215** final queries against the stack's 90. Its Merkle paths are correspondingly short, so
+this does not scale the proof the way the count alone suggests — but it is why the proof does
+not shrink by the same factor the commitment does, and it is a term that would grow if `A` were
+split further.
+
+### 11.5 Proof-size accounting — the two routes do NOT use the same one
+
+`systems/plonky3/RESULTS.md` declares that `proof_bytes_median` for `sumcheck-whir` **omits the
+Merkle root**. That omission is kept for `sumcheck-whir`, because closing it would silently move
+every published `…-n5` and `…-n6` figure. It is **not** kept for `sumcheck-whir-split`: a route
+whose entire content is that it carries two commitments may not hide the second root, so its
+`proof_bytes` includes both. The per-route root cost is published beside the cell as
+`whir_root_bytes` (33 B for one root, 66 B for two, postcard), so either accounting can be
+recovered from the row. **A reader comparing the two proof sizes below is comparing 132 519 B
+without its root against 121 594 B with both of its roots.**
+
+### 11.6 SMOKE — T1-0, one thread, one warm-up, ONE repetition, 2026-09-03
+
+**These are not results.** One repetition carries no dispersion; on this machine `peak
+footprint` reproduces to ±0.3 % between campaigns but nothing here establishes that these two
+cells are separated by more than noise. They exist to show the route runs and that the stacked
+route did not move.
+
+| | `sumcheck-whir` | `sumcheck-whir-split` |
+|---|---:|---:|
+| prove | 31.66 ms | 16.50 ms |
+| verify | 3.269 ms | 2.956 ms |
+| `proof_bytes` | 132 519 B *(root excluded)* | 121 594 B *(both roots included)* |
+| `whir_root_bytes` | 33 | 66 |
+| peak footprint | 13 123 920 B | 7 209 272 B |
+| committed elements | 131 072 | 65 792 |
+| `whir_final_queries` | 91 | 215 + 91 |
+
+**The control that licenses reading anything at all from the left column: 132 519 B is exactly
+the `proof_bytes_median` of the published `t1-0-koala-bear-sumcheck-whir-t1-n6` cell.** The
+refactor that introduced the split route left the stacked route bit-identical on the one
+quantity that is deterministic.
+
+### 11.7 Controls
+
+`p3-negative` covers both committed routes, four corruptions each (T1-0, all REJECTED):
+
+| kind | what it does | `sumcheck-whir` | `sumcheck-whir-split` |
+|---|---|---|---|
+| `weight_bit` | commit and prove a corrupted `B` against the published `C` | `sumcheck_ok=false opening_ok=false` | `sumcheck_ok=false opening_ok=false` |
+| `input_bit` | the same for `A` | `sumcheck_ok=false opening_ok=false` | `sumcheck_ok=false opening_ok=false` |
+| `public_output_bit` | the verifier holds a different `C` | `sumcheck_ok=false opening_ok=false` | `sumcheck_ok=false opening_ok=false` |
+| `committed_binding` | **commit a corrupted `B`, prove the honest statement** | `sumcheck_ok=true opening_ok=true bound_matches=false` | `sumcheck_ok=true opening_ok=true bound_matches=false` |
+
+The first three are the controls the route inherited, and on a committed route they all corrupt
+something the sumcheck already catches: the transcript desynchronises and the opening fails with
+it, which proves the proof is rejected and says **nothing** about whether the commitment binds
+anything. `committed_binding` was added for exactly that gap. It commits a corrupted `B` and
+runs the honest sumcheck, so the sumcheck is valid *and the WHIR opening is a valid opening* —
+of the wrong polynomial. The only thing left standing between the verifier and a proof about
+operands nobody committed is the equality between what the commitments bind and what the
+sumcheck closed on, and that is where both routes fail it. **This is the first control in this
+directory that tests the commitment rather than the sumcheck.**
+
+Unit tests (`route.rs`): both committed routes prove the same statement on T1-0 and T1-a, both
+verify, each route's opening sum equals `C̃(r1, r2)` recomputed from the public output by a
+second implementation, each closing evaluation equals the operand's multilinear at the opened
+point, and the split route's committed element count is **exactly** `2^a_vars + 2^b_vars`.
+
+**What could not be asserted, and why.** The two routes' `claimed` field elements are not equal,
+and no correct implementation could make them equal: the transcripts differ by construction —
+one Merkle root against two, one WHIR domain separator against two — so `(r1, r2)` differ and
+the claim is evaluated at a different point on each route. What the test asserts instead is the
+property that equality was standing in for: on each route the claim **is** `C̃` of the same
+public output at that route's own challenges, and both routes close on the multilinears of the
+same `A` and `B`.

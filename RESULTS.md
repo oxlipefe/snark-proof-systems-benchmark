@@ -1172,3 +1172,43 @@ exist for this system.
 (proven vs conjectured) is **not declared anywhere in this benchmark** and is now an open item for
 every hash-based row, not only this one: from A7 on, a security parameter is quoted with its regime
 in the same cell or it is not quoted.
+
+## A8 · The stacking overhead A7 declared as a floor is gone, and the ratio crossed 10× (2026-09-03)
+
+**What changed.** A7 stated that Plonky3's WHIR commitment stacked `A` and `B` into one 2²¹-element
+multilinear for 1 049 600 operands — a 1.998× overhead binius64 does not pay — and that every
+Plonky3 figure was therefore a floor. A new route, `sumcheck-whir-split`, commits `A` and `B`
+separately (two WHIR commitments of 2¹⁰ and 2²⁰ elements; padding factor 1.0000; both Merkle roots
+counted in `proof_bytes`, closing the omission A7 declared). The statement is unchanged: operands
+committed before the transcript fixes `(r1, r2)`, `C` public and re-evaluated by the verifier, both
+openings bound by `verify_open`. Why the only option was two commitments and not one right-sized
+one: `whir/src/pcs/adapter.rs:86-91` asserts the witness has exactly the config's variable count,
+and `2²⁰ + 2¹⁰` is not a power of two; and the multi-polynomial table API in `p3-sumcheck` is the
+stacking itself (`sumcheck/src/layout/plan.rs:52-57` rounds the sum to the next power of two).
+
+**Cost the split introduces, declared.** The short `A` commitment needs 215 final queries against
+90 for the stack: WHIR's query count rises as the code shortens. Its Merkle paths are short, so the
+proof shrinks only 3 %.
+
+**The cell, re-run in the same window as A7's binius64 re-run** (same day, `UniqueDecoding`,
+PoW 7, 1 warm-up + 6 repetitions, median with min–max, `peak footprint`):
+
+| T1-a, 589 824 MACs | Plonky3 KoalaBear, MATMULT + WHIR **split** | binius64 (2026-09-03) | ratio |
+|---|---:|---:|---:|
+| prove, 1 thread | **273.2 ms** [271.9–285.5] | 2 741.1 ms [2 669.8–3 822.6] | **10.03×** |
+| prove, 10 threads | **57.2 ms** [54.0–61.7] | 881.1 ms [814.2–1 775.2] | **15.4×** |
+| verify | **5.59 ms** | 73.5 ms / 33.1 ms | 13× / 5.9× |
+| proof (roots included) | **221 794 B** | 460 304 B | **2.08×** |
+| peak footprint | **0.071 GB** / 0.074 GB | 7.27 GB / 7.29 GB | **102×** |
+| committed elements | 1 049 600 (= operands) | 589 824 IMUL padded to 1 048 576 | — |
+
+T1-0 (65 536 MACs, no padding on either side): 16.2 ms [16.0–16.4] at 1 thread against binius64's
+179.0 ms [177.8–186.8] (2026-08-24 campaign), 11.1×; proof 121 594 B against 345 536 B.
+
+**What is and is not said.** Everything A7 says about scope holds unchanged: one tile, `M = 1`,
+public output, no range check on either side, MATMULT expresses neither T2/T3 nor a chain of layers,
+and this is a system-vs-system cell, not a measurement of the field. A8 removes the one correction
+A7 left pending on the Plonky3 side; the stacked rows (`…-sumcheck-whir-…`) are kept and labelled.
+Negative controls on the new route: 18 corruptions, 18 rejected, including a new `committed_binding`
+control that commits a corrupted `B` and runs an honest sum-check — the first control in this
+directory that tests what the commitment binds rather than whether the proof is rejected.

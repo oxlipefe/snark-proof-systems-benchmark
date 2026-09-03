@@ -196,6 +196,10 @@ pub struct Proven<P: FieldPair> {
     pub proof: MatmulProof<P::F, P::EF>,
     pub a_point: Vec<P::EF>,
     pub b_point: Vec<P::EF>,
+    /// `C~(r1, r2)` — the sum the sumcheck starts from. Returned so a test can check that two
+    /// routes over the same statement start from the SAME claim about the SAME public output,
+    /// rather than inferring it from the fact that both verified.
+    pub claimed: P::EF,
 }
 
 /// Proves `C = A . B` for the embedded statement.
@@ -267,6 +271,7 @@ pub fn prove<P: FieldPair>(st: &Statement<P>, challenger: &mut P::Challenger) ->
         },
         a_point,
         b_point,
+        claimed,
     }
 }
 

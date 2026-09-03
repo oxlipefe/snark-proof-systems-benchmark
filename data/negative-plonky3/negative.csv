@@ -9,15 +9,11 @@ T1-0,binary128,sumcheck,input_bit,A[0][0] low bit, -125 -> -126,REJECTED
 T1-0,binary128,sumcheck,public_output_bit,C[0][0] + 1 on the verifier's side,REJECTED
 T1-0,binary128,sumcheck,round_message,round 0, h(0) + 1,REJECTED
 T1-0,binary128,sumcheck,closing_opening,A~(r1,r3) + 1,REJECTED
-T1-0,koala-bear,sumcheck-whir,weight_bit,B[0][0] low bit; sumcheck_ok=false opening_ok=false,REJECTED
-T1-a,koala-bear,sumcheck,weight_bit,B[0][0] low bit, -68 -> -67,REJECTED
-T1-a,koala-bear,sumcheck,input_bit,A[0][0] low bit, -117 -> -118,REJECTED
-T1-a,koala-bear,sumcheck,public_output_bit,C[0][0] + 1 on the verifier's side,REJECTED
-T1-a,koala-bear,sumcheck,round_message,round 0, h(0) + 1,REJECTED
-T1-a,koala-bear,sumcheck,closing_opening,A~(r1,r3) + 1,REJECTED
-T1-a,binary128,sumcheck,weight_bit,B[0][0] low bit, -68 -> -67,REJECTED
-T1-a,binary128,sumcheck,input_bit,A[0][0] low bit, -117 -> -118,REJECTED
-T1-a,binary128,sumcheck,public_output_bit,C[0][0] + 1 on the verifier's side,REJECTED
-T1-a,binary128,sumcheck,round_message,round 0, h(0) + 1,REJECTED
-T1-a,binary128,sumcheck,closing_opening,A~(r1,r3) + 1,REJECTED
-T1-a,koala-bear,sumcheck-whir,weight_bit,B[0][0] low bit; sumcheck_ok=false opening_ok=false,REJECTED
+T1-0,koala-bear,sumcheck-whir,weight_bit,B[0][0] low bit, 32 -> 33; sumcheck_ok=false opening_ok=false bound_matches=false,REJECTED
+T1-0,koala-bear,sumcheck-whir,input_bit,A[0][0] low bit, -125 -> -126; sumcheck_ok=false opening_ok=false bound_matches=false,REJECTED
+T1-0,koala-bear,sumcheck-whir,public_output_bit,C[0][0] + 1 on the verifier's side; sumcheck_ok=false opening_ok=false bound_matches=false,REJECTED
+T1-0,koala-bear,sumcheck-whir,committed_binding,B[0][0] low bit COMMITTED ONLY, 32 -> 33; sumcheck_ok=true opening_ok=true bound_matches=false,REJECTED
+T1-0,koala-bear,sumcheck-whir-split,weight_bit,B[0][0] low bit, 32 -> 33; sumcheck_ok=false opening_ok=false bound_matches=false,REJECTED
+T1-0,koala-bear,sumcheck-whir-split,input_bit,A[0][0] low bit, -125 -> -126; sumcheck_ok=false opening_ok=false bound_matches=false,REJECTED
+T1-0,koala-bear,sumcheck-whir-split,public_output_bit,C[0][0] + 1 on the verifier's side; sumcheck_ok=false opening_ok=false bound_matches=false,REJECTED
+T1-0,koala-bear,sumcheck-whir-split,committed_binding,B[0][0] low bit COMMITTED ONLY, 32 -> 33; sumcheck_ok=true opening_ok=true bound_matches=false,REJECTED

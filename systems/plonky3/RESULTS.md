@@ -418,3 +418,138 @@ is odd), so no commitment-bearing binary cell exists in this codebase to compare
 answered here at all: this route has no constraints.** And the cell that stands in for it
 measures a representation, not a field. This is reported as the finding, not patched with an
 estimate.
+
+---
+
+## 9 · G-13b″ — the split commitment, same window
+
+`bench/RESULTS.md` A8, `EXPRESSION.md` §11. §5–§7 above carry a **2× stacking overhead**: `A`
+and `B` were committed as one multilinear whose arity is `log2_ceil` of the SUM of the two
+tables' cell counts (`sumcheck/src/layout/plan.rs:52-57`), which for T1-a rounds `1 049 600`
+operands up to `2 097 152` committed elements — very nearly double. §6 and §7 declared every
+`sumcheck-whir` figure a **floor** because of it and did not correct it. This section corrects
+it with a new route, `sumcheck-whir-split`, that commits `A` and `B` under two separate WHIR
+schemes instead of one stacked one. **`sumcheck-whir` is untouched** — same code path, same
+`WhirSetup::Stacked` — and its rows (`…-n5`, `…-n6`) stay exactly as published above.
+
+### 9.a Why this route, and why it was the only one available
+
+Three ways to remove the 2× were considered (`EXPRESSION.md` §11.2):
+
+| | idea | verdict |
+|---|---|---|
+| (a) | two commitments, `A` under a scheme of `a_vars` variables and `B` under one of `b_vars` | **available; implemented** |
+| (b) | one commitment sized to `2^b_vars`, with `A` packed into the slack | **impossible** |
+| (c) | one commitment, several polynomials batched *without* stacking | **does not exist — (c) IS the stacking** |
+
+**(b) is refused by the type that carries the commitment.** A WHIR commitment is a multilinear
+over a hypercube sized by the config, not by the witness: `commit()` asserts
+`witness.num_variables() == self.config.num_variables` (`whir/src/pcs/adapter.rs:86-91`, commit
+`3152b14a`). One `WhirConfig` is one power of two, and `2^20 + 2^10` is not one — there is no
+"sized" commitment to ask for. **(c) collapses into the thing being removed.** The harness
+already passes a batch of two `TableSpec`s to `PrescribedPointPcs::open_at`
+(`whir/src/pcs/adapter.rs:218-252`), but the batch is realized by `Witness::new`
+(`sumcheck/src/layout/witness.rs:246-286`), which calls the same `plan_layout` that does the
+stacking — there is no second batching path in the tree. **(a) was therefore the only option
+that did not require writing a PCS**, and it is what `sumcheck-whir-split` does. The statement
+and transcript order are unchanged: `commit(A)` then `commit(B)`, both roots absorbed before the
+transcript fixes `(r1, r2)`, `C` stays public and re-evaluated by the verifier, and each
+commitment is opened separately at the point the sumcheck produced for it — the same condition
+`PrescribedPointPcs` states for prescribed openings and the one §4/§5 record for the stacked
+route.
+
+### 9.b The cell — `koala-bear`, `sumcheck-whir-split`, `UniqueDecoding`, PoW 7, N = 6
+
+Source: `bench/data/cells-plonky3.csv` rows `*-sumcheck-whir-split-*-n6`;
+`bench/data/cells-plonky3/<label>/cell.json` for `whir_vars`, `whir_final_queries`,
+`whir_committed_elements`, `whir_padding_factor`. **`WHIR padding` here is the commitment's own
+padding factor** (§11.4 of `EXPRESSION.md`) — it is not T1-a's `1.7778×` `K×N` padding from §5,
+which is unrelated and still applies to the matmul dimensions on both the stacked and the split
+route. `MAC/s` divides published MACs (65 536 for T1-0, 589 824 for T1-a) by the median prove
+time, per §5's own rule.
+
+| task | threads | prove median [min–max] ms | verify ms | proof B (both roots included) | peak footprint GB | MAC/s (÷ published MACs) | `whir_vars` | `whir_final_queries` | `whir_committed_elements` | WHIR padding |
+|---|---:|---:|---:|---:|---:|---:|---|---|---:|---:|
+| T1-0 | 1 | 16.237 [15.961–16.372] | 2.9976 | 121 594 | 0.0072 | 4 036 260 | 8+16 | 215+91 | 65 792 | 1.0000 |
+| T1-0 | 10 | 7.535 [7.128–14.774] | 3.0498 | 122 378 | 0.0092 | 8 697 521 | 8+16 | 215+91 | 65 792 | 1.0000 |
+| T1-a | 1 | 273.202 [271.872–285.524] | 5.5886 | 221 794 | 0.0714 | 2 158 927 | 10+20 | 215+90 | 1 049 600 | 1.0000 |
+| T1-a | 10 | 57.230 [53.978–61.740] | 5.6266 | 222 210 | 0.0740 | 10 306 188 | 10+20 | 215+90 | 1 049 600 | 1.0000 |
+
+`whir_committed_elements` now equals the operand count exactly (65 792 = 65 536 `K×N` + 256
+`M×K`; 1 049 600 = 1 048 576 + 1 024) — the stacking's ≈2× is gone. The 10-thread T1-0 row's
+[7.128–14.774] spread is wide relative to its own median (max is 1.96× the min); this matches
+the pattern §5 already flagged for short single-thread cells on a shared machine and is not
+specific to this route.
+
+### 9.c The cross-system row — T1-a, same day as §7's binius64 re-run
+
+**Header, read before the numbers.** One cell. `M = 1`. Output public on both sides. **No range
+check on either side.** `MATMULT` does not express T2/T3 or a chain of layers. **This is a
+system-vs-system cell, not a measurement of the field** — everything §7's header says about
+scope applies unchanged. binius64: `bench/data/cells.csv` labels `t1-a-r1-t1-n6` /
+`t1-a-r1-t10-n6`, same 2026-09-03 re-run §7 already uses (`started_utc` 10:40 UTC); Plonky3's
+split cells ran the same day at 11:16–11:21 UTC, ~40 minutes later, at lower `loadavg_1m` (3.7–3.8
+against binius64's 8.3–9.1) — same day, not the identical minute; noted rather than assumed.
+
+| | Plonky3 KoalaBear, MATMULT + WHIR **split** | binius64 (2026-09-03) | ratio |
+|---|---:|---:|---:|
+| prove, 1 thread | **273.2 ms** [271.9–285.5] | 2 741.1 ms [2 669.8–3 822.6] | **10.03×** |
+| prove, 10 threads | **57.2 ms** [54.0–61.7] | 881.1 ms [814.2–1 775.2] | **15.4×** |
+| verify | **5.59 ms** | 73.5 ms (1 thr) / 33.1 ms (10 thr) | 13× / 5.9× |
+| proof (roots included) | **221 794 B** | 460 304 B | **2.08×** |
+| peak footprint | **0.071 GB** / 0.074 GB | 7.27 GB / 7.29 GB | **102×** |
+| committed elements | 1 049 600 (= operands) | 589 824 IMUL padded to 1 048 576 | — |
+
+Every ratio reproduces from `cell.json`/`cells.csv` to the precision `bench/RESULTS.md` A8
+publishes it at (verify: 5.5886 ms / 5.6266 ms, essentially flat across thread counts, is quoted
+as the single figure 5.59 ms against binius64's two).
+
+### 9.d The cost of the split, declared
+
+The short `A` commitment (8 or 10 variables) needs **215** final STIR queries against the
+stack's 90–91: WHIR's query count *rises* as the code shortens, and 215 holds for both rungs
+even though `a_vars` differs (8 vs 10). Its Merkle paths are correspondingly short, so the proof
+does not grow by the same factor the query count suggests. Comparing like-for-like (adding back
+the root each accounting omits — see 9.e): T1-a's split proof is **3.08 %** smaller than its
+stacked twin (228 814 + 33 = 228 847 B stacked vs 221 794 B split) — the figure `bench/RESULTS.md`
+A8 reports as "shrinks only 3 %". T1-0's equivalent shrink is larger, **8.27 %** (132 519 + 33 =
+132 552 B vs 121 594 B) — not stated in A8, computed here from the same two cells; T1-0's stacked
+baseline is much smaller, so the fixed ~11 KB the short commitment's extra queries cost is a
+bigger fraction of it.
+
+### 9.e Accounting note — the two routes do not count the same bytes
+
+`sumcheck-whir`'s `proof_bytes_median` **omits** the WHIR Merkle root (`whir_root_bytes = 33` B,
+postcard) — kept that way because correcting it would move every published `…-n5`/`…-n6` figure
+in §5–§7. `sumcheck-whir-split`'s `proof_bytes_median` **includes both** roots
+(`whir_root_bytes = 66` B) — a route whose entire content is that it carries two commitments may
+not hide the second one. Both omissions are recoverable from the row (`whir_root_bytes` is
+published beside every split cell). **9.c's `221 794 B` therefore already includes what §7's
+`228 814 B` for the stacked route does not** — the two are comparable as published, and 9.d's
+3.08 % correction is the like-for-like version, not the headline one.
+
+### 9.f Controls
+
+`p3_negative.rs` (`COMMITTED_ROUTES = [SumcheckWhir, SumcheckWhirSplit]`) runs four corruption
+kinds — `weight_bit`, `input_bit`, `public_output_bit`, and `committed_binding` — against each
+committed route, plus the five `sumcheck` corruptions (§1.1) on both fields. For one task that is
+`2×5` (`sumcheck`, both fields) `+ 2×4` (both committed routes) `= 18` corruptions, all designed
+to REJECT. `committed_binding` is new here: it commits a corrupted `B` and runs the honest
+sumcheck on the true statement, so the sumcheck is valid and the WHIR opening is a valid opening
+— of the wrong polynomial. Every other control here corrupts something the sumcheck itself
+already desynchronizes on; `committed_binding` is the first control in this directory that tests
+what the commitment *binds* rather than whether the proof is rejected, and both committed routes
+reject it (`sumcheck_ok=true opening_ok=true bound_matches=false`).
+
+**Discrepancy to flag, not silently resolved.** `bench/RESULTS.md` A8 reports "18 corruptions, 18
+rejected." The `18` is exactly what the current `p3_negative.rs` source runs for one task (above)
+— but `bench/data/negative-plonky3/report.txt` and `negative.csv` on disk are the **pre-split**
+run: 22 rows (T1-0 **and** T1-a, 11 each), one committed-route kind only (`sumcheck-whir`,
+`weight_bit`), no `sumcheck-whir-split` row and no `committed_binding` row at all — this is what
+§1.1 above still cites. `git status` confirms `p3_negative.rs` is modified relative to the commit
+that produced those files, and `route.rs`/`pcs.rs`/`matmul.rs` (which `committed_binding_control`
+and the split route depend on) are modified too. So A8's 18/18 is traceable to what the current
+harness *would* produce, not to a regenerated artifact in this repo — no file here backs the
+`committed_binding` verdict or the split-route corruption rows as an executed, logged run. This
+section does not run that control (out of scope here); the gap is reported so `data/negative-
+plonky3/` gets regenerated before `committed_binding` is cited as a verified result elsewhere.

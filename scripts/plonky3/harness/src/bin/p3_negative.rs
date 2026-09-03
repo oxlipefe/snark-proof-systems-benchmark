@@ -26,11 +26,10 @@ use std::{fs, io::Write, path::PathBuf};
 
 use anyhow::Result;
 use clap::Parser;
-use p3_challenger::CanObserve;
 use p3_field::PrimeCharacteristicRing;
 use plonky3_bench_harness::fields::{Binary128Pair, FieldPair, KoalaBearPair};
 use plonky3_bench_harness::matmul::{self, Statement};
-use plonky3_bench_harness::pcs;
+use plonky3_bench_harness::route::{Route, WhirSetup};
 use plonky3_bench_harness::tasks::{Instance, Task, task_from_name};
 
 #[derive(Debug, Parser)]
@@ -227,66 +226,167 @@ fn sumcheck_controls<P: FieldPair>(task: Task) -> Result<Vec<Verdict>> {
     Ok(out)
 }
 
-/// The committed route's own control: a corrupted weight must fail the WHIR opening as well.
+/// Every committed route, corrupted three ways.
+///
+/// The routes differ only in how many WHIR commitments carry the operands, so they get the same
+/// corruptions from the same helpers rather than a second copy of the control. A route that
+/// binds its operands has to catch a flipped weight AT THE OPENING, not merely at the sumcheck,
+/// and the verdict records both halves so that distinction is visible in the report.
+const COMMITTED_ROUTES: [Route; 2] = [Route::SumcheckWhir, Route::SumcheckWhirSplit];
+
 fn whir_controls(task: Task) -> Result<Vec<Verdict>> {
+    let mut out = Vec::new();
+    for route in COMMITTED_ROUTES {
+        out.push(committed_operand_control(task, route, "weight_bit")?);
+        out.push(committed_operand_control(task, route, "input_bit")?);
+        out.push(committed_output_control(task, route)?);
+        out.push(committed_binding_control(task, route)?);
+    }
+    Ok(out)
+}
+
+/// Commits the CORRUPTED operands and proves them against the PUBLISHED output.
+fn committed_operand_control(
+    task: Task,
+    route: Route,
+    which: &'static str,
+) -> Result<Verdict> {
     let mut inst = Instance::draw(task)?;
     let honest = matmul::embed::<KoalaBearPair>(&inst)?;
-    let (setup, _) = pcs::setup(honest.log_m + honest.log_k, honest.log_k + honest.log_n)?;
+    let setup = WhirSetup::build(route, &honest)?;
 
-    inst.b[0][0] ^= 1;
+    let detail = if which == "weight_bit" {
+        inst.b[0][0] ^= 1;
+        format!("B[0][0] low bit, {} -> {}", inst.b[0][0] ^ 1, inst.b[0][0])
+    } else {
+        inst.a[0][0] ^= 1;
+        format!("A[0][0] low bit, {} -> {}", inst.a[0][0] ^ 1, inst.a[0][0])
+    };
+
+    // A3: the corruption is a test only if the output moved.
     let (c_new, max_abs) = inst.recompute()?;
     if c_new == inst.c {
-        return Ok(vec![Verdict {
+        return Ok(Verdict {
             task: task.name(),
             field: KoalaBearPair::NAME,
-            route: "sumcheck-whir",
-            kind: "weight_bit",
-            detail: "B[0][0] low bit".to_string(),
+            route: route.name(),
+            kind: which,
+            detail,
             outcome: "WITNESS_INERT",
-        }]);
+        });
     }
     inst.c = c_new;
     inst.max_abs_intermediate = max_abs;
+
     let mut bad = matmul::embed::<KoalaBearPair>(&inst)?;
     bad.c = honest.c.clone();
 
-    // The prover commits to the CORRUPTED operands and proves against the published output.
-    let mut prover_ch = pcs::challenger(&setup);
-    let (commitment, data) = pcs::commit(&setup, &bad.a, &bad.b, &mut prover_ch);
-    let proven = matmul::prove::<KoalaBearPair>(&bad, &mut prover_ch);
-    let pcs_proof = pcs::open(
-        &setup,
-        data,
-        &proven.a_point,
-        &proven.b_point,
-        &mut prover_ch,
-    );
+    let mut prover_ch = setup.challenger();
+    let proven = setup.prove(&bad, &mut prover_ch);
+    let v = setup.verify_parts(&honest, &proven);
 
-    let mut ch = pcs::challenger(&setup);
-    ch.observe(commitment.clone());
-    let sumcheck_ok = matmul::verify::<KoalaBearPair>(&honest, &proven.proof, &mut ch).is_ok();
-    let opening_ok = pcs::verify_open(
-        &setup,
-        &commitment,
-        &pcs_proof,
-        &proven.a_point,
-        &proven.b_point,
-        &mut ch,
-    )
-    .is_ok();
-
-    Ok(vec![Verdict {
+    Ok(Verdict {
         task: task.name(),
         field: KoalaBearPair::NAME,
-        route: "sumcheck-whir",
-        kind: "weight_bit",
+        route: route.name(),
+        kind: which,
         detail: format!(
-            "B[0][0] low bit; sumcheck_ok={sumcheck_ok} opening_ok={opening_ok}"
+            "{detail}; sumcheck_ok={} opening_ok={} bound_matches={}",
+            v.sumcheck_ok, v.opening_ok, v.bound_matches
         ),
-        outcome: if sumcheck_ok && opening_ok {
-            "ACCEPTED"
-        } else {
-            "REJECTED"
-        },
-    }])
+        outcome: verdict_of(v),
+    })
+}
+
+/// An honest proof handed to a verifier holding a DIFFERENT public output.
+fn committed_output_control(task: Task, route: Route) -> Result<Verdict> {
+    let inst = Instance::draw(task)?;
+    let honest = matmul::embed::<KoalaBearPair>(&inst)?;
+    let setup = WhirSetup::build(route, &honest)?;
+
+    let mut prover_ch = setup.challenger();
+    let proven = setup.prove(&honest, &mut prover_ch);
+
+    let mut tampered = matmul::embed::<KoalaBearPair>(&inst)?;
+    tampered.c[0] += <KoalaBearPair as FieldPair>::F::ONE;
+    let v = setup.verify_parts(&tampered, &proven);
+
+    Ok(Verdict {
+        task: task.name(),
+        field: KoalaBearPair::NAME,
+        route: route.name(),
+        kind: "public_output_bit",
+        detail: format!(
+            "C[0][0] + 1 on the verifier's side; sumcheck_ok={} opening_ok={} bound_matches={}",
+            v.sumcheck_ok, v.opening_ok, v.bound_matches
+        ),
+        outcome: verdict_of(v),
+    })
+}
+
+/// The control that isolates what the committed routes exist for.
+///
+/// The three controls above all corrupt something the SUMCHECK already catches, so on a
+/// committed route they also desynchronise the transcript and the opening fails with it — which
+/// proves the proof is rejected but says nothing about whether the commitment binds anything.
+/// This one commits a corrupted `B` and runs the honest sumcheck: the sumcheck is valid, the
+/// WHIR opening is a valid opening of the committed polynomial, and the ONLY thing standing
+/// between the verifier and a proof about operands nobody committed is the equality between the
+/// value the commitment binds and the value the sumcheck closed on. It must fail there.
+fn committed_binding_control(task: Task, route: Route) -> Result<Verdict> {
+    let inst = Instance::draw(task)?;
+    let honest = matmul::embed::<KoalaBearPair>(&inst)?;
+    let setup = WhirSetup::build(route, &honest)?;
+
+    let mut corrupted = inst.clone();
+    corrupted.b[0][0] ^= 1;
+    let detail = format!(
+        "B[0][0] low bit COMMITTED ONLY, {} -> {}",
+        corrupted.b[0][0] ^ 1,
+        corrupted.b[0][0]
+    );
+
+    // A3: the flip counts only if it would have moved the output.
+    let (c_new, max_abs) = corrupted.recompute()?;
+    if c_new == inst.c {
+        return Ok(Verdict {
+            task: task.name(),
+            field: KoalaBearPair::NAME,
+            route: route.name(),
+            kind: "committed_binding",
+            detail,
+            outcome: "WITNESS_INERT",
+        });
+    }
+    // The corrupted instance's own consistent output, so that `embed`'s INT32 cross-check
+    // passes. Only `.a` and `.b` of the result are used: this statement is COMMITTED, never
+    // proved, and the proved statement stays the honest one.
+    corrupted.c = c_new;
+    corrupted.max_abs_intermediate = max_abs;
+    let committed = matmul::embed::<KoalaBearPair>(&corrupted)?;
+
+    let mut prover_ch = setup.challenger();
+    let proven = setup.prove_committing(&committed, &honest, &mut prover_ch);
+    let v = setup.verify_parts(&honest, &proven);
+
+    Ok(Verdict {
+        task: task.name(),
+        field: KoalaBearPair::NAME,
+        route: route.name(),
+        kind: "committed_binding",
+        detail: format!(
+            "{detail}; sumcheck_ok={} opening_ok={} bound_matches={}",
+            v.sumcheck_ok, v.opening_ok, v.bound_matches
+        ),
+        outcome: verdict_of(v),
+    })
+}
+
+/// A committed proof is ACCEPTED only when every half accepted it.
+const fn verdict_of(v: plonky3_bench_harness::route::CommittedVerdict) -> &'static str {
+    if v.sumcheck_ok && v.opening_ok && v.bound_matches {
+        "ACCEPTED"
+    } else {
+        "REJECTED"
+    }
 }

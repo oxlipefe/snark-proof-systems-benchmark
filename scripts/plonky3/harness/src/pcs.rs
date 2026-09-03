@@ -89,41 +89,41 @@ pub const SOUNDNESS: SecurityAssumption = SecurityAssumption::UniqueDecoding;
 pub struct Setup {
     pub pcs: Pcs,
     pub protocol: OpeningProtocol,
-    /// Variables in the stacked committed polynomial.
+    /// Variables in the committed polynomial.
+    ///
+    /// For the STACKED shape this is the arity of the stack, `log2_ceil(2^a_vars + 2^b_vars)`,
+    /// which for two tables of unequal size is `1 + max(a_vars, b_vars)` — the 2x declared in
+    /// `bench/RESULTS.md` A7 item 3. For a SINGLE-table commitment it is the table's own arity
+    /// and there is no stacking round-up at all.
     pub num_variables: usize,
     /// STIR queries in the final proximity test, at this configuration.
     pub final_queries: usize,
 }
 
-/// Builds the commitment scheme and the two-table opening protocol for one instance shape.
-pub fn setup(a_vars: usize, b_vars: usize) -> Result<(Setup, Vec<Table<F>>)> {
-    // Deterministic permutation constants, so a rerun commits the same way.
+impl Setup {
+    /// Field elements this commitment actually covers, padding included: `2^num_variables`.
+    pub const fn committed_elements(&self) -> usize {
+        1 << self.num_variables
+    }
+}
+
+/// The Merkle scheme, with deterministic permutation constants so a rerun commits the same way.
+fn merkle_scheme() -> Mmcs {
     let mut rng = SmallRng::seed_from_u64(0xE006_13B1);
     let poseidon16 = Poseidon16::new_from_rng_128(&mut rng);
     let poseidon24 = Poseidon24::new_from_rng_128(&mut rng);
-    let mmcs = Mmcs::new(
+    Mmcs::new(
         MerkleHash::new(poseidon24),
         MerkleCompress::new(poseidon16),
         0,
-    );
+    )
+}
 
-    // Two tables, one column each: A and B. They are stacked into ONE commitment, which is
-    // what `p3-sumcheck`'s layout exists for; committing them separately would pay the FFT
-    // and Merkle overhead twice.
-    let tables = vec![
-        Table::new(RowMajorMatrix::new(vec![F::ZERO; 1 << a_vars], 1 << a_vars)),
-        Table::new(RowMajorMatrix::new(vec![F::ZERO; 1 << b_vars], 1 << b_vars)),
-    ];
-    let witness = LayoutMode::new_witness(tables.clone(), FOLDING_FACTOR);
-    let num_variables = witness.num_variables();
-
-    let one_opening: PointSchedule = vec![OpeningBatch::new(vec![0], Vec::new())];
-    let protocol = OpeningProtocol::new(vec![
-        TableSpec::new(TableShape::new(a_vars, 1), one_opening.clone()),
-        TableSpec::new(TableShape::new(b_vars, 1), one_opening),
-    ])
-    .pad_to_min_num_variables(FOLDING_FACTOR);
-
+/// Derives the WHIR configuration for a committed polynomial of `num_variables` variables.
+///
+/// Identical for both commitment shapes: the only thing that changes between them is HOW MANY
+/// variables the committed polynomial has, which is the whole point of `G-13b''`.
+fn configure(num_variables: usize) -> Result<Pcs> {
     let folding = FoldingFactor::Constant(FOLDING_FACTOR);
     let (num_rounds, _) = folding
         .compute_number_of_rounds(num_variables)
@@ -145,9 +145,39 @@ pub fn setup(a_vars: usize, b_vars: usize) -> Result<(Setup, Vec<Table<F>>)> {
     };
     let config = WhirConfig::<EF, F, Challenger>::new(num_variables, params)
         .map_err(|e| anyhow::anyhow!("WhirConfig rejected the parameters: {e:?}"))?;
-    let final_queries = config.final_queries;
     let dft = Dft::new(1 << config.max_fft_size());
-    let pcs = Pcs::new(config, dft, mmcs);
+    Ok(Pcs::new(config, dft, merkle_scheme()))
+}
+
+/// One opening batch: column 0 of the table, current view only, no successor view.
+fn one_opening() -> PointSchedule {
+    vec![OpeningBatch::new(vec![0], Vec::new())]
+}
+
+/// Builds the commitment scheme and the two-table opening protocol for one instance shape.
+///
+/// This is the STACKED shape, and it is the one the `sumcheck-whir` route measures. It is left
+/// exactly as the 2026-09-03 campaign ran it so that the `…-n5` and `…-n6` rows stay
+/// reproducible; the cheaper shape is [`setup_single`] and it is a different route.
+pub fn setup(a_vars: usize, b_vars: usize) -> Result<(Setup, Vec<Table<F>>)> {
+    // Two tables, one column each: A and B, stacked into ONE commitment. The stack's arity is
+    // `log2_ceil(2^a_vars + 2^b_vars)` (`sumcheck/src/layout/plan.rs:52-57`), which rounds a
+    // sum that is just above a power of two all the way up to the next one.
+    let tables = vec![
+        Table::new(RowMajorMatrix::new(vec![F::ZERO; 1 << a_vars], 1 << a_vars)),
+        Table::new(RowMajorMatrix::new(vec![F::ZERO; 1 << b_vars], 1 << b_vars)),
+    ];
+    let witness = LayoutMode::new_witness(tables.clone(), FOLDING_FACTOR);
+    let num_variables = witness.num_variables();
+
+    let protocol = OpeningProtocol::new(vec![
+        TableSpec::new(TableShape::new(a_vars, 1), one_opening()),
+        TableSpec::new(TableShape::new(b_vars, 1), one_opening()),
+    ])
+    .pad_to_min_num_variables(FOLDING_FACTOR);
+
+    let pcs = configure(num_variables)?;
+    let final_queries = pcs.config.final_queries;
 
     Ok((
         Setup {
@@ -160,15 +190,59 @@ pub fn setup(a_vars: usize, b_vars: usize) -> Result<(Setup, Vec<Table<F>>)> {
     ))
 }
 
-/// A fresh transcript with the scheme's domain separator already absorbed.
-pub fn challenger(setup: &Setup) -> Challenger {
+/// Builds a commitment scheme covering exactly ONE table of `vars` variables.
+///
+/// # Why this exists (`G-13b''`)
+///
+/// `Witness::new` stacks its tables and then rounds the TOTAL cell count up to a power of two
+/// (`plan_layout`, `sumcheck/src/layout/plan.rs:52-57`). With `2^a_vars + 2^b_vars` cells and
+/// `a_vars < b_vars` that total is just above `2^b_vars`, so the stack commits `2^(b_vars+1)`
+/// elements — very nearly twice the operands. A single commitment cannot avoid it: a WHIR
+/// commitment is a multilinear over a hypercube, and `MultilinearPcs::commit` asserts
+/// `witness.num_variables() == self.config.num_variables`
+/// (`whir/src/pcs/adapter.rs:86-91`), so one config is one power of two. Committing each table
+/// under its own config commits `2^a_vars + 2^b_vars` elements exactly.
+pub fn setup_single(vars: usize) -> Result<Setup> {
+    let protocol = OpeningProtocol::new(vec![TableSpec::new(
+        TableShape::new(vars, 1),
+        one_opening(),
+    )])
+    .pad_to_min_num_variables(FOLDING_FACTOR);
+
+    let table = Table::new(RowMajorMatrix::new(vec![F::ZERO; 1 << vars], 1 << vars));
+    let num_variables = LayoutMode::new_witness(vec![table], FOLDING_FACTOR).num_variables();
+
+    let pcs = configure(num_variables)?;
+    let final_queries = pcs.config.final_queries;
+
+    Ok(Setup {
+        pcs,
+        protocol,
+        num_variables,
+        final_queries,
+    })
+}
+
+/// A fresh transcript with the domain separator of every scheme in `setups` already absorbed,
+/// in the order the protocol will use them.
+///
+/// A one-element slice reproduces the single-commitment transcript byte for byte, which is why
+/// [`challenger`] delegates here instead of the two functions drifting apart.
+pub fn challenger_for(setups: &[&Setup]) -> Challenger {
     let mut rng = SmallRng::seed_from_u64(0xE006_13B1);
     let poseidon16 = Poseidon16::new_from_rng_128(&mut rng);
     let mut challenger = DuplexChallenger::new(poseidon16);
     let mut domainsep = DomainSeparator::new(vec![]);
-    setup.pcs.add_domain_separator::<8>(&mut domainsep);
+    for setup in setups {
+        setup.pcs.add_domain_separator::<8>(&mut domainsep);
+    }
     domainsep.observe_domain_separator(&mut challenger);
     challenger
+}
+
+/// A fresh transcript with the scheme's domain separator already absorbed.
+pub fn challenger(setup: &Setup) -> Challenger {
+    challenger_for(&[setup])
 }
 
 /// Commits `A` and `B` as one stacked polynomial. Absorbs the commitment into `challenger`.
@@ -232,10 +306,70 @@ pub fn verify_open(
     Ok((a, b))
 }
 
+/// Commits ONE table under its own scheme. Absorbs the commitment into `challenger`.
+pub fn commit_single(
+    setup: &Setup,
+    values: &[F],
+    challenger: &mut Challenger,
+) -> (Commitment, ProverData) {
+    let tables = vec![Table::new(RowMajorMatrix::new(values.to_vec(), values.len()))];
+    let witness = LayoutMode::new_witness(tables, FOLDING_FACTOR);
+    <Pcs as MultilinearPcs<EF, Challenger>>::commit(&setup.pcs, witness, challenger)
+}
+
+/// Opens the single committed column at the prescribed point the sumcheck produced.
+pub fn open_single(
+    setup: &Setup,
+    data: ProverData,
+    point: &[EF],
+    challenger: &mut Challenger,
+) -> PcsProof {
+    let points = [Point::new(point.to_vec())];
+    setup
+        .pcs
+        .open_at(data, &setup.protocol, &points, challenger)
+}
+
+/// Verifies a single-table opening and returns the value the commitment binds at `point`.
+pub fn verify_open_single(
+    setup: &Setup,
+    commitment: &Commitment,
+    proof: &PcsProof,
+    point: &[EF],
+    challenger: &mut Challenger,
+) -> Result<EF> {
+    let points = [Point::new(point.to_vec())];
+    let evals = setup
+        .pcs
+        .verify_at(commitment, proof, &setup.protocol, &points, challenger)
+        .map_err(|e| anyhow::anyhow!("WHIR rejected the opening: {e:?}"))?;
+    anyhow::ensure!(
+        evals.len() == 1,
+        "expected one opening batch, got {}",
+        evals.len()
+    );
+    Ok(*evals[0]
+        .current()
+        .first()
+        .ok_or_else(|| anyhow::anyhow!("no value opened"))?)
+}
+
 /// Serialised size of the PCS opening proof, in bytes.
+///
+/// **This does NOT include the Merkle root of the commitment**, which travels beside the proof
+/// and is absorbed into the transcript separately. `systems/plonky3/RESULTS.md` declares that
+/// omission for the `sumcheck-whir` rows; [`commitment_bytes`] is what closes it, and the
+/// `sumcheck-whir-split` route adds it in.
 pub fn proof_bytes(proof: &PcsProof) -> Result<usize> {
     Ok(postcard::to_allocvec(proof)
         .map_err(|e| anyhow::anyhow!("serialising the WHIR proof: {e}"))?
+        .len())
+}
+
+/// Serialised size of a commitment (the Merkle root), in bytes.
+pub fn commitment_bytes(commitment: &Commitment) -> Result<usize> {
+    Ok(postcard::to_allocvec(commitment)
+        .map_err(|e| anyhow::anyhow!("serialising the WHIR commitment: {e}"))?
         .len())
 }
 

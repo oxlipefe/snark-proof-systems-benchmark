@@ -14,7 +14,7 @@ use anyhow::{Context, Result};
 use clap::{Parser, ValueEnum};
 use plonky3_bench_harness::fields::{Binary128Pair, FieldPair, KoalaBearPair};
 use plonky3_bench_harness::matmul::{self, Shape};
-use plonky3_bench_harness::route::{Rep, Route, run_sumcheck, run_sumcheck_whir};
+use plonky3_bench_harness::route::{Rep, Route, WhirSetup, run_committed, run_sumcheck};
 use plonky3_bench_harness::stats::summarize;
 use plonky3_bench_harness::tasks::{Instance, Task};
 
@@ -101,29 +101,27 @@ fn main() -> Result<()> {
             let rows = run_sumcheck::<Binary128Pair>(&st, args.warmup, args.reps)?;
             (shape, st.integer_faithful, rows, 0u128, String::new())
         }
-        (FieldChoice::KoalaBear, Route::SumcheckWhir) => {
+        (FieldChoice::KoalaBear, Route::SumcheckWhir | Route::SumcheckWhirSplit) => {
             let st = matmul::embed::<KoalaBearPair>(&inst)?;
             let shape = st.shape(args.task.published_macs());
             let build_nanos = build_started.elapsed().as_nanos();
             report_build(&args, &shape, KoalaBearPair::NAME, build_nanos);
+            let operand_elements = st.a.len() + st.b.len();
             if args.stat_only {
+                // Deriving the WHIR configuration is not proving: it reads a query count off a
+                // formula. Reported here so the structural facts of a rung can be quoted
+                // without spending a prover run on them.
+                let setup = WhirSetup::build(args.route, &st)?;
+                eprintln!("{}", committed_extra(&setup, operand_elements, None));
                 return Ok(());
             }
-            let (rows, setup_nanos, setup) = run_sumcheck_whir(&st, args.warmup, args.reps)?;
-            let extra = format!(
-                "whir_stacked_vars={} whir_final_queries={} security={} rate={} pow_budget={} folding={}",
-                setup.num_variables,
-                setup.final_queries,
-                plonky3_bench_harness::pcs::SECURITY_LEVEL,
-                plonky3_bench_harness::pcs::STARTING_LOG_INV_RATE,
-                plonky3_bench_harness::pcs::POW_BITS,
-                plonky3_bench_harness::pcs::FOLDING_FACTOR,
-            );
-            (shape, st.integer_faithful, rows, setup_nanos, extra)
+            let run = run_committed(args.route, &st, args.warmup, args.reps)?;
+            let extra = committed_extra(&run.setup, operand_elements, Some(run.root_bytes));
+            (shape, st.integer_faithful, run.rows, run.setup_nanos, extra)
         }
-        (FieldChoice::Binary128, Route::SumcheckWhir) => {
+        (FieldChoice::Binary128, Route::SumcheckWhir | Route::SumcheckWhirSplit) => {
             anyhow::bail!(
-                "route `sumcheck-whir` is not available over BinaryField128, and this is the \
+                "route `{}` is not available over BinaryField128, and this is the \
                  campaign's result rather than a limitation of this harness. p3-whir is the \
                  only implementor of p3_commit::MultilinearPcs at the pinned commit, and both \
                  that impl (whir/src/pcs/adapter.rs:64-66) and WhirConfig::new \
@@ -131,7 +129,8 @@ fn main() -> Result<()> {
                  `EF: ExtensionField<F> + TwoAdicField`. The multiplicative group of GF(2^128) \
                  has odd order 2^128-1, so its two-adicity is zero and no such impl can exist. \
                  See systems/plonky3/NOT_EXPRESSIBLE.md and the recorded compiler error in \
-                 data/probe-plonky3-whir-binary.txt."
+                 data/probe-plonky3-whir-binary.txt.",
+                args.route.name()
             );
         }
     };
@@ -156,6 +155,50 @@ fn main() -> Result<()> {
         &rows,
     )?;
     Ok(())
+}
+
+/// The committed route's structural facts, one `key=value` per term.
+///
+/// `whir_vars` and `whir_final_queries` are lists in protocol order — one entry for
+/// `sumcheck-whir`, two for `sumcheck-whir-split` — so a reader can see how many commitments a
+/// row carries without knowing the route's name. `whir_committed_elements` against
+/// `whir_operand_elements` is the padding factor `G-13b''` moves.
+fn committed_extra(
+    setup: &WhirSetup,
+    operand_elements: usize,
+    root_bytes: Option<usize>,
+) -> String {
+    let join = |v: Vec<usize>| {
+        v.iter()
+            .map(usize::to_string)
+            .collect::<Vec<_>>()
+            .join("+")
+    };
+    let vars = setup.whir_vars();
+    let committed = setup.committed_elements();
+
+    // Kept verbatim for the stacked route so a `…-n5` / `…-n6` cell keeps the key it was
+    // published under. The split route has no single stack and does not emit it.
+    let stacked = match setup.route() {
+        Route::SumcheckWhir => format!("whir_stacked_vars={} ", vars[0]),
+        _ => String::new(),
+    };
+    let roots = root_bytes.map_or_else(String::new, |b| format!("whir_root_bytes={b} "));
+
+    format!(
+        "{stacked}whir_commitments={} whir_vars={} whir_final_queries={} \
+         whir_committed_elements={committed} whir_operand_elements={operand_elements} \
+         whir_padding_factor={:.4} {roots}\
+         security={} rate={} pow_budget={} folding={}",
+        vars.len(),
+        join(vars.clone()),
+        join(setup.final_queries()),
+        committed as f64 / operand_elements as f64,
+        plonky3_bench_harness::pcs::SECURITY_LEVEL,
+        plonky3_bench_harness::pcs::STARTING_LOG_INV_RATE,
+        plonky3_bench_harness::pcs::POW_BITS,
+        plonky3_bench_harness::pcs::FOLDING_FACTOR,
+    )
 }
 
 fn report_build(args: &Args, shape: &Shape, field: &str, build_nanos: u128) {
