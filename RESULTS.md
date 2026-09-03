@@ -1051,3 +1051,55 @@ which is a soundness claim this benchmark does not make. Raw data: `data/compose
 **Effect on previously published figures.** None. No figure, no verdict and no raw data file from
 the original campaign is altered by this amendment. Every claim above rests on cells added after
 it, committed uncurated alongside the originals.
+
+## A6 · binius64's prover steps at powers of two of the IMUL count, and no cell declared it (2026-09-03)
+
+**Defect.** Every binius64 figure in this file is quoted per MAC as if prove time were a smooth
+function of the constraint count. It is not. Measured on the campaign machine (Apple M1 Max, macOS,
+binius64 @ `eac2484` with the declared instrumentation patches, `log_inv_rate` 1,
+`RAYON_NUM_THREADS=1`, 1 warm-up + 5–7 repetitions, median with min–max, idle machine), on the
+same INT8 matmul tile as T1 (K = 64, 8 rows, dense weights):
+
+| IMUL constraints | prove, median | range | vs the power of two just below |
+|---:|---:|---:|---:|
+| 65 536 = 2¹⁶ | 171.6 ms | 168.1–181.1 | — |
+| 66 048 (2¹⁶ + 0.8 %) | **325.5 ms** | 305.1–326.6 | **1.90×** |
+| 131 072 = 2¹⁷ | 351.0 ms | 332.7–352.8 | — |
+| 131 584 (2¹⁷ + 0.4 %) | **635.1 ms** | 613.0–668.3 | **1.81×** |
+
+A 0.8 % increase in IMUL constraints costs 1.90× in prove time. The prover pads to the next power of
+two and charges the padding in full. In these cells the AND count stayed below 2¹⁶ (64 512 → 65 016)
+while IMUL crossed it, so the step is attributable to the IMUL count; whether the AND and ZERO
+counts pad separately was **not** measured. The mechanism (padding of the per-constraint-type
+multilinears to the Boolean hypercube) is inferred from the shape of the data, not read from the
+source.
+
+**What it does to this file.** binius64's IMUL count equals the task's MAC count (its `EXPRESSION.md`
+§6 asserts it). The padding each published task actually paid:
+
+| task | MACs = IMUL | padded to | padding factor |
+|---|---:|---:|---:|
+| T1-0 | 65 536 | 65 536 | 1.00 |
+| T2 | 92 224 | 131 072 | 1.42 |
+| T1-a | 589 824 | 1 048 576 | **1.78** |
+| T3 | 737 792 | 1 048 576 | 1.42 |
+| T1-b | 2 359 296 | 4 194 304 | 1.78 |
+| T1-c | 9 437 184 | 16 777 216 | 1.78 |
+
+So the only five-system cell (§3.1, T1-a) quotes binius64 at 829 984 MAC/s **with 1.78× of padding
+inside the number**; the T1-0 cell (§3.2) has none; and across the ladder two rungs carry 1.42×
+and four carry 1.78×, so any per-rung `MAC/s` comparison between rungs mixes padding factors.
+The within-bucket comparison against gnark in §1.2 therefore **understates** binius64 by up to
+1.78×, in the opposite direction from the two corrections already listed there (gnark's 3.006×
+constraint tax and Go-GC memory accounting) — none of the three is applied, and this one is not
+applied either, because a user who submits a 589 824-MAC job to this prover pays the padding.
+
+**What is not changed.** No number in this file is edited. The padding is a property of the prover
+at the pinned commit, and it is a cost the task incurs unless the task is sized to a power of two.
+It is now a declared condition: **any future binius64 cell states its IMUL count, the power of two
+it pads to, and the factor**, in the same line as its prove time. Whether the memory curves of §5
+step the same way was not measured and is an open item.
+
+**How it was found.** Not by looking at this table: by a structural-sparsity cell whose circuit
+crossed 2¹⁶ by 6 % and cost 1.78× more than its control, which was the tenth time in this project a
+wrong number was perfectly interpretable until it was contrasted against a neighbour.

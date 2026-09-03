@@ -73,3 +73,15 @@ and the correctness verdict are not, and they reproduce exactly from a clean clo
 
 commit            06e0c0bea6255317fd308b0c2259ee21be79b2ad
 note              8 files dirty at campaign start (the bench/ tree being written)
+
+# Second local modification, declared (2026-09-03, gate G-13a)
+
+`count-muls`: a Cargo feature in `crates/field` (new `src/mul_class_count.rs`, plus one
+counter call at each `wide_mul`/`square` choke point of the GHASH arithmetic) that counts
+field multiplications by operand class. OFF by default; when off, the feature adds no symbol
+and no static to the binary (`nm` clean), so every timing figure in this benchmark is taken
+from a tree whose generated code is unchanged. Patch: `experiments/E-001-cost-kernel-split/
+scripts/patches/binius64-e001-instrumentation-plus-count-muls.patch` — the CUMULATIVE diff of
+the vendored tree against the pinned commit (17 files: the E-001 span instrumentation above plus
+this feature); apply it alone to reproduce the tree. Result: `experiments/E-001-cost-kernel-split/
+RESULTS-G13a.md`.
