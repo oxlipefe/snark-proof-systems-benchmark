@@ -1,0 +1,26 @@
+# Deliberate compile failure: p3-whir instantiated over BinaryField128.
+# Produced by scripts/plonky3/run-probe-binary-pcs.sh on 2026-09-03T10:24:54Z
+# Plonky3 clone: /Users/erikatorres/Claude/ext-bench/plonky3 at 3152b14a89067c83775a8076cc262ffc48a1fd7c
+
+   Compiling plonky3-bench-harness v0.1.0 (/Users/erikatorres/Claude/Projects/viaas-zkml/bench/scripts/plonky3/harness)
+error[E0599]: the associated function or constant `new` exists for struct `WhirConfig<BinaryField128, BinaryField128, BinaryChallenger<..., ...>>`, but its trait bounds were not satisfied
+   --> src/probe_binary_pcs.rs:42:45
+    |
+ 42 |     let _ = WhirConfig::<F, F, Challenger>::new(17, params);
+    |                                             ^^^ associated function or constant cannot be called due to unsatisfied trait bounds
+    |
+   ::: /Users/erikatorres/Claude/ext-bench/plonky3/binary-field/src/tower.rs:125:9
+    |
+125 |         pub struct $name($repr);
+    |         ------------------------ doesn't satisfy `BinaryField128: TwoAdicField`
+    |
+    = note: the following trait bounds were not satisfied:
+            `BinaryField128: TwoAdicField`
+    = note: the full name for the type has been written to '/Users/erikatorres/Claude/Projects/viaas-zkml/bench/scripts/plonky3/harness/target/release/deps/plonky3_bench_harness-06dd7680088b97ca.long-type-6458880976428896131.txt'
+    = note: consider using `--verbose` to print the full type name to the console
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `plonky3-bench-harness` (lib) due to 1 previous error
+
+# cargo exit code: 101
+# As expected: the build was refused.

@@ -1,0 +1,27 @@
+task=T1-0 field=koala-bear route=sumcheck-whir macs=65536 padded_macs=65536 padding=1.0000 log_m=0 log_k=8 log_n=8 rounds=8 reduced_poly_elements=512 reduction_field_muls=66561 build=0.0004s
+rep=0 prove=0.0313s verify=0.00320s proof=132519B
+rep=1 prove=0.0310s verify=0.00330s proof=132519B
+rep=2 prove=0.0308s verify=0.00325s proof=132519B
+rep=3 prove=0.0305s verify=0.00329s proof=132519B
+rep=4 prove=0.0304s verify=0.00328s proof=132519B
+rep=5 prove=0.0308s verify=0.00326s proof=132519B
+wrote /Users/erikatorres/Claude/Projects/viaas-zkml/bench/data/cells-plonky3/t1-0-koala-bear-sumcheck-whir-t1-n6/reps.csv
+wrote /Users/erikatorres/Claude/Projects/viaas-zkml/bench/data/cells-plonky3/t1-0-koala-bear-sumcheck-whir-t1-n6/cell.json
+        0.24 real         0.23 user         0.00 sys
+            15024128  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1088  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                1251  involuntary context switches
+          3183905110  instructions retired
+           762096199  cycles elapsed
+            13189456  peak memory footprint

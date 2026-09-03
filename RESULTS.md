@@ -1103,3 +1103,72 @@ step the same way was not measured and is an open item.
 **How it was found.** Not by looking at this table: by a structural-sparsity cell whose circuit
 crossed 2¹⁶ by 6 % and cost 1.78× more than its control, which was the tenth time in this project a
 wrong number was perfectly interpretable until it was contrasted against a neighbour.
+
+## A7 · A sixth system, Plonky3 — and the soundness regime is a column, not a footnote (2026-09-03)
+
+**What was added.** `systems/plonky3/` and `scripts/plonky3/`: the T1 tile proved with Plonky3
+(commit `3152b14a`, 2026-08-31, v0.6.0, MIT OR Apache-2.0) on the **same machine** as the other
+five, by Thaler's MATMULT sum-check over `p3-sumcheck` with `A` and `B` committed as one stacked
+multilinear under WHIR (`p3-whir`), `C` public and re-evaluated by the verifier. Two fields in one
+codebase: KoalaBear (31-bit prime) and `BinaryField128` (Wiedemann tower). Per-cell figures,
+conditions and controls are in `systems/plonky3/RESULTS.md`; raw rows in `data/cells-plonky3.csv`.
+
+**What this amendment corrects before anyone reads a ratio.**
+
+1. **The first campaign of the day (rows `…-n5`) ran WHIR under `CapacityBound` with a 16-bit
+   proof-of-work budget.** `CapacityBound` rests on the mutual-correlated-agreement-up-to-capacity
+   conjecture, which Crites–Stewart, ePrint 2025/2046 (rev. 2025-12-19), list among the conjectures
+   they disprove. And WHIR subtracts the PoW budget from the security level before it derives its
+   query count (`whir/src/parameters/whir.rs:251-254` at the pinned commit): the declared 96 bits
+   were 80 algebraic bits plus 16 of grinding, with **9** final queries. binius64's 232 FRI queries at
+   rate 1 are the unique-decoding count for 96 bits. **Those rows are not equal-soundness with
+   binius64 and no proof-size or verify figure from them may be placed beside binius64's.** They
+   are kept, labelled, and not deleted.
+2. **The same cells were re-run the same day under `UniqueDecoding` with the minimum PoW the
+   configuration accepts (7 bits)** — rows `…-n6` — and **binius64's T1-a was re-run in the same
+   window** (rows `t1-a-r1-t1-n6`, `t1-a-r1-t10-n6` in `data/cells.csv`), so the one cross-system
+   cell below is same-task, same-machine, same-day and same soundness class.
+3. **The Plonky3 side pays a 2× stacking overhead it does not need** (`whir_stacked_vars = 21`:
+   2 097 152 committed elements for 1 049 600 operands) on the term that is ~99 % of its prover.
+   Its figures are therefore a **floor**. Not corrected here; declared.
+4. `report.py` divided `MAC/s` by the padded MAC count (1 048 576) instead of the published one
+   (589 824), inflating it 1.78× — the mirror image of A6. Fixed before any figure was published.
+5. One cell, `t1-0-koala-bear-sumcheck-t1-n5`, is contaminated (0.30 s real for 0.01 s user; its
+   prover 5.2× slower than its own 10-thread twin and its re-run). It stays in the CSV and is
+   named here, not removed.
+
+**The cell.** T1-a, 589 824 MACs, `M = 1`, both sides in the `witness` regime (operands committed
+per proof, output public), **neither side range-checks its INT8 operands**, both padded 1.78×
+(binius64: IMUL to 2²⁰, A6; Plonky3: K and N to 1024), 1 warm-up + 6 repetitions, median with
+min–max, `peak footprint`, 2026-09-03, load-1min 8–9 from this campaign's own preceding runs,
+swap 5 376 MB on both:
+
+| | Plonky3 KoalaBear, MATMULT + WHIR, `UniqueDecoding`, PoW 7 | binius64, rate 1, PoW 0 | ratio |
+|---|---:|---:|---:|
+| prove, 1 thread | **538.6 ms** [536.8–540.2] | 2 741.1 ms [2 669.8–3 822.6] | **5.09×** |
+| prove, 10 threads | **98.7 ms** [91.1–124.1] | 881.1 ms [814.2–1 775.2] | **8.93×** |
+| verify | **5.59 ms** | 73.5 ms (1 thr) / 33.1 ms (10 thr) | 13× / 5.9× |
+| proof | **228 814 B** | 460 304 B | **2.01×** |
+| peak footprint | **0.107 GB** / 0.111 GB | 7.27 GB / 7.29 GB | **68×** |
+| queries | 90 (WHIR final, unique decoding) | 232 (FRI) | — |
+
+Under the conjectured regime the same comparison read 4.26× / 6.70× on prover and **7.2×** on
+proof size; the proof-size advantage is the figure the soundness regime moved most.
+
+**What the cell is and is not.** It is a *system-vs-system* comparison: MATMULT commits only the
+two operands and no intermediate value, so it is a different expression, a different PCS and a
+different field at once — it is **not** a measurement of the field alone. The cell designed to
+isolate the field (`binary128` vs `koala-bear` on the same sum-check, `t1-a`, 1 thread: 0.090) is
+**unusable for that purpose** on two grounds recorded in `systems/plonky3/NOT_EXPRESSIBLE.md`: the
+binary-field cell does not prove the integer product (characteristic 2, `integer_faithful =
+false`), and `p3-binary-field`'s tower multiplies at 57.8 Mmul/s against 1 012 Mmul/s for the
+GHASH kernel binius64 uses on this CPU — a representation gap, not a field gap. There is no
+multilinear PCS over a binary field in Plonky3 at this commit (`p3-whir` requires `TwoAdicField`;
+refused by the compiler, `data/probe-plonky3-whir-binary.txt`). MATMULT expresses neither T2/T3
+(ReLU) nor a chain of layers without publishing or committing intermediates; those cells do not
+exist for this system.
+
+**What is not changed.** No number in this file is edited. binius64's own FRI soundness regime
+(proven vs conjectured) is **not declared anywhere in this benchmark** and is now an open item for
+every hash-based row, not only this one: from A7 on, a security parameter is quoted with its regime
+in the same cell or it is not quoted.

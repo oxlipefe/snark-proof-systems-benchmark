@@ -1,0 +1,66 @@
+# Plonky3 — pinned revision under measurement
+
+repository        https://github.com/Plonky3/Plonky3
+commit            3152b14a89067c83775a8076cc262ffc48a1fd7c
+commit_date       2026-08-31T17:16:09+04:00
+commit_subject    feat(binary-dft): additive NTT and the Encoder abstraction (#2003)
+git_describe      p3-whir-v0.6.0-177-g3152b14a
+workspace_version 0.6.0   (the `version` field of the root Cargo.toml at this commit)
+license           MIT OR Apache-2.0  (root Cargo.toml `license`; LICENSE-MIT and
+                  LICENSE-APACHE both present in the tree)
+measured_on       2026-09-03
+
+# Maturity — declared per crate, because one label for "Plonky3" would be false
+
+The tree carries one audit, `audits/Least Authority- Polygon Plonky3 Updated Final Audit
+Report.pdf`, committed 2024-08-01. **It predates every crate this benchmark exercises.**
+First and last commit touching each crate, at the pinned revision:
+
+| crate | first commit | last commit | commits | maturity for THIS benchmark |
+|---|---|---|---|---|
+| `p3-koala-bear` | 2024-04-17 | 2026-08-13 |  98 | PROD-UNAUDITED (predates the audit; coverage not established) |
+| `p3-whir`       | 2026-03-31 | 2026-08-26 |  86 | PROTOTYPE-RESEARCH |
+| `p3-sumcheck`   | 2026-05-18 | 2026-08-31 |  58 | PROTOTYPE-RESEARCH |
+| `p3-binary-field` | **2026-08-30** | 2026-08-31 | **2** | PROTOTYPE-RESEARCH |
+| `p3-binary-dft`   | **2026-08-31** | 2026-08-31 | **1** | PROTOTYPE-RESEARCH |
+
+**The binary tower is four days old at the pinned commit and has three commits between its
+two crates.** Every binary-field figure in this directory is a figure about code of that age,
+and no trend may be read off it: the next commit can move it by an order of magnitude. The
+comparison it supports is a comparison of what exists on 2026-09-03, not of what the two
+substrates cost in principle.
+
+# No local modifications
+
+The measured tree is a pristine `git clone` at the revision above. Unlike this benchmark's
+binius64 clone, it carries no instrumentation patch: everything counted here is counted in
+OUR harness, over OUR own loops, and nothing inside Plonky3 is instrumented. The consequence
+is stated where it bites — `EXPRESSION.md` §6: field multiplications inside `p3-sumcheck`'s
+rounds are NOT counted, and no figure in this directory claims them.
+
+# Harness
+
+The measuring harness is a separate Cargo workspace, not part of Plonky3, and it lives in
+this repository:
+
+  scripts/plonky3/harness
+
+It depends on a clone of the revision above through path dependencies, supplied as
+PLONKY3_ROOT; see that directory's README.md and setup.sh. Its release profile is declared in
+BUILD.md and must match Plonky3's own `optimized` profile, for the reason documented there.
+The protocol lives in src/matmul.rs, the two fields in src/fields.rs, the commitment route in
+src/pcs.rs, and the measurement binaries are src/bin/p3_bench.rs and src/bin/p3_negative.rs.
+
+# Corpus revision that produced these measurements
+
+corpus_commit     8613d58  (HEAD at campaign start; bench/ tree being written)
+
+# Soundness regime — a harness configuration constant, not a code change
+
+The harness's soundness constant changed on 2026-09-03 from `CapacityBound` (rows `…-n5` in
+`bench/data/cells-plonky3.csv`, `bench/systems/plonky3/RESULTS.md` §5) to `UniqueDecoding`
+(rows `…-n6`, `RESULTS.md` §6, `G-13b′`), because `CapacityBound` rests on the mutual
+correlated-agreement-up-to-capacity conjecture, which Crites and Stewart, ePrint 2025/2046
+(<https://eprint.iacr.org/2025/2046>, rev. 2025-12-19), disprove. The pinned commit above did
+not change between the two runs. Both sets of rows are kept in the CSV and labelled — neither
+is deleted or silently superseded.

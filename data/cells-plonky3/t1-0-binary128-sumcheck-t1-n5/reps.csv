@@ -1,0 +1,6 @@
+label,task,field,route,n_macs,padded_macs,padding_factor,rounds,threads,rep,prove_nanos,verify_nanos,proof_bytes
+t1-0-binary128-sumcheck-t1-n5,T1-0,binary128,sumcheck,65536,65536,1.000000,8,1,0,3524542,47042,339
+t1-0-binary128-sumcheck-t1-n5,T1-0,binary128,sumcheck,65536,65536,1.000000,8,1,1,3413708,35458,339
+t1-0-binary128-sumcheck-t1-n5,T1-0,binary128,sumcheck,65536,65536,1.000000,8,1,2,3409958,35125,339
+t1-0-binary128-sumcheck-t1-n5,T1-0,binary128,sumcheck,65536,65536,1.000000,8,1,3,3495125,42417,339
+t1-0-binary128-sumcheck-t1-n5,T1-0,binary128,sumcheck,65536,65536,1.000000,8,1,4,3587417,44833,339

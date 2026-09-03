@@ -1,0 +1,86 @@
+# zk-prover-bench · Plonky3 measurement harness.
+#
+# OUR code. No Plonky3 source is copied into this repository. This is a separate Cargo
+# workspace that depends on a pinned Plonky3 clone through path dependencies and calls only
+# its public API. Generated from this template by setup.sh, which substitutes @PLONKY3_ROOT@
+# with the path to that clone. The clone lives outside this repository, so the path cannot be
+# committed; the template can. Same pattern as scripts/binius64/harness/, scripts/ceno/harness/
+# and scripts/jolt-atlas/harness/.
+#
+# The commit to clone is declared in systems/plonky3/COMMIT. Read it before building.
+[package]
+name = "plonky3-bench-harness"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "E-006 / G-13b benchmark harness for Plonky3, prime field and binary field"
+
+[workspace]
+
+[features]
+# A deliberate compile failure that MEASURES the absence of a binary-field PCS rather than
+# asserting it from a grep. Never enabled for a measured build; see src/probe_binary_pcs.rs.
+probe-binary-pcs = []
+
+[dependencies]
+# `parallel` is opt-in upstream on every Plonky3 crate that threads. Without it the sumcheck
+# prover compiles to the single-threaded shim of p3-maybe-rayon and a "10-thread" cell would
+# be silently serial. This is the same hazard binius64's harness documents for `rayon` on
+# binius-examples, and it is enabled here for the same reason.
+p3-sumcheck = { path = "@PLONKY3_ROOT@/sumcheck", features = ["parallel"] }
+p3-multilinear-util = { path = "@PLONKY3_ROOT@/multilinear-util", features = ["parallel"] }
+p3-field = { path = "@PLONKY3_ROOT@/field" }
+p3-challenger = { path = "@PLONKY3_ROOT@/challenger" }
+p3-koala-bear = { path = "@PLONKY3_ROOT@/koala-bear" }
+p3-binary-field = { path = "@PLONKY3_ROOT@/binary-field" }
+p3-keccak = { path = "@PLONKY3_ROOT@/keccak" }
+p3-symmetric = { path = "@PLONKY3_ROOT@/symmetric" }
+p3-util = { path = "@PLONKY3_ROOT@/util" }
+p3-maybe-rayon = { path = "@PLONKY3_ROOT@/maybe-rayon", features = ["parallel"] }
+
+# The multilinear PCS. Route 1 closes on a commitment or it is not a proof of knowledge;
+# `p3-whir` is the ONLY implementor of `p3_commit::MultilinearPcs` in the tree (verified by
+# grep at the pinned commit), and it is available to the prime field only. See
+# systems/plonky3/EXPRESSION.md §4.
+p3-whir = { path = "@PLONKY3_ROOT@/whir", features = ["parallel"] }
+p3-commit = { path = "@PLONKY3_ROOT@/commit" }
+p3-dft = { path = "@PLONKY3_ROOT@/dft", features = ["parallel"] }
+p3-merkle-tree = { path = "@PLONKY3_ROOT@/merkle-tree" }
+p3-matrix = { path = "@PLONKY3_ROOT@/matrix" }
+
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+postcard = { version = "1", features = ["alloc"] }
+rand = "0.10"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[lib]
+name = "plonky3_bench_harness"
+path = "src/lib.rs"
+
+# One cell of the bench: one task x one field x one route.
+[[bin]]
+name = "p3-bench"
+path = "src/bin/p3_bench.rs"
+
+# The corrupted-witness control.
+[[bin]]
+name = "p3-negative"
+path = "src/bin/p3_negative.rs"
+
+# Blocking build-integrity gate; see systems/plonky3/BUILD.md §2.
+[[bin]]
+name = "p3-fieldmul-sanity"
+path = "src/bin/fieldmul_sanity.rs"
+
+[profile.release]
+debug = true
+# Plonky3's own `optimized` profile (its root Cargo.toml) sets `lto = "thin"` and
+# `codegen-units = 1`. The harness is a SEPARATE workspace, so it inherits none of that, and
+# without it the binary tower's carryless-multiply path is measured across a crate boundary
+# with cross-crate inlining off. That exact failure inverted experiment E-001's conclusion on
+# binius64 (28x on the field multiply, invisible in the phase shares). The gate in src/sanity/
+# refuses such a build. See systems/plonky3/BUILD.md.
+lto = "thin"
+codegen-units = 1

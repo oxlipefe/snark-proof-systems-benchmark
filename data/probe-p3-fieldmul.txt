@@ -1,0 +1,36 @@
+raw PMULL (lower bd)      3220.0 Mops/s
+raw u32 mul (lower bd)    9740.4 Mops/s
+hand-written 6-PMULL      1012.5 Mmul/s   (GHASH basis; binius64's algorithm)
+p3 BinaryField128 mul       57.8 Mmul/s   (Wiedemann tower basis + 4 clmul)
+p3 KoalaBear mul          1761.6 Mmul/s
+
+p3-B128 / hand-6PMULL      0.057   (floor 0.02)
+PMULL per p3-B128 mul       55.7   (the algorithm issues 4 clmul plus three byte-table basis maps; a figure far above that is the bit-serial fallback)
+u32 muls per KB mul          5.5   (ceiling 24; Montgomery costs 2)
+
+OK: the measured build is fit to produce numbers.
+
+raw PMULL (lower bd)      3221.7 Mops/s
+raw u32 mul (lower bd)    9735.8 Mops/s
+hand-written 6-PMULL      1005.6 Mmul/s   (GHASH basis; binius64's algorithm)
+p3 BinaryField128 mul       57.8 Mmul/s   (Wiedemann tower basis + 4 clmul)
+p3 KoalaBear mul          1761.3 Mmul/s
+
+p3-B128 / hand-6PMULL      0.058   (floor 0.02)
+PMULL per p3-B128 mul       55.7   (the algorithm issues 4 clmul plus three byte-table basis maps; a figure far above that is the bit-serial fallback)
+u32 muls per KB mul          5.5   (ceiling 24; Montgomery costs 2)
+
+OK: the measured build is fit to produce numbers.
+
+raw PMULL (lower bd)      3211.4 Mops/s
+raw u32 mul (lower bd)    9720.3 Mops/s
+hand-written 6-PMULL      1008.7 Mmul/s   (GHASH basis; binius64's algorithm)
+p3 BinaryField128 mul       57.9 Mmul/s   (Wiedemann tower basis + 4 clmul)
+p3 KoalaBear mul          1768.1 Mmul/s
+
+p3-B128 / hand-6PMULL      0.057   (floor 0.02)
+PMULL per p3-B128 mul       55.5   (the algorithm issues 4 clmul plus three byte-table basis maps; a figure far above that is the bit-serial fallback)
+u32 muls per KB mul          5.5   (ceiling 24; Montgomery costs 2)
+
+OK: the measured build is fit to produce numbers.
+

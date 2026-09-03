@@ -1,0 +1,7 @@
+label,task,field,route,n_macs,padded_macs,padding_factor,rounds,threads,rep,prove_nanos,verify_nanos,proof_bytes
+t1-a-koala-bear-sumcheck-whir-t1-n6,T1-a,koala-bear,sumcheck-whir,589824,1048576,1.777778,10,1,0,540166042,5595709,228814
+t1-a-koala-bear-sumcheck-whir-t1-n6,T1-a,koala-bear,sumcheck-whir,589824,1048576,1.777778,10,1,1,539164708,5484750,228814
+t1-a-koala-bear-sumcheck-whir-t1-n6,T1-a,koala-bear,sumcheck-whir,589824,1048576,1.777778,10,1,2,539594166,5608333,228814
+t1-a-koala-bear-sumcheck-whir-t1-n6,T1-a,koala-bear,sumcheck-whir,589824,1048576,1.777778,10,1,3,536819042,5581167,228814
+t1-a-koala-bear-sumcheck-whir-t1-n6,T1-a,koala-bear,sumcheck-whir,589824,1048576,1.777778,10,1,4,537878250,5594875,228814
+t1-a-koala-bear-sumcheck-whir-t1-n6,T1-a,koala-bear,sumcheck-whir,589824,1048576,1.777778,10,1,5,538047709,5508625,228814

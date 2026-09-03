@@ -1,0 +1,28 @@
+task=T1-a macs=589824 relus=0 IMUL=589824 AND=589056 ZERO=73728 BMUL=0 private_values=2432256 inout=768 max_abs_acc=421915 build=1.077s
+setup=0.686s
+rep=0 prove=3.307s verify=0.1549s proof=460304B
+rep=1 prove=3.823s verify=0.0887s proof=460304B
+rep=2 prove=2.764s verify=0.0711s proof=460304B
+rep=3 prove=2.670s verify=0.0733s proof=460304B
+rep=4 prove=2.718s verify=0.0719s proof=460304B
+rep=5 prove=2.710s verify=0.0738s proof=460304B
+wrote /Users/erikatorres/Claude/Projects/viaas-zkml/bench/data/cells/t1-a-r1-t1-n6/reps.csv
+wrote /Users/erikatorres/Claude/Projects/viaas-zkml/bench/data/cells/t1-a-r1-t1-n6/cell.json
+       25.02 real        20.34 user         3.33 sys
+          6875217920  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1346351  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   2  voluntary context switches
+               16824  involuntary context switches
+        279106578983  instructions retired
+         73426110285  cycles elapsed
+          7271061384  peak memory footprint

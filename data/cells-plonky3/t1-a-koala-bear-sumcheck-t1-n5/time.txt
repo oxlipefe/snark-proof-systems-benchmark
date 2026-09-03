@@ -1,0 +1,26 @@
+task=T1-a field=koala-bear route=sumcheck macs=589824 padded_macs=1048576 padding=1.7778 log_m=0 log_k=10 log_n=10 rounds=10 reduced_poly_elements=2048 reduction_field_muls=1052673 build=0.0046s
+rep=0 prove=0.0056s verify=0.00011s proof=354B
+rep=1 prove=0.0061s verify=0.00012s proof=354B
+rep=2 prove=0.0051s verify=0.00011s proof=354B
+rep=3 prove=0.0050s verify=0.00011s proof=354B
+rep=4 prove=0.0051s verify=0.00012s proof=354B
+wrote /Users/erikatorres/Claude/Projects/viaas-zkml/bench/data/cells-plonky3/t1-a-koala-bear-sumcheck-t1-n5/reps.csv
+wrote /Users/erikatorres/Claude/Projects/viaas-zkml/bench/data/cells-plonky3/t1-a-koala-bear-sumcheck-t1-n5/cell.json
+        0.04 real         0.03 user         0.00 sys
+            16990208  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1207  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  15  involuntary context switches
+           402855575  instructions retired
+           128342871  cycles elapsed
+            15745360  peak memory footprint
